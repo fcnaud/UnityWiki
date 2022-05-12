@@ -1,0 +1,11 @@
+created: 20220512181355800
+dependents: 
+description: Tiddlywiki Classic highlighting mode for CodeMirror
+list: readme
+modified: 20220512181355800
+name: CodeMirror Mode TiddlyWiki Classic
+parent-plugin: $:/plugins/tiddlywiki/codemirror
+plugin-type: plugin
+title: $:/plugins/tiddlywiki/codemirror-mode-x-tiddlywiki
+type: application/json
+version: 5.2.1

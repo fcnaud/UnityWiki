@@ -1,0 +1,8 @@
+created: 20220129113300970
+modified: 20220129113821418
+tags: $:/tags/RawMarkup
+title: web-font
+tmap.id: 49ed24a2-3d2d-432a-a612-d4bdd35a3212
+type: text/vnd.tiddlywiki
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
