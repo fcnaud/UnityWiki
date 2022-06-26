@@ -1,1 +1,1 @@
-tiddlywiki . --listen 
+tiddlywiki . --listen port=9000
