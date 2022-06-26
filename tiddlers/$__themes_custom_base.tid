@@ -1,0 +1,21 @@
+created: 20220626053016264
+modified: 20220626053050073
+tags: $:/tags/Stylesheet
+title: $:/themes/custom/base
+type: text/vnd.tiddlywiki
+
+/** 标签 */
+button.tc-tag-label, span.tc-tag-label {
+  border-radius: 3px;
+  background-color: <<colour tag-background>>;
+  color: <<colour foreground>>;
+  /** hover动画 */
+  transition: background-color 0.2s;
+  /** 适配长标题作为标签的情况 */
+  white-space: normal;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+button.tc-tag-label, span.tc-tag-label:hover {
+  background-color: <<colour tag-background-hover>>;
+}
