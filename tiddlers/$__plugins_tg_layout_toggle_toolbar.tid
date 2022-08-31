@@ -1,0 +1,17 @@
+created: 20190221194645657
+creator: TonGerner
+list-after: $:/core/ui/EditTemplate/tags
+modified: 20220831114310164
+modifier: TonGerner
+tags: $:/tags/EditTemplate
+title: $:/plugins/tg/layout/toggle_toolbar
+type: text/vnd.tiddlywiki
+
+Toggle editor toolbar <$checkbox tiddler="$:/config/TextEditor/EnableToolbar" field="text" checked="yes" unchecked="no" default="yes"></$checkbox>&nbsp;&nbsp;&nbsp;Toggle preview <$reveal state="$:/state/showeditpreview" type="nomatch" text="no">
+<$button set="$:/state/showeditpreview" setTo="no" tooltip="Hide preview" class="tc-btn-invisible">{{$:/core/images/preview-open}}</$button>
+</$reveal>
+<$reveal state="$:/state/showeditpreview" type="match" text="no">
+<$button set="$:/state/showeditpreview" setTo="yes" tooltip="Show preview" class="tc-btn-invisible">{{$:/core/images/preview-closed}}</$button>
+</$reveal>
+&nbsp;Scrollable preview <$checkbox tiddler="$:/plugins/tg/layout/style_scroll_preview" tag="$:/tags/Stylesheet"></$checkbox>&nbsp;&nbsp;Toggle sidebar {{$:/core/ui/TopBar/menu}}
+

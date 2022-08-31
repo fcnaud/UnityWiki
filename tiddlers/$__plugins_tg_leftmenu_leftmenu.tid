@@ -1,0 +1,29 @@
+created: 20150710121319258
+creator: TonGerner
+modified: 20220831114146377
+modifier: TonGerner
+tags: $:/tags/PageTemplate
+title: $:/plugins/tg/leftmenu/leftmenu
+type: text/vnd.tiddlywiki
+
+<div class="tgc-leftmenu tc-table-of-contents">
+
+@@.tc-site-title
+目录
+@@
+
+<$list filter="[[$:/temp/focussedTiddler]is[tiddler]get[text]]" variable="tiddler">
+
+<!-- TOC of <$text text=<<tiddler>>/>: -->
+<$page-toc tiddler=<<tiddler>> emptyMessage="Empty TOC"/>
+
+</$list>
+
+<$scrollable class='tgc-scrollable-menu'>
+
+{{$:/plugins/tg/leftmenu/leftmenu-entries}}
+
+</$scrollable>
+
+</div>
+

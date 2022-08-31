@@ -1,0 +1,41 @@
+created: 20150710160808999
+creator: TonGerner
+modified: 20220831113203925
+modifier: TonGerner
+tags: 
+title: $:/plugins/tg/leftmenu/leftmenu-entries
+type: text/vnd.tiddlywiki
+
+<!--
+Add your own left menu entries according to the help below.
+For more information see http://tw5topleft.tiddlyspot.com/.
+-->
+
+<!-- LINKS AS MENU ENTRIES
+[[link1]]<br>
+[[link2]]<br>
+...
+-->
+
+<!-- TAGS AS MENU ENTRIES
+{{{ [tag[tag1]] }}}
+{{{ [tag[tag2]] }}}
+...
+-->
+
+<!-- TAGPILLS AS MENU ENTRIES
+{{tagpill1||$:/core/ui/TagTemplate}}
+{{tagpill2||$:/core/ui/TagTemplate}}
+...
+-->
+
+<!-- TOC AS MENU ENTRIES
+<<toc-selective-expandable 'Contents'>>
+-->
+
+<!-- NORMAL & DIRTREE SLIDER ENTRIES
+For more information see http://tw5topleft.tiddlyspot.com/.
+These entries use my slider macro
+(slider available in this plugin - with styling)
+-->
+

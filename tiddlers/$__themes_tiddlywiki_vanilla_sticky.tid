@@ -1,0 +1,37 @@
+created: 20170330150510113
+modified: 20220831114447917
+tags: 
+title: $:/themes/tiddlywiki/vanilla/sticky
+type: text/vnd.tiddlywiki
+
+<$reveal state="$:/themes/tiddlywiki/vanilla/options/stickytitles" type="match" text="yes">
+``
+.tc-tiddler-title {
+     position: -webkit-sticky;
+     position: -moz-sticky;
+     position: -o-sticky;
+     position: -ms-sticky;
+     position: sticky;
+     top: ``{{$:/plugins/tg/layout/styles!!topbar-height}}``;
+     background: ``<<colour tiddler-background>>``;
+     z-index: 500;
+}
+.tc-editor-toolbar {
+     position: -webkit-sticky;
+     position: -moz-sticky;
+     position: -o-sticky;
+     position: -ms-sticky;
+     position: sticky;
+     top: ``calc({{$:/plugins/tg/layout/styles!!topbar-height}} + 40px)``;
+     background: ``<<colour tiddler-background>>``;
+     z-index: 500;
+}
+
+``
+<$list filter="[range[100]]">
+`.tc-story-river .tc-tiddler-frame:nth-child(100n+`<$text text=<<currentTiddler>>/>`) {
+z-index: `<$text text={{{ [[200]subtract<currentTiddler>] }}}/>`;
+}
+`
+</$list>
+</$reveal>

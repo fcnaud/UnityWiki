@@ -1,0 +1,7 @@
+created: 20181228194403881
+modified: 20220831114308444
+tags: 
+title: $:/plugins/tg/layout/search
+type: text/vnd.tiddlywiki
+
+{{$:/AdvancedSearch}}

@@ -1,0 +1,14 @@
+author: TonGerner
+core-version: >=5.1.17
+created: 20200316190020706
+creator: TonGerner
+description: Left menu
+list: readme licence
+modified: 20200316190041782
+modifier: TonGerner
+name: Left menu
+plugin-type: plugin
+source: http://tongerner.tiddlyspot.com/
+title: $:/plugins/tg/leftmenu
+type: application/json
+version: 0.0.4
