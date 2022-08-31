@@ -1,0 +1,10 @@
+author: Mario Pietsch
+core-version: >=5.1.0
+dependents: 
+description: contains flex-box CSS only
+list: readme license history
+name: Multi Column Tag Dropdown
+plugin-type: plugin
+title: $:/plugins/wikilabs/multicol-dropdown
+type: application/json
+version: 1.0.2

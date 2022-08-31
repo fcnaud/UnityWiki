@@ -1,0 +1,10 @@
+author: Mario Pietsch
+core-version: >=5.1.6
+dependents: 
+description: Info button, with session persistent open/closed status
+list: readme license history
+name: Info Session
+plugin-type: plugin
+title: $:/plugins/wikilabs/info-session
+type: application/json
+version: 0.1.5-DEPRECATED

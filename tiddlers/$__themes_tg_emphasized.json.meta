@@ -1,0 +1,15 @@
+author: TonGerner
+core-version: >=5.1.15
+created: 20191228112746191
+creator: TonGerner
+dependents: $:/themes/tiddlywiki/vanilla
+description: Emphasized theme
+list: readme license
+modified: 20191228134139815
+modifier: TonGerner
+name: Emphasized theme
+plugin-type: theme
+source: http://tongerner.tiddlyspot.com/
+title: $:/themes/tg/emphasized
+type: application/json
+version: 0.0.17
