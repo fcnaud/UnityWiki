@@ -1,0 +1,13 @@
+caption: TOC
+created: 20220831105523383
+modified: 20220831105617485
+tags: $:/tags/SideBar
+title: CurrentToc
+type: text/vnd.tiddlywiki
+
+<$list filter="[[$:/temp/focussedTiddler]is[tiddler]get[text]]" variable="tiddler">
+
+TOC of <$text text=<<tiddler>>/>:
+<$page-toc tiddler=<<tiddler>> emptyMessage="Empty TOC"/>
+
+</$list>
