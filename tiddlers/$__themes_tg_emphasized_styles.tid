@@ -1,0 +1,424 @@
+created: 20170501180648530
+creator: TonGerner
+modified: 20220831170901452
+modifier: TonGerner
+tags: $:/tags/Stylesheet
+title: $:/themes/tg/emphasized/styles
+type: text/vnd.tiddlywiki
+
+\define tversion(theme)
+<$list filter="[has[version]]+[prefix[$:/themes/tg/$theme$]]"><$view field="version"/>
+\end
+
+<pre>/* ============ Emphasized theme v<<tversion "emphasized">> ============= */
+
+/* FONTS */
+/*
+body.tc-body {
+    font-family: Verdana, Geneva, "DejaVu Sans", sans-serif;
+}
+
+code, kbd, pre, samp {
+     font-family: Inconsolata, Consolas, monospace, serif;
+     font-size: 1.1em;
+}
+
+textarea, input[type="text"], input[type="search"], input[type=""], input:not([type]) {
+     font-family: Inconsolata, Consolas, monospace, serif;
+     font-size: 1.3em;
+}
+
+textarea.tc-edit-texteditor {
+     font-family: Inconsolata, Consolas, monospace, serif;
+     font-size: 1.3em;
+}
+
+.tc-tiddler-frame input.tc-edit-texteditor,
+.tc-tiddler-frame textarea.tc-edit-texteditor,
+.tc-tiddler-frame iframe.tc-edit-texteditor {
+    font-family_: Inconsolata, Consolas, monospace, serif;
+}
+*/
+
+/* GENERAL STYLES */
+/* body prefix required! */
+body.tc-body {
+     color: <<colour "foreground">>;
+     background-color: <<colour "page-background">>;
+}
+
+/* EDIT MODE STYLES */
+textarea.tc-edit-texteditor, code, kbd, pre, samp {
+     font-size: 1em;
+}
+
+textarea, input [type="text"] {
+     color: <<colour "foreground">>;
+}
+
+input.tc-titlebar.tc-edit-texteditor {
+     color: <<colour "foreground">>;
+}
+
+/* font-size title in edit mode */
+input.tc-edit-texteditor {
+     font-size: 1.5em;
+}
+
+/* font-size 'add tag' */
+.tc-edit-add-tag .tc-add-tag-name input {
+     font-size: 1.0em;
+     width: 50%;
+}
+
+/* font-size 'add field' & 'value' */
+.tc-edit-field-add-name input.tc-edit-texteditor{
+     font-size: 1.0em;
+}
+.tc-edit-field-add-value input.tc-edit-texteditor{
+     font-size: 1.0em;
+}
+
+/* TIDDLER FRAME STYLES */
+
+@media screen {
+     .tc-tiddler-frame {
+          border-radius: 1em;
+          -moz-border-radius: 1em;
+          -webkit-border-radius: 1em;
+          <<box-shadow "1px 1px 5px rgba(0, 0, 0, 0.3)">>
+     }
+}
+
+@media (max-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+     .tc-tiddler-frame {
+          <<box-shadow none>>
+     }
+}
+
+/* TITLE STYLES */
+.tc-site-title, .tc-titlebar {
+     font-size: 2em;
+     font-weight: bold;
+     color: <<colour "foreground">>;
+     text-shadow: 2px 2px 4px <<colour "very-muted-foreground">>;
+     border-bottom: 2px solid <<colour "tiddler-controls-foreground">>;
+     margin-bottom: 0.4em;
+     padding-bottom: 11px;
+}
+
+.tc-titlebar {
+     font-size: 1.9em;
+     padding-top: 2px;
+}
+
+.tc-site-title {
+     padding-bottom: 14px;
+}
+
+/* HEADING STYLES */
+h1, h2, h3, h4, h5, h6 {
+     line-height: 1em;
+}
+
+h1 {
+     font-size: 1.3em;
+     font-weight: 700;
+}
+
+h2 {
+     font-size: 1.2em;
+     font-weight: 700;
+     margin-bottom:-.2em;
+     margin-top:1.2em;
+}
+
+h3 {
+     font-size: 1.1em;
+     font-weight: 700;
+     margin-bottom:-.4em;
+     margin-top:1.4em;
+}
+
+h4 {
+     font-size: 1.0em;
+     font-variant:small-caps;
+     font-weight: 700;
+     margin-bottom:-.6em;
+     margin-top:1.6em;
+}
+
+.tc-sidebar-header {
+     text-shadow: none;
+}
+
+/* LINK STYLES */
+button.tc-tiddlylink, a.tc-tiddlylink {
+     color: <<colour "tiddler-link-foreground">>;
+     font-weight: normal;
+}
+
+a.tc-tiddlylink:hover {
+     color: <<colour foreground>>;
+     background-color: <<colour muted-foreground>>;
+     text-decoration: underline;
+}
+
+/* MISSING TIDDLER LINK */
+a.tc-tiddlylink-missing {
+     color: #FF0000;
+}
+
+/* SHADOW TIDDLER LINK */
+a.tc-tiddlylink-shadow {
+     font-weight: bold;
+}
+
+/* OVERRIDDEN SHADOW TIDDLER LINK */
+a.tc-tiddlylink-shadow.tc-tiddlylink-resolves {
+     font-weight: bold;
+     color: #884411;
+}
+
+/* TABS*/
+
+.tc-tab-buttons {
+     margin-bottom: -1px;
+}
+
+.tc-tab-buttons button {
+     color: <<colour "tab-foreground">>;
+     background-color: <<colour "tab-background">>;
+     border: 1px solid <<colour "tab-background-selected">>;
+     border-radius: 0.3em;
+}
+
+.tc-tab-buttons button.tc-tab-selected {
+     font-weight: bold;
+     color: <<colour "tab-foreground">>;
+     background-color: <<colour "tab-background-selected">>;
+     border: 1px solid <<colour "tab-border-selected">>;
+     border-radius: 0.3em;
+}
+
+/* SIDEBAR TABS */
+.tc-sidebar-lists .tc-tab-buttons button {
+     color: <<colour "tab-foreground">>;
+     background-color: <<colour "tab-background">>;
+     border: 1px solid <<colour "tab-background-selected">>;
+     border-radius: 0.3em;
+}
+
+.tc-sidebar-lists .tc-tab-buttons button.tc-tab-selected {
+     font-weight: bold;
+     color: <<colour "tab-foreground">>;
+     background-color: <<colour "tab-background-selected">>;
+     border: 1px solid <<colour "tab-border-selected">>;
+     border-radius: 0.3em;
+}
+
+/* SIDEBAR 'More' TABS */
+.tc-more-sidebar > .tc-tab-set > .tc-tab-buttons > button {
+     background-image: none;
+     background-color: <<colour "tab-background">>;
+     border: 1px solid <<colour "tab-background-selected">>;
+}
+.tc-more-sidebar > .tc-tab-set > .tc-tab-buttons > button.tc-tab-selected {
+     background-image: none;
+     background-color: <<colour "tab-background-selected">>;
+     border: 1px solid <<colour "tab-border-selected">>;
+}
+
+/* TAB DIVIDER */
+.tc-sidebar-lists .tc-tab-divider {
+     border-top: 1px solid <<colour "tab-background-selected">>;
+}
+
+/* TIDDLER INFO TABS */
+.tc-tiddler-info .tc-tab-buttons button.tc-tab-selected {
+     font-weight: bold;
+     background-color: <<colour "tab-background-selected">>;
+}
+
+/* SIDEBAR STYLES */
+/* subtitle, date recent tiddlers, search heading + count, tag count, TW version */
+.tc-sidebar-header {
+     color: <<colour "sidebar-foreground">>;
+}
+
+/* entries (links) in Sidebar tabs + X to close search */
+.tc-sidebar-lists a.tc-tiddlylink {
+     color: <<colour "sidebar-tiddler-link-foreground">>;
+     fill: <<colour "sidebar-tiddler-link-foreground">>;
+}
+
+.tc-sidebar-lists a.tc-tiddlylink:hover {
+     color: <<colour "sidebar-tiddler-link-foreground-hover">>;
+     fill: <<colour "sidebar-tiddler-link-foreground-hover">>;
+}
+
+/* SIDEBAR: MISSING TIDDLERS */
+.tc-sidebar-header .tc-missing-tiddler-label {
+     color: #FF0000;
+}
+
+/* BROWN OVERWRITTEN SHADOW TIDDLERS */
+.tc-sidebar-lists a.tc-tiddlylink-shadow.tc-tiddlylink-resolves {
+     font-weight: bold;
+     color: #884411;
+}
+
+/* search entries */
+.tc-sidebar-lists input {
+     color: <<colour "foreground">>;
+}
+
+/* ====== GENERAL HTML BUTTON STYLE ====== */
+button, optgroup, select {
+     <<background-linear-gradient "#FFFFFF,#E8EEF9">>
+padding: 2px 4px;
+     border-radius: 0.3em;
+     border: 1px solid <<colour muted-foreground>>
+}
+
+/* ====== SIDEBAR ====== */
+/* PAGE CONTROLS BUTTON STYLES */
+.tc-page-controls svg {
+     fill: <<colour "sidebar-controls-foreground">>;
+}
+
+.tc-page-controls button:hover svg,
+.tc-page-controls a:hover svg {
+     fill: <<colour "sidebar-controls-foreground-hover">>;
+}
+
+/* SIDEBAR OPEN 'x' & 'close all' STYLE */
+.tc-sidebar-lists button.tc-btn-mini {
+     color: <<colour "sidebar-muted-foreground">>;
+     font-weight: bold;
+}
+
+.tc-sidebar-lists button.tc-btn-mini:hover {
+     fill: <<colour "sidebar-muted-foreground-hover">>;
+     font-weight: bold;
+}
+
+/* ====== TIDDLER ====== */
+/* TIDDLER CONTROLS BUTTON STYLE */
+/* html prefix required!! */
+html .tc-tiddler-controls svg {
+     fill: <<colour "tiddler-controls-foreground">>;
+}
+
+.tc-tiddler-controls button.tc-btn-invisible:hover svg {
+     fill: <<colour "tiddler-controls-foreground-hover">>;
+}
+
+/* MORE DROPDOWN STYLE */
+.tc-tiddler-controls .tc-drop-down a,
+.tc-tiddler-controls .tc-drop-down button {
+     font-size: 0.9em;
+     font-weight: normal;
+}
+
+/* ====== MICELLANEOUS ====== */
+/* SIZE OF BUTTON IMAGES IN DOCUMENTATION */
+.tc-image-button {
+     height: 1.1em;
+}
+
+/* DROPDOWN STYLES (from SnowWite) */
+.tc-drop-down {
+	border-radius: 4px;
+	<<box-shadow "2px 2px 10px rgba(0, 0, 0, 0.5)">>
+}
+
+.tc-block-dropdown {
+	border-radius: 4px;
+	<<box-shadow "2px 2px 10px rgba(0, 0, 0, 0.5)">>
+}
+
+/* TAG STYLES */
+/* DEFAULT COLOR TAG PILLS */
+button.tc-tag-label, span.tc-tag-label {
+     background-color: <<colour "tag-background">>;
+}
+
+/* TAGS DROPDOWN LISTS */
+.tc-tag-list-item .tc-drop-down a,
+.tc-drop-down button,
+.tc-sidebar-lists .tc-drop-down a,
+.tc-sidebar-lists .tc-drop-down button {
+     color: <<colour "foreground">>;
+     font-size: 1.0em;
+}
+
+.tc-tag-list-item .tc-drop-down a:hover,
+.tc-sidebar-lists .tc-drop-down a:hover {
+     color: <<colour "background">>;
+}
+
+/* MESSAGE/NOTIFICATION STYLES (from SnowWhite) */
+.tc-message-box img {
+	<<box-shadow "1px 1px 3px rgba(0,0,0,0.5)">>
+}
+
+.tc-notification {
+	border-radius: 6px;
+	<<box-shadow "0 3px 7px rgba(0,0,0,0.3)">>
+	text-shadow: 0 1px 0 rgba(255,255,255, 0.8);
+}
+
+/* MESSAGE SHIFTED 30px TO THE LEFT */
+.tc-notification {
+     right: 72px;
+     background-color: #FFFFFF;
+}
+
+/* MISC STYLES */
+
+/* HORIZONTAL LINE */
+hr {
+     color: #0044BB;
+}
+
+/* BLOCKQUOTE */
+blockquote {
+     border-left: 5px solid <<colour "muted-foreground">>;
+}
+
+/* SLIDER */
+html .tgc-slider {
+     color: <<colour "primary">>;
+     font-weight: bold;
+}
+
+.tgc-slider:hover {
+     color: <<colour "foreground">>;
+     text-decoration: underline;
+}
+
+/* SLIDER TIDDLERS */
+.sliderBG {
+     color: <<colour "darkblue">>;
+     background-color: #E8EEF9;
+}
+
+/* OMIT SOLID BORDER-BOTTOM */
+.tc-keyboard .tc-titlebar {
+     border-bottom-style: none;
+}
+
+/* SAVE NOTIFICATION SHIFTED LEFT */
+.tc-notification {
+     right: 72px;
+     background-color: <<colour "background">>;
+}
+
+/* REMOVE FRAME AROUND CLICKED BUTTON */
+/* only visible with Chrome & Opera */
+.tc-btn-invisible {
+     outline:none;
+}
+
+
