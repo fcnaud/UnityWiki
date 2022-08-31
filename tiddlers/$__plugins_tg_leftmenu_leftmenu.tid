@@ -1,6 +1,6 @@
 created: 20150710121319258
 creator: TonGerner
-modified: 20220831114146377
+modified: 20220831161938593
 modifier: TonGerner
 tags: $:/tags/PageTemplate
 title: $:/plugins/tg/leftmenu/leftmenu
@@ -15,8 +15,7 @@ type: text/vnd.tiddlywiki
 <$list filter="[[$:/temp/focussedTiddler]is[tiddler]get[text]]" variable="tiddler">
 
 <!-- TOC of <$text text=<<tiddler>>/>: -->
-<$page-toc tiddler=<<tiddler>> emptyMessage="Empty TOC"/>
-
+<$page-toc tiddler=<<tiddler>> emptyMessage="Empty TOC" headerClassPrefix="gk0wk-tiddlertoc-viewbuttonpopup-"/>
 </$list>
 
 <$scrollable class='tgc-scrollable-menu'>
