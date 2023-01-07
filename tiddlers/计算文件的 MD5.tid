@@ -1,0 +1,40 @@
+created: 20230107103612915
+modified: 20230107103736434
+tags: snippet
+title: 计算文件的 MD5
+type: text/vnd.tiddlywiki
+
+
+```csharp
+/// <summary>
+/// 获取文件的 md5
+/// </summary>
+/// <param name="path"></param>
+/// <returns></returns>
+public static string FileMD5(string path)
+{
+    byte[] retVal;
+    using (FileStream file = new FileStream(path, FileMode.Open))
+    {
+        MD5 md5 = new MD5CryptoServiceProvider();
+        retVal = md5.ComputeHash(file);
+    }
+    return ToHex(retVal, "x2");
+}
+
+/// <summary>
+/// 转换为小写的 16 进制
+/// </summary>
+/// <param name="bytes"></param>
+/// <param name="format"></param>
+/// <returns></returns>
+public static string ToHex(byte[] bytes, string format)
+{
+    StringBuilder stringBuilder = new StringBuilder();
+    foreach(var b in bytes)
+    {
+        stringBuilder.Append(b.ToString(format));
+    }
+    return stringBuilder.ToString();
+}
+```
