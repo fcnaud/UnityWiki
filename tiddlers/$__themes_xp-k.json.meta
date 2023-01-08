@@ -9,4 +9,4 @@ plugin-priority: 1
 plugin-type: theme
 title: $:/themes/xp-k
 type: application/json
-version: 0.2.1
+version: 0.2.2
