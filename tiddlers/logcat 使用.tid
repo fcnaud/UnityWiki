@@ -1,0 +1,32 @@
+created: 20230918185712984
+modified: 20230918190505164
+tags: Android Debug
+title: logcat 使用
+type: text/vnd.tiddlywiki
+
+
+<<<
+用于查看 android 日志
+<<<
+
+`adb logcat`
+
+* -t 指定最近的n条日志
+* -d 不阻塞
+* -v 设置输出格式，常用 -v time
+* -c 清除
+
+!! 几种常用情况
+
+# 输出全部日志
+## `adb logcat -d -v time > log.txt`
+# 输出问题日志
+## 清空当前日志 `adb logcat -c`
+## 复现问题
+## `adb logcat -d -v time > log.txt`
+# 输出最近日志
+## `adb logcat -t 1000 -v time > log.txt`
+## -t 会自动应用 -d
+
+!! 参考链接
+* [[Logcat 命令行工具|https://developer.android.com/studio/command-line/logcat]]

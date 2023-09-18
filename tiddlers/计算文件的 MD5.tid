@@ -1,5 +1,5 @@
 created: 20230107103612915
-modified: 20230107103736434
+modified: 20230918185311050
 tags: snippet
 title: 计算文件的 MD5
 type: text/vnd.tiddlywiki
@@ -9,8 +9,6 @@ type: text/vnd.tiddlywiki
 /// <summary>
 /// 获取文件的 md5
 /// </summary>
-/// <param name="path"></param>
-/// <returns></returns>
 public static string FileMD5(string path)
 {
     byte[] retVal;
@@ -25,9 +23,6 @@ public static string FileMD5(string path)
 /// <summary>
 /// 转换为小写的 16 进制
 /// </summary>
-/// <param name="bytes"></param>
-/// <param name="format"></param>
-/// <returns></returns>
 public static string ToHex(byte[] bytes, string format)
 {
     StringBuilder stringBuilder = new StringBuilder();
@@ -38,3 +33,6 @@ public static string ToHex(byte[] bytes, string format)
     return stringBuilder.ToString();
 }
 ```
+
+* [[c# - How do you convert a byte array to a hexadecimal string, and vice versa? - Stack Overflow|https://stackoverflow.com/questions/311165/how-do-you-convert-a-byte-array-to-a-hexadecimal-string-and-vice-versa]]
+* [[byte[] Array to Hex String|https://social.msdn.microsoft.com/Forums/en-US/3928b8cb-3703-4672-8ccd-33718148d1e3/byte-array-to-hex-string?forum=csharpgeneral '']]

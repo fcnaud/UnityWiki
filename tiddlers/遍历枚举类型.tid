@@ -1,0 +1,18 @@
+created: 20230918185251848
+modified: 20230918185348443
+tags: snippet
+title: 遍历枚举类型
+type: text/vnd.tiddlywiki
+
+```csharp
+public enum MyEnum
+{
+    A,
+    B,
+    C,
+}
+
+foreach(MyEnum startupType in Enum.GetValues(typeof(MyEnum)))
+{
+}
+```

@@ -1,0 +1,33 @@
+created: 20230918185438155
+modified: 20230918190512747
+tags: snippet
+title: 静态扩展
+type: text/vnd.tiddlywiki
+
+```csharp
+public static class Extension
+{
+    public static int Sum(this List<int> list)
+    {
+        int sum = 0;
+        foreach (var item in list)
+        {
+            sum += item;
+        }
+        return sum;
+    }
+
+    public static void Foreach<T>(this List<T> list, Action<T> action)
+    {
+        foreach (var item in list)
+        {
+            action?.Invoke(item);
+        }
+    }
+}
+```
+
+''注意事项''
+
+* 静态类，静态方法
+* 可能被覆盖
