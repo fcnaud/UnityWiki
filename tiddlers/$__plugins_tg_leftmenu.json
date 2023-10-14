@@ -20,32 +20,32 @@
             "created": "20150710121319258"
         },
         "$:/plugins/tg/leftmenu/leftmenu-entries": {
-            "text": "<!--\nAdd your own left menu entries according to the help below.\nFor more information see http://tw5topleft.tiddlyspot.com/.\n-->\n\n<!-- LINKS AS MENU ENTRIES\n[[link1]]<br>\n[[link2]]<br>\n...\n-->\n\n<!-- TAGS AS MENU ENTRIES\n{{{ [tag[tag1]] }}}\n{{{ [tag[tag2]] }}}\n...\n-->\n\n<!-- TAGPILLS AS MENU ENTRIES\n{{tagpill1||$:/core/ui/TagTemplate}}\n{{tagpill2||$:/core/ui/TagTemplate}}\n...\n-->\n\n<!-- TOC AS MENU ENTRIES\n<<toc-selective-expandable 'Contents'>>\n-->\n\n<!-- NORMAL & DIRTREE SLIDER ENTRIES\nFor more information see http://tw5topleft.tiddlyspot.com/.\nThese entries use my slider macro\n(slider available in this plugin - with styling)\n-->\n\n",
+            "created": "20150710160808999",
+            "creator": "TonGerner",
+            "text": "<!--\nAdd your own left menu entries according to the help below.\nFor more information about left menu entries see 'Left + top menu'  guide at  http://www.tongerner.nl/TW5/TW5_playground.html\n-->\n\n<!-- LINKS AS MENU ENTRIES\n[[link1]]<br>\n[[link2]]<br>\n...\n-->\n\n<!-- TAGS AS MENU ENTRIES\n{{{ [tag[tag1]] }}}\n{{{ [tag[tag2]] }}}\n...\n-->\n\n<!-- TAGPILLS AS MENU ENTRIES\n{{tagpill1||$:/core/ui/TagTemplate}}\n{{tagpill2||$:/core/ui/TagTemplate}}\n...\n-->\n\n<!-- TOC AS MENU ENTRIES\n<<toc-selective-expandable 'Contents'>>\n-->\n\n<!-- NORMAL & DIRTREE SLIDER ENTRIES\nFor more information about left menu entries see 'Left + top menu'  guide at  http://www.tongerner.nl/TW5/TW5_playground.html\nThese entries use my slider macro\n(slider available in this plugin - with styling)\n-->\n\n",
             "title": "$:/plugins/tg/leftmenu/leftmenu-entries",
             "tags": "",
             "modifier": "TonGerner",
-            "modified": "20200428123644526",
-            "creator": "TonGerner",
-            "created": "20150710160808999"
+            "modified": "20210105212254127"
         },
         "$:/plugins/tg/leftmenu/readme": {
             "created": "20161206160515418",
             "creator": "TonGerner",
-            "text": "This plugin creates a fixed left menu with a shifted story-river (which assumes a widescreen monitor - otherwise is is not possible to display the left menu, the story river, and the sidebar together).<br>\nThe tiddler $:/plugins/tg/leftmenu/leftmenu-entries contains the left menu entries (transcluded in $:/plugins/tg/leftmenu/leftmenu).<br>\nFor an alternative left menu (no widescreen needed) see http://tw5topleft.tiddlyspot.com/\n\n<<<\n''Note:''\n\n* This plugin needs my $:/plugins/tg/layout plugin for general layout settings (available at http://tongerner.tiddlyspot.com/)\n* For more information about possible left menu entries see http://tw5topleft.tiddlyspot.com/\n* To create more 'room' you can consider the 'Tight' theme\n<<<\n\nSettings for the layout can be found in ''~ControlPanel > Appearance > [[Plugin tweaks|$:/plugins/tg/layout/tweaks]]''.",
+            "text": "This plugin creates a fixed left menu with a shifted story-river (which assumes a widescreen monitor - otherwise is is not possible to display the left menu, the story river, and the sidebar together).<br>\nThe tiddler $:/plugins/tg/leftmenu/leftmenu-entries contains the left menu entries (transcluded in $:/plugins/tg/leftmenu/leftmenu).<br>\nFor an alternative left menu (no widescreen needed) see 'Left + top menu'  guide & plugin at  http://www.tongerner.nl/TW5/TW5_playground.html\n\n<<<\n''Note:''\n\n* This plugin needs my $:/plugins/tg/layout plugin for general layout settings (available at http://www.tongerner.nl/TW5/TW5_playground.html)\n* For more information about possible ''left'' menu entries see my guide ''Left + top'' menu' at http://www.tongerner.nl/TW5/TW5_playground.html\n* To create more 'room' you can consider the 'Tight' theme\n<<<\n\nSettings for the layout can be found in ''~ControlPanel > Appearance > [[Plugin tweaks|$:/plugins/tg/layout/tweaks]]''.",
             "title": "$:/plugins/tg/leftmenu/readme",
             "tags": "",
             "modifier": "TonGerner",
-            "modified": "20200401095554402"
+            "modified": "20210106103317186"
         },
         "$:/plugins/tg/leftmenu/settings": {
-            "created": "20150710114238972",
-            "creator": "TonGerner",
-            "text": "!!Left menu\n\n<$button>\n<$action-deletetiddler $tiddler=\"$:/themes/tiddlywiki/vanilla/metrics/storyleft\"/>\n<$action-deletetiddler $tiddler=\"$:/themes/tiddlywiki/vanilla/metrics/storyright\"/>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/styles\" $field=\"leftmenu-width\" $value=\"0px\"/>\nReset\n</$button>\n\n<$button>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/storyleft\" title=\"$:/themes/tiddlywiki/vanilla/metrics/storyleft\"/>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/storyright\" title=\"$:/themes/tiddlywiki/vanilla/metrics/storyright\"/>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/styles\" $field=\"leftmenu-width\" $value=\"200px\"/>\nDefault\n</$button>\n\n<table class=\"tablestyle\">\n@@.brown ''Left menu settings''@@\n<<tableRow \"Width 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"leftmenu-width\">>\n<<tableRow \"Top 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"top-leftmenu\">>\n<<tableRow \"Scrolling height 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"scroll-height\">>\n</table>\n\n<$button message=\"tm-open-window\" param=\"$:/plugins/tg/leftmenu/settings-help\" tooltip=\"Help\" aria-label=\"Help\">Help</$button>\n\n> ''Note:'' For ease of adjusting the 'Theme tweaks' tab has been transcluded below:\n\n{{$:/plugins/tg/layout/themetweaks}}",
+            "text": "!!Left menu\n\n<$button>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/storyleft\" title=\"$:/themes/tiddlywiki/vanilla/metrics/storyleft\"/>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/storyright\" title=\"$:/themes/tiddlywiki/vanilla/metrics/storyright\"/>\n<$action-setfield $tiddler=\"$:/plugins/tg/leftmenu/styles\" $field=\"leftmenu-width\" $value=\"200px\"/>\nDefault\n</$button> (W=200px / T=75px)\n\n<table class=\"tablestyle\">\n@@.brown ''Left menu settings''@@\n<<tableRow \"Width 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"leftmenu-width\">>\n<<tableRow \"Top 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"top-leftmenu\">>\n<<tableRow \"Scrolling height 'Left menu'\" \"$:/plugins/tg/leftmenu/styles\" \"scroll-height\">>\n</table>\n\n<$button message=\"tm-open-window\" param=\"$:/plugins/tg/leftmenu/settings-help\" tooltip=\"Help\" aria-label=\"Help\">Help</$button>\n\n> ''Note:'' For ease of adjusting the 'Theme tweaks' tab has been transcluded below:\n\n{{$:/plugins/tg/layout/themetweaks}}",
             "title": "$:/plugins/tg/leftmenu/settings",
             "tags": "$:/tags/plugin-tweaks",
             "order": "4",
             "modifier": "TonGerner",
-            "modified": "20200401150313494",
+            "modified": "20210103183212841",
+            "creator": "TonGerner",
+            "created": "20150710114238972",
             "caption": "Left menu"
         },
         "$:/plugins/tg/leftmenu/settings-help": {
@@ -57,13 +57,13 @@
             "created": "20150710114357700"
         },
         "$:/plugins/tg/leftmenu/slider-macro": {
-            "text": "\\define slider(label,text)\n<$button popup=\"$:/state/$label$\" class=\"tc-btn-invisible tgc-slider\"><$text text=\"$label$ »\"/></$button>\n<$reveal type=\"nomatch\" text=\"\" default=\"\" state=\"$:/state/$label$\" animate=\"yes\">\n\n{{$text$}}\n\n</$reveal>\n\\end\n",
+            "created": "20161206183736562",
+            "creator": "TonGerner",
+            "text": "\\define slidertg(label,text)\n<$button popup=\"$:/state/$label$\" class=\"tc-btn-invisible tgc-slider\"><$text text=\"$label$ »\"/></$button>\n<$reveal type=\"nomatch\" text=\"\" default=\"\" state=\"$:/state/$label$\" animate=\"yes\">\n\n{{$text$}}\n\n</$reveal>\n\\end\n",
             "title": "$:/plugins/tg/leftmenu/slider-macro",
             "tags": "$:/tags/Macro",
             "modifier": "TonGerner",
-            "modified": "20200316145203201",
-            "creator": "TonGerner",
-            "created": "20161206183736562"
+            "modified": "20210106103421010"
         },
         "$:/plugins/tg/leftmenu/storyleft": {
             "created": "20200316150237013",
@@ -84,17 +84,17 @@
             "modified": "20200317085608249"
         },
         "$:/plugins/tg/leftmenu/styles": {
+            "created": "20161212162542828",
+            "creator": "TonGerner",
             "text": "<pre>/* LEFT MENU */\n\n/* LEFT MENU, FIXED IN POSITION */\nhtml .tgc-leftmenu {\n     display: block;\n     padding: 0px 0px 0px 20px;\n     position: fixed;\n     left: 0px;\n     top: {{!!top-leftmenu}};\n     width: {{!!leftmenu-width}};\n     z-index: 99;\n}\n.tgc-scrollable-menu {\n     padding: 1em;\n     height: {{!!scroll-height}};\n     position: relative;\n}\n\n/* SLIDER STYLING */\nhtml .tgc-slider {\n     color: #006DEC;\n     font-weight: bold;\n}\n\n.tgc-slider:hover {\n     color: #006DEC;\n     text-decoration: underline;\n}\n\n/* STYLING FOR DIRTREE MENU */\n\n.dirtree, .dirtree ul {\n     list-style-type: none;\n     background-image: url(data:image/gif;base64,R0lGODlhEAAQAIABAAAAAP///yH5BAEKAAEALAAAAAAQABAAAAIbRI6ppo3sGoxp0mNvpjt290nXMlblc2JpECoFADs=);\n     background-repeat: repeat-y;\n     margin: 0;\n     padding: 0;\n}\n.dirtree ul {\n     margin-left: 16px;\n}\n.dirtree li {\n     margin: 0;\n     padding: 0 16px 0 18px;\n     background-image: url(data:image/gif;base64,R0lGODlhEAAQAIABAAAAAP///yH5BAEKAAEALAAAAAAQABAAAAISjI+py+0Po5wM2IszoLz7DwYFADs=);\n     background-repeat: no-repeat;\n     line-height: 1.5;\n}\n.dirtree li:last-child {\n     background-image: url(data:image/gif;base64,R0lGODlhEAAQAIABAAAAAP///yH5BAEKAAEALAAAAAAQABAAAAIaRI6ppo3sGoxp0mNvpjuCD4Zid5XmiabqWQAAOw==);\n     background-color: #fff;\n}\n</pre>",
             "top-leftmenu": "75px",
             "title": "$:/plugins/tg/leftmenu/styles",
             "tags": "$:/tags/Stylesheet",
             "scroll-height": "600px",
             "modifier": "TonGerner",
-            "modified": "20200428100656622",
+            "modified": "20210105210748914",
             "list-after": "$:/plugins/tg/layout_adjustment",
-            "leftmenu-width": "200px",
-            "creator": "TonGerner",
-            "created": "20161212162542828"
+            "leftmenu-width": "200px"
         },
         "$:/plugins/tg/leftmenu/help": {
             "text": "| Default values (px) |<|<||h\n|| standard TW<br>Vanilla theme | with<br>left menu | Tight<br>theme|h\n|Width left menu | -| 200| 200|\n|Story left position | 0| 200| 160|\n|Story right | 770| 970| 920|\n\nIf you want to change the width of the left menu, you have to change 'Story left position' and 'Story right' accordingly",
@@ -104,6 +104,15 @@
             "modified": "20200428101153589",
             "creator": "TonGerner",
             "created": "20200331194654498"
+        },
+        "$:/plugins/tg/leftmenu/license": {
+            "title": "$:/plugins/tg/leftmenu/license",
+            "text": "[[left menu plugin|http://www.tongerner.nl/TW5/TW5_playground.html]] &copy; Ton Gerner &mdash; 2018-2023\n\nMIT License: https://opensource.org/licenses/MIT",
+            "created": "20210103174759945",
+            "creator": "TonGerner",
+            "modified": "20221228184442062",
+            "modifier": "TonGerner",
+            "tags": ""
         }
     }
 }

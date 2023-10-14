@@ -5,11 +5,11 @@ creator: TonGerner
 dependents: $:/themes/tiddlywiki/vanilla
 description: Emphasized theme
 list: readme license
-modified: 20191228134139815
+modified: 20230820190022795
 modifier: TonGerner
 name: Emphasized theme
 plugin-type: theme
-source: http://tongerner.tiddlyspot.com/
+source: http://www.tongerner.nl/TW5/TW5_index.html
 title: $:/themes/tg/emphasized
 type: application/json
-version: 0.0.17
+version: 0.0.23
