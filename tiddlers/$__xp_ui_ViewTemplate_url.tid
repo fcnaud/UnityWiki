@@ -1,0 +1,50 @@
+list-after: $:/plugins/kookma/utility/viewtemplates/view-fields
+tags: $:/tags/ViewTemplate
+title: $:/xp/ui/ViewTemplate/url
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define embeded-state()
+$:/state/embeded/$(currentTiddler)$
+\end
+
+\define embed-button()
+\whitespace trim
+<$reveal type="nomatch" stateTitle=<<embeded-state>> text="show" default="hide">
+<$button tooltip="Embed link" class="tc-btn-invisible tc-btn-mini">
+<span class="tc-btn-icon">{{$:/core/images/down-arrow}}</span>
+<$action-setfield $tiddler=<<embeded-state>> text="show"/>
+</$button>
+</$reveal>
+<$reveal type="match" stateTitle=<<embeded-state>> text="show" default="hide">
+<$button tooltip="Unembed link" class="tc-btn-invisible tc-btn-mini">
+<span class="tc-btn-icon">{{$:/core/images/up-arrow}}</span>
+<$action-setfield $tiddler=<<embeded-state>> text="hide"/>
+</$button>
+</$reveal>
+\end
+
+<$reveal type="nomatch" stateTitle=<<folded-state>> text="hide" default="show">
+<$list filter="[all[current]has[url]!tag[hide]] -[subfilter{$:/config/TiddlerUrlFilter/exclude}]">
+<div class="xp-showurl">
+<$list filter="[all[current]!has[urltitle]]">
+<b>Sources</b>: &#32; {{!!url}} <i class='tc-small-gap'/><<embed-button>>
+</$list>
+<$list filter="[all[current]has[urltitle]]">
+<b>Sources</b>: &#32; <a href={{!!url}} class="tc-tiddlylink-external" target="_blank" rel="noopener noreferrer"><$text text={{!!urltitle}}/></a><i class='tc-small-gap'/><<embed-button>>
+</$list>
+</div>
+<$reveal type="match" stateTitle=<<embeded-state>> text="show" default="hide">
+<div class="xp-embedded-context">
+<iframe 
+  src={{!!url}}
+  width="100%" height="800"
+  frameborder="0"
+  security="restricted" sandbox=""
+  allowfullscreen>
+</iframe>
+</div>
+</$reveal>
+</$list>
+</$reveal>
