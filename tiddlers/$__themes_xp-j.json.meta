@@ -1,0 +1,12 @@
+author: kl
+created: 20210220185516625
+dependents: $:/themes/tiddlywiki/vanilla
+description: Jeremy - simple and firm style
+list: 
+modified: 20220605135117938
+name: XP-J
+plugin-priority: 1
+plugin-type: theme
+title: $:/themes/xp-j
+type: application/json
+version: 0.2.0
