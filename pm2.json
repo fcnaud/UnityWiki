@@ -1,0 +1,10 @@
+{
+    "apps" : [
+        {
+            "name" : "unitywiki",
+            "script" : "node_modules/tiddlywiki/tiddlywiki.js",
+            "args" : ". --listen port=9001",
+            "watch" : false
+        }
+    ]
+}
