@@ -3,6 +3,6 @@
         "build": "node ./node_modules/tiddlywiki/tiddlywiki.js . --build index"
     },
     "dependencies": {
-        "tiddlywiki": "^5.2.2"
+        "tiddlywiki": "^5.3.1"
     }
 }
