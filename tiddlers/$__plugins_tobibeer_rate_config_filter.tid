@@ -1,0 +1,6 @@
+created: 20231029060815505
+modified: 20231029061048097
+title: $:/plugins/tobibeer/rate/config/filter
+type: text/vnd.tiddlywiki
+
+[all[current]is[tiddler]tag[rateable]!is[system]]
