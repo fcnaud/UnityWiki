@@ -1,13 +1,12 @@
 created: 20231008162848169
-modified: 20231008163411322
+modified: 20231028180212964
 tags: 游戏公司
 title: PlayDead
 type: text/vnd.tiddlywiki
 
 !! 游戏
-* [[Limbo]]
-** 第一次玩到 Limbo 的时候，印象十分深刻。
-* [[Inside]]
+
+<<list-links filter:"[tag[game]tag<currentTiddler>]" >>
 
 !! 相关链接
 * [[官网|https://playdead.com/]]
