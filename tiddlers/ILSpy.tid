@@ -1,0 +1,9 @@
+created: 20231029164613363
+modified: 20231029164731324
+tags: 逆向
+title: ILSpy
+type: text/vnd.tiddlywiki
+
+* https://github.com/icsharpcode/ILSpy
+* 十分好用的 .net 反编译软件
+* 只支持 win，但是有其他人维护的 mac 版本 https://github.com/icsharpcode/AvaloniaILSpy
