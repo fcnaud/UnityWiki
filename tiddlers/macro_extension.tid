@@ -1,7 +1,7 @@
 created: 20231028180414651
-modified: 20231028181411447
+modified: 20231105163153631
 tags: $:/tags/Macro custom
-title: $:/custom/macros/extension
+title: macro/extension
 type: text/vnd.tiddlywiki
 
 \define list-games() <<list-links filter:"[tag[game]tag<currentTiddler>]">>

@@ -1,9 +1,3 @@
-created: 20220626053016264
-modified: 20220626053050073
-tags: $:/tags/Stylesheet
-title: $:/themes/custom/base
-type: text/vnd.tiddlywiki
-
 /** 标签 */
 button.tc-tag-label, span.tc-tag-label {
   border-radius: 3px;
@@ -18,4 +12,9 @@ button.tc-tag-label, span.tc-tag-label {
 }
 button.tc-tag-label, span.tc-tag-label:hover {
   background-color: <<colour tag-background-hover>>;
+}
+
+/* 编辑时，打开预览，工具栏显示会有问题 */
+.tc-tiddler-preview {
+    overflow: unset;
 }

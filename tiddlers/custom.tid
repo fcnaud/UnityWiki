@@ -1,7 +1,25 @@
 created: 20231028181011012
-modified: 20231028181304194
+modified: 20231105164436331
 tags: 
 title: custom
 type: text/vnd.tiddlywiki
 
-<<list-all>>
+<<<
+Macro
+<<<
+
+<$list filter="[tag[custom]tag[$:/tags/Macro]]">
+
+* <$link><<currentTiddler>></$link>
+
+</$list>
+
+<<<
+StyleSheet
+<<<
+
+<$list filter="[tag[custom]tag[$:/tags/Stylesheet]]">
+
+* <$link><<currentTiddler>></$link>
+
+</$list>
