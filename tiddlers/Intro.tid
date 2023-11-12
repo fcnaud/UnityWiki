@@ -1,6 +1,6 @@
 created: 20220116165838625
 creator: fcnaud
-modified: 20230925180636892
+modified: 20231112190719583
 modifier: fcnaud
 tags: toc
 title: Intro
@@ -29,3 +29,13 @@ type: text/vnd.tiddlywiki
 </div>
 
 这个网站会整理一些 Unity 开发中的一些基础的技巧、代码片段，游戏开发知识点等，方便我自己后边查找。
+
+<fieldset>
+	<legend>快速添加</legend>
+
+	<$button>
+		<$action-sendmessage $message="tm-new-tiddler" title="新条目" tags="草稿 APrivateContent"/>
+	草稿
+	</$button>
+
+</fieldset>
