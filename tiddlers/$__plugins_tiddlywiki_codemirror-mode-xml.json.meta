@@ -1,11 +1,10 @@
-created: 20220512181321928
+author: tiddlywiki
 dependents: 
 description: XML highlighting mode for CodeMirror
 list: readme
-modified: 20220512181321928
 name: CodeMirror Mode XML
 parent-plugin: $:/plugins/tiddlywiki/codemirror
 plugin-type: plugin
 title: $:/plugins/tiddlywiki/codemirror-mode-xml
 type: application/json
-version: 5.2.1
+version: 5.3.1
