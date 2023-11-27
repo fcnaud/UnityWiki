@@ -18,3 +18,9 @@ button.tc-tag-label, span.tc-tag-label:hover {
 .tc-tiddler-preview {
     overflow: unset;
 }
+
+/* 修复 katex 向量不显示符号的问题 */
+.tc-tiddler-frame svg {
+	width: initial;
+	max-width: 100px;
+}
