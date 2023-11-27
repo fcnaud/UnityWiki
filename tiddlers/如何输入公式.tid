@@ -1,0 +1,24 @@
+created: 20231127180526337
+modified: 20231127182256067
+tags: How
+title: 如何输入公式
+type: text/vnd.tiddlywiki
+
+本站使用 Katex 作为公式输入，这一功能由 TiddlyWiki 的 katex 插件提供。
+
+* [[KaTeX – The fastest math typesetting library for the web|https://katex.org/]]
+* [[KaTeX for TW — documentation, tips and tricks KaTeX for TiddlyWiki|https://kookma-katex.tiddlyhost.com/]]
+
+
+eg.
+
+向量，不清楚为什么，向量显示有问题
+
+```
+$$
+\vec{F}
+$$
+```
+$$
+\vec{F}
+$$
