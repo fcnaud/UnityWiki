@@ -1,9 +1,9 @@
 created: 20231127175837066
-modified: 20231127175856877
+modified: 20231228184347728
 tags: 牛顿第二定律 公式
 title: 牛顿第二定律公式
 type: text/vnd.tiddlywiki
 
 $$
-F=ma
+\vec{F}=ma
 $$

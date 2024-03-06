@@ -1,0 +1,18 @@
+created: 20231231112602094
+modified: 20231231113039716
+tags: snippet
+title: 获得代码运行时间
+type: text/vnd.tiddlywiki
+
+
+```csharp
+var sw = new Stopwatch();
+sw.Start();
+// code
+sw.Stop();
+TimeSpan ts = sw.Elapsed;
+
+var sw1 = Stopwatch.StartNew();
+// code
+sw1.Stop();
+```

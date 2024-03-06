@@ -1,0 +1,12 @@
+created: 20240306164047850
+modified: 20240306165358877
+tags: 
+title: 随机数
+type: text/vnd.tiddlywiki
+
+在 Unity 开发中，一般使用 Unity 提供的 UnityEngine.Random 或者 .net 提供的 System.Random 来获取随机数。
+
+* Unity的类使用Mersenne Twister。这种算法是一种广泛使用的生成高质量随机数的算法，它的周期非常长（2^19937-1），并且在生成的随机数序列中具有高度的均匀分布性。
+* C#的 System.Ranom 使用线性同余生成器（LCG）。它使用一个线性方程来生成随机数序列。
+* 无论是使用LCG还是Mersenne Twister，只要种子值相同，它们在任何设备和平台上都应该生成相同的随机数序列。
+* LCG或Mersenne Twister 都不适用于密码学和复杂的模拟计算。
