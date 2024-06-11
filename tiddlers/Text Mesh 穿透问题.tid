@@ -1,0 +1,9 @@
+created: 20240611161945290
+modified: 20240611162259183
+tags: 
+title: Text Mesh 穿透问题
+type: text/vnd.tiddlywiki
+
+https://www.cnblogs.com/fcnaud/p/18241815
+
+Text Mesh 默认材质球使用的 Shader，他的深度检测永远是通过的，解决方法就是做一个替换。
