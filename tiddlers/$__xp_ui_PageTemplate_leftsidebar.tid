@@ -1,0 +1,30 @@
+created: 20240704162312607
+modified: 20240704163726946
+tags: $:/tags/PageTemplate
+title: $:/xp/ui/PageTemplate/leftsidebar
+type: text/vnd.tiddlywiki
+
+\import $:/xp/leftopentab/macros
+
+<$reveal state="$:/config/LeftOpenTab/Status" type="match" text="show" animate="yes">
+
+<$scrollable fallthrough="no" class="leftopentab-scrollable">
+
+<div class="leftopentab-content">
+
+<$transclude tiddler="$:/xp/leftopentab/content" mode="block"/>
+
+</div>
+
+
+<div class={{$:/config/LeftOpenTab/Titlebar}}>
+目录
+</div>
+
+<$list filter="[[$:/temp/focussedTiddler]is[tiddler]get[text]]" variable="tiddler">
+<!-- TOC of <$text text=<<tiddler>>/>: -->
+<$page-toc tiddler=<<tiddler>> emptyMessage="Empty TOC" headerClassPrefix="gk0wk-tiddlertoc-viewbuttonpopup-"/>
+</$list>
+</$scrollable>
+
+</$reveal>

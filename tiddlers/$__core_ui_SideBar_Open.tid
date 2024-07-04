@@ -1,0 +1,85 @@
+caption: {{$:/language/SideBar/Open/Caption}}
+created: 20240704163100065
+modified: 20240704163100065
+tags: 
+title: $:/core/ui/SideBar/Open
+type: text/vnd.tiddlywiki
+
+\import $:/xp/leftopentab/macros
+\whitespace trim
+\define lingo-base() $:/language/CloseAll/
+
+\define drop-actions()
+<$action-listops $tiddler=<<tv-story-list>> $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
+<$action-listops $tiddler=<<_otherStory>> $subfilter="-[<actionTiddler>]"/>
+\end
+
+\define placeholder()
+<div class="tc-droppable-placeholder"/>
+\end
+
+\define droppable-item(button)
+\whitespace trim
+<$droppable actions=<<drop-actions>>>
+<<placeholder>>
+<div>
+$button$
+</div>
+</$droppable>
+\end
+
+\define open-tiddler-list()
+<div class="tc-sidebar-tab-open sq-sidebar-open">
+<$list filter="[list<tv-story-list>]" history=<<tv-history-list>> storyview="pop">
+<div class="tc-sidebar-tab-open-item">
+<$macrocall $name="droppable-item" button=<<open-tiddler-list-button>>/>
+</div>
+</$list>
+<$tiddler tiddler="">
+<div>
+<$macrocall $name="droppable-item" button="<$button message='tm-close-all-tiddlers' class='tc-btn-invisible tc-btn-mini'><<lingo Button>></$button>"/>
+</div>
+</$tiddler>
+</div>
+\end
+
+<style>
+hrheading {
+	display: flex;
+	flex-direction: row;
+}
+
+hrheading:before,
+hrheading:after {
+	content: "";
+	flex: 1 1;
+	border-bottom: 1px solid;
+	margin: auto;
+}
+</style>
+
+<$set name="_otherStory" filter="[enlist{$:/_sq/Stories/StoriesList!!list}] -[<tv-story-list>]" select="0">
+<<open-tiddler-list>>
+</$set>
+
+<$list filter="[[$:/plugins/xp/rivers]plugin-type[plugin]] :filter[{$:/config/Plugins/Disabled/$:/plugins/xp/rivers}!match[yes]]" variable="ignore">
+<div class="sq-twostoriesonly">
+
+<hrheading class="tc-muted tc-small-gap"><span class='tc-tiny-gap'>Right Column</span></hrheading>
+
+<$set name="_otherStory" value=<<tv-story-list>> >
+<$set name="tv-story-list" filter="[enlist{$:/_sq/Stories/StoriesList!!list}] -[<tv-story-list>]" select="0">
+<$set name="tv-history-list" filter="[enlist{$:/_sq/Stories/HistoriesList!!list}] -[<tv-history-list>]" select="0">
+<$navigator story=<<tv-story-list>> history=<<tv-history-list>> >
+<<open-tiddler-list>>
+</$navigator>
+</$set>
+</$set>
+</$set>
+<div style="margin-left:0.2em;">{{$:/xp/ui/Buttons/fold-all_River2}}</div>
+</div>
+
+<div class="tc-sidebar-lists" style="margin-left:0.2em;">
+{{$:/xp/ui/Buttons/rivers_Text}}
+</div>
+</$list>

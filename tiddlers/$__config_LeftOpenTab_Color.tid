@@ -1,6 +1,6 @@
 created: 20240704092410600
-modified: 20240704092412683
+modified: 20240704162025365
 title: $:/config/LeftOpenTab/Color
 type: text/vnd.tiddlywiki
 
-<<color tiddler-title-foreground>>
+<<color tiddler-link-foreground>>

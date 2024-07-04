@@ -1,9 +1,9 @@
 created: 20200316150237013
 creator: TonGerner
-modified: 20240704092328088
+modified: 20240704163100065
 modifier: TonGerner
 tags: 
 title: $:/themes/tiddlywiki/vanilla/metrics/storyleft
 type: text/vnd.tiddlywiki
 
-00px
+calc({{$:/xp/leftopentab/metrics/width}} + {{$:/xp/leftopentab/metrics/storyleft}} - {{$:/xp/leftopentab/metrics/storyriverpaddingleft}})
