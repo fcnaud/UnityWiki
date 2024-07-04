@@ -1,16 +1,21 @@
-created: 20161212162542828
+created: 20150710114949541
 creator: TonGerner
-leftmenu-width: 200px
-list-after: $:/plugins/tg/layout_adjustment
-modified: 20240704090040775
+leftmenu-width: 270px
+modified: 20240704091453569
 modifier: TonGerner
-scroll-height: 600px
-tags: $:/tags/Stylesheet
-title: $:/plugins/tg/leftmenu/styles
-top-leftmenu: 75px
+scroll-height: 700px
+story-left: 230px
+story-width: 770px
+title: $:/plugins/tg/topleftmenu/left-menu-show-styles
+top-leftmenu: 81px
 type: text/vnd.tiddlywiki
 
 <pre>/* LEFT MENU */
+/* STORY-RIVER */
+html .tc-story-river {
+     left: {{!!story-left}};
+     width: {{!!story-width}};
+}
 
 /* LEFT MENU, FIXED IN POSITION */
 html .tgc-leftmenu {
@@ -20,12 +25,12 @@ html .tgc-leftmenu {
      left: 0px;
      top: {{!!top-leftmenu}};
      width: {{!!leftmenu-width}};
-     z-index: 99;
+     z-index: 1500;
 }
 .tgc-scrollable-menu {
-     padding: 1em;
-     height: {{!!scroll-height}};
-     position: relative;
+	padding: 1em;
+	height: {{!!scroll-height}};
+	position: relative;
 }
 
 /* SLIDER STYLING */

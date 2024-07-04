@@ -1,6 +1,6 @@
 created: 20150710160808999
 creator: TonGerner
-modified: 20220831113203925
+modified: 20240704090643480
 modifier: TonGerner
 tags: 
 title: $:/plugins/tg/leftmenu/leftmenu-entries
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 <!--
 Add your own left menu entries according to the help below.
-For more information see http://tw5topleft.tiddlyspot.com/.
+For more information about left menu entries see 'Left + top menu'  guide at  http://www.tongerner.nl/TW5/TW5_playground.html
 -->
 
 <!-- LINKS AS MENU ENTRIES
@@ -34,7 +34,7 @@ For more information see http://tw5topleft.tiddlyspot.com/.
 -->
 
 <!-- NORMAL & DIRTREE SLIDER ENTRIES
-For more information see http://tw5topleft.tiddlyspot.com/.
+For more information about left menu entries see 'Left + top menu'  guide at  http://www.tongerner.nl/TW5/TW5_playground.html
 These entries use my slider macro
 (slider available in this plugin - with styling)
 -->

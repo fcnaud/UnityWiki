@@ -1,0 +1,13 @@
+created: 20240704070739972
+modified: 20240704075002540
+tags: Animation trick
+title: 判断动画是否在执行
+type: text/vnd.tiddlywiki
+
+```csharp
+// Animator animator;
+if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.99f)
+{
+    // Animation is playing
+}
+```

@@ -1,0 +1,14 @@
+author: TonGerner
+core-version: >=5.1.15
+created: 20191229213240045
+creator: TonGerner
+description: Top + left menu
+list: readme help license
+modified: 20210104152604236
+modifier: TonGerner
+name: Top + left menu
+plugin-type: plugin
+source: http://www.tongerner.nl/TW5/TW5_index.html
+title: $:/plugins/tg/topleftmenu
+type: application/json
+version: 0.1.25
