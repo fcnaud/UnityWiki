@@ -637,105 +637,28 @@
         "title": "$:/plugins/sq/Stories/changelog"
     },
     {
-        "title": "macro/extension",
+        "title": "Awsome List"
+    },
+    {
+        "title": "游戏开发博主",
         "fromPageRect": {
-            "top": 317.33038330078125,
-            "left": 1131.857177734375,
-            "width": 138.46429443359375,
-            "right": 1270.3214721679688,
-            "bottom": 335.61609840393066,
-            "height": 18.285715103149414
+            "top": 229.203125,
+            "left": 869.40625,
+            "width": 26.59375,
+            "right": 896,
+            "bottom": 261.125,
+            "height": 31.921875
         }
     },
     {
-        "title": "$:/xp/leftopentab/macros"
-    },
-    {
-        "title": "$:/plugins/xp/leftopentab"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar",
+        "title": "独立游戏开发者",
         "fromPageRect": {
-            "top": 960.8303833007812,
-            "left": 1147.4285888671875,
-            "width": 304.6160888671875,
-            "right": 1452.044677734375,
-            "bottom": 979.1160984039307,
-            "height": 18.285715103149414
+            "top": 74.671875,
+            "left": 541.40625,
+            "width": 26.59375,
+            "right": 568,
+            "bottom": 106.59375,
+            "height": 31.921875
         }
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "Draft of '$:/xp/ui/PageTemplate/leftsidebar'"
-    },
-    {
-        "title": "$:/xp/ui/PageTemplate/leftsidebar"
-    },
-    {
-        "title": "$:/temp/advancedsearch"
-    },
-    {
-        "title": "Islets"
-    },
-    {
-        "title": "Text Mesh 穿透问题"
-    },
-    {
-        "title": "判断动画是否在执行"
-    },
-    {
-        "title": "Text Mesh 穿透问题"
-    },
-    {
-        "title": "一些可以考虑的分类准则",
-        "fromPageRect": {
-            "top": 88.85714721679688,
-            "left": 979.3214721679688,
-            "width": 30.392858505249023,
-            "right": 1009.7143306732178,
-            "bottom": 125.33929061889648,
-            "height": 36.48214340209961
-        }
-    },
-    {
-        "title": "$:/xp/leftopentab/content"
-    },
-    {
-        "title": "Draft of '$:/xp/leftopentab/content'"
     }
 ]
