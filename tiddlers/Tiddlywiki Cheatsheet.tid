@@ -1,0 +1,13 @@
+created: 20240708035429732
+modified: 20240708035520539
+tags: 
+title: Tiddlywiki Cheatsheet
+type: text/vnd.tiddlywiki
+
+更新 tiddlywiki 版本
+
+```bash
+npm update tiddlywiki
+// or
+npm update -g tiddlywiki
+```

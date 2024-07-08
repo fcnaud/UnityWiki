@@ -1,0 +1,21 @@
+created: 20240708041913571
+modified: 20240708090508230
+tags: 
+title: todo
+type: text/vnd.tiddlywiki
+
+!! 未完成
+<$list filter="[tag[todo]field:done[no]]">
+  <$checkbox tiddler=<<currentTiddler>> field="done" checked="yes" unchecked="no"/>
+  <$link to=<<currentTiddler>>><$view field="title"/></$link>
+  <br>
+</$list>
+
+!! 已完成
+<$list filter="[tag[todo]field:done[yes]]">
+  <$checkbox tiddler=<<currentTiddler>> field="done" checked="yes" unchecked="no"/>
+  <del>
+    <$link to=<<currentTiddler>>><$view field="title"/></$link>
+  </del>
+  <br>
+</$list>
