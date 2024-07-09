@@ -1,0 +1,12 @@
+created: 20240709031430442
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20240709062501029
+page-cover: 
+tags: custom tw inbox todo
+title: 给标题加上标号
+type: text/vnd.tiddlywiki
+
+[[Autonumbering Headings]]
+
+在需要自动显示标号的tiddler中，加上字段`class: autonumhead`。
+后边考虑加一个切换的按钮，在下拉菜单里 [[自定义Field显示]]

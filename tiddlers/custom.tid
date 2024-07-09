@@ -1,33 +1,38 @@
 created: 20231028181011012
-modified: 20240708035646600
+modified: 20240709024904974
 tags: 
 title: custom
 type: text/vnd.tiddlywiki
 
-
+\define list-custom(filter)
+<ul>
+<$list filter="$filter$" >
+<li>
+<$link><<currentTiddler>></$link>
+</li>
+</$list>
+</ul>
+\end
 
 <<<
 一些自定义的内容
 <<<
 
 
-
 <<<
 Macro
 <<<
 
-<$list filter="[tag[custom]tag[$:/tags/Macro]]">
-
-* <$link><<currentTiddler>></$link>
-
-</$list>
+<<list-custom "[tag[custom]tag[$:/tags/Macro]]">>
 
 <<<
 StyleSheet
 <<<
 
-<$list filter="[tag[custom]tag[$:/tags/Stylesheet]]">
+<<list-custom "[tag[custom]tag[$:/tags/Stylesheet]]">>
 
-* <$link><<currentTiddler>></$link>
+<<<
+inbox
+<<<
 
-</$list>
+<<list-custom "[tag[custom]tag[inbox]]">>
