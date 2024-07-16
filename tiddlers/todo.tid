@@ -1,5 +1,5 @@
 created: 20240708041913571
-modified: 20240709032703170
+modified: 20240716092941413
 tags: 
 title: todo
 type: text/vnd.tiddlywiki
@@ -12,7 +12,10 @@ type: text/vnd.tiddlywiki
   <br>
 </$list>
 
+---
+
 <h2>已完成</h2>
+
 <$list filter="[tag[todo]field:done[yes]]">
   <$checkbox tiddler=<<currentTiddler>> field="done" checked="yes" unchecked="no"/>
   <del>

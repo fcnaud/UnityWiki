@@ -1,6 +1,10 @@
 created: 20240709023843771
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20240709023910683
+modified: 20240716021822070
 tags: 
 title: inbox
 type: text/vnd.tiddlywiki
+
+* https://simonschreibt.de/
+* https://learn.microsoft.com/zh-cn/dotnet/communitytoolkit/mvvm/
+** https://github.com/vovgou/loxodon-framework/issues/45

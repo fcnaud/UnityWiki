@@ -1,0 +1,11 @@
+created: 20240712025837489
+list: 
+modified: 20240715064108976
+tags: packages
+title: UGUI Super ScrollView
+type: text/vnd.tiddlywiki
+
+* [[ugui-super-scrollview-example.git|https://github.com/baba-s/ugui-super-scrollview-example.git]]
+* [[Unity Store|https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572]]
+
+一个功能强大的滚动列表插件，基本你想实现的效果，这个 example 项目里都有实现，可以参考。
