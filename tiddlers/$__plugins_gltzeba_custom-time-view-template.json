@@ -1,0 +1,15 @@
+[
+    {
+        "text": "{\"tiddlers\":{\"$:/core/ui/ViewTemplate/subtitle/modified\":{\"title\":\"$:/core/ui/ViewTemplate/subtitle/modified\",\"created\":\"20240723092703962\",\"modified\":\"20240723093056074\",\"tags\":\"$:/tags/ViewTemplate/Subtitle\",\"type\":\"text/vnd.tiddlywiki\",\"text\":\"最后修改于<$TimeSince DateTime={{!!modified}} />\"},\"$:/plugins/gltzeba/custom-time-view-template/readme\":{\"title\":\"$:/plugins/gltzeba/custom-time-view-template/readme\",\"type\":\"text/vnd.tiddlywiki\",\"text\":\"! custom-time-view-template\\n\\n日期显示模板\"},\"$:/plugins/gltzeba/custom-time-view-template/viewTemplate/subtitle/created\":{\"title\":\"$:/plugins/gltzeba/custom-time-view-template/viewTemplate/subtitle/created\",\"created\":\"20240718073116305\",\"modified\":\"20240718073311522\",\"tags\":\"$:/tags/ViewTemplate/Subtitle\",\"type\":\"text/vnd.tiddlywiki\",\"text\":\"创建于 <$view field=\\\"created\\\" format=\\\"date\\\" template={{$:/language/Tiddler/DateFormat}}/>\"},\"$:/plugins/gltzeba/custom-time-view-template/index.js\":{\"title\":\"$:/plugins/gltzeba/custom-time-view-template/index.js\",\"type\":\"application/javascript\",\"module-type\":\"widget\",\"Modern.TiddlyDev#Origin\":\"index.ts\",\"text\":\"\\\"use strict\\\";var import_widget=require(\\\"$:/core/modules/widgets/widget.js\\\"),TimeSinceWidget=class extends import_widget.widget{refresh(e){return!1}render(e,t){var r;this.parentDomNode=e,this.computeAttributes(),this.execute(),this.hasAttribute(\\\"DateTime\\\")&&(console.log(this.getAttribute(\\\"DateTime\\\")),r=this.getAttribute(\\\"DateTime\\\"),r=this.parseTiddlerDateTime(r),r=this.formatTimeSince(r),r=$tw.utils.domMaker(\\\"span\\\",{text:r}),e.insertBefore(r,t),this.domNodes.push(r))}formatTimeSince(e){var t=(new Date).getTime()-e.getTime(),r=Math.floor(t/31536e6),i=Math.floor(t/2592e6),s=Math.floor(t/864e5),t=Math.floor(t/36e5);return 0<r?r+\\\"年前\\\":0<i?i+\\\"个月前\\\":0<s?s+\\\"天前\\\":0<t?t+\\\"小时前\\\":\\\"刚刚\\\"}parseTiddlerDateTime(e){var t=parseInt(e.substring(0,4),10),r=parseInt(e.substring(4,6),10)-1,i=parseInt(e.substring(6,8),10),s=parseInt(e.substring(8,10),10),a=parseInt(e.substring(10,12),10),n=parseInt(e.substring(12,14),10),o=14<e.length?parseInt(e.substring(14),10):0;return new Date(t,r,i,s,a,n,o)}};exports.TimeSince=TimeSinceWidget;\"}}}",
+        "title": "$:/plugins/gltzeba/custom-time-view-template",
+        "type": "application/json",
+        "author": "gltzeba",
+        "dependents": "",
+        "description": "日期显示模板",
+        "list": "readme",
+        "name": "custom-time-view-template",
+        "plugin-type": "plugin",
+        "version": "0.0.2",
+        "Modern.TiddlyDev#SHA256-Hashed": "39d0e665b329b21a6bb5a6a1f197ace173f183a90553628e8ff91970497e1241"
+    }
+]
