@@ -1,0 +1,23 @@
+created: 20240801110757584
+modified: 20240801110907707
+tags: Coroutine snippet
+title: 自定义YieldInstruction`
+type: text/vnd.tiddlywiki
+
+
+```csharp
+public class WaitForCondition : CustomYieldInstruction
+{
+    private Func<bool> _condition;
+
+    public override bool keepWaiting
+    {
+        get { return !_condition(); }
+    }
+
+    public WaitForCondition(Func<bool> condition)
+    {
+        _condition = condition;
+    }
+}
+```

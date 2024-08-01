@@ -1,0 +1,6 @@
+created: 20240725023240306
+modified: 20240725023240306
+title: $:/config/xp/aggregation/MainFilter
+type: text/vnd.tiddlywiki
+
+[all[shadows+tiddlers]tag[inbox]]

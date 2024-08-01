@@ -1,0 +1,7 @@
+created: 20240723091420082
+modified: 20240723091839176
+tags: Animation 坑
+title: Animator会锁定Property
+type: text/vnd.tiddlywiki
+
+如果某个动画片段，对某个property进行了控制，那么unity就会锁定它，无法通过代码或者在编辑器中手动修改。

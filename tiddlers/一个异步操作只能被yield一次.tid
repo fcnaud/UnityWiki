@@ -1,0 +1,30 @@
+created: 20240801084958107
+modified: 20240801090742873
+tags: Coroutine
+title: 一个异步操作只能被yield一次
+type: text/vnd.tiddlywiki
+
+使用协程异步加载bundle的时候，碰到了这个问题。
+
+```
+private Dictionary<string, AssetBundleCreateRequest> abRequests = new Dictionary<string, AssetBundleCreateRequest>();
+private IEnumerator GetAssetBundle(string bundlePath)
+{
+    if (abRequests.ContainsKey(bundlePath))
+    {
+        yield return abRequests[bundlePath];
+    }
+    else
+    {
+        var request = AssetBundle.LoadFromFileAsync(bundlePath);
+        abRequests[bundlePath] = request;
+        yield return request;
+    }
+}
+```
+
+```
+This asynchronous operation is already being yielded from another coroutine. An asynchronous operation can only be yielded once.
+```
+
+也就是一个异步操作只能被yield一次，不能对一个 Request 多次使用 yield。

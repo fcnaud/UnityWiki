@@ -1,0 +1,29 @@
+created: 20240801090858290
+modified: 20240801090905342
+tags: 异步编程
+title: Thread
+type: text/vnd.tiddlywiki
+
+## Thread
+
+* 线程的创建和调用
+
+```csharp
+Thread thread = new Thread(() => {});
+thread.Start()
+```
+
+* 阻塞
+```csharp
+thread.Join();
+```
+
+* 中止
+```csharp
+try {
+	thread.Abort();
+}
+catch (Exception e) {}
+```
+
+* 暂停/继续

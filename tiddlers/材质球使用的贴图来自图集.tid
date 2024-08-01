@@ -1,0 +1,7 @@
+created: 20240724113119488
+modified: 20240724113342468
+tags: Shader 坑
+title: 材质球使用的贴图来自图集
+type: text/vnd.tiddlywiki
+
+在给 UI 写 Shader 的时候，如果使用的贴图存在于图集当中，那么它传递的 uv 就是处于图集中实际的 uv，而不是 0-1 这个范围内的，可能需要处理一下。
