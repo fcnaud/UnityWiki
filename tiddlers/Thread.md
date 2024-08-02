@@ -1,9 +1,3 @@
-created: 20240801090858290
-modified: 20240801090905342
-tags: 异步编程
-title: Thread
-type: text/vnd.tiddlywiki
-
 ## Thread
 
 * 线程的创建和调用

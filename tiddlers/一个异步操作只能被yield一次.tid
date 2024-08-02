@@ -1,12 +1,12 @@
 created: 20240801084958107
-modified: 20240801090742873
+modified: 20240802021001061
 tags: Coroutine
 title: 一个异步操作只能被yield一次
 type: text/vnd.tiddlywiki
 
 使用协程异步加载bundle的时候，碰到了这个问题。
 
-```
+```csharp
 private Dictionary<string, AssetBundleCreateRequest> abRequests = new Dictionary<string, AssetBundleCreateRequest>();
 private IEnumerator GetAssetBundle(string bundlePath)
 {

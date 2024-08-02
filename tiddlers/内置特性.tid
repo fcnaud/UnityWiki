@@ -1,0 +1,15 @@
+created: 20240802093314638
+done: no
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20240802114853522
+tags: Attribute todo
+title: 内置特性
+type: text/vnd.tiddlywiki
+
+c# 提供的预定义特性
+
+* AttributeUsage
+* Conditional
+* Obstacle
+
+Unity 提供的一些预定义特性

@@ -1,5 +1,6 @@
 created: 20240708041913571
-modified: 20240716092941413
+list: test
+modified: 20240802114924856
 tags: 
 title: todo
 type: text/vnd.tiddlywiki
@@ -24,3 +25,13 @@ type: text/vnd.tiddlywiki
   <br>
 </$list>
 
+<$button>
+<$wikify name="timestampState" text="{{$:/config/TimestampDisable}}">
+<$action-setfield $tiddler="$:/config/TimestampDisable" $value="yes"/>
+<$list filter="[tag[todo]field:done[yes]]">
+<$action-listops $tags="-todo" />
+</$list>
+清空已完成
+<$action-setfield $tiddler="$:/config/TimestampDisable" $value=<<timestampState>>/>
+</$wikify>
+</$button>

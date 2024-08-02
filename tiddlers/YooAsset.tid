@@ -1,0 +1,15 @@
+created: 20240802025207282
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20240802085755511
+tags: Packages 资源管理
+title: YooAsset
+type: text/vnd.tiddlywiki
+
+* 一套用于Unity3D的资源管理系统
+* [[tuyoogame/YooAsset: unity3d resources management system|https://github.com/tuyoogame/YooAsset]]
+
+!! 代码结构分析
+
+YooAssets 类可以认为是入口，会创建一个 YooAssetsDriver 继承自 MonoBehavior，用来驱动 YooAssets 的 Update。
+
+OperationSystem 用于管理和调度异步操作

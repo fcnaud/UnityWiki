@@ -1,0 +1,14 @@
+created: 20240802084224980
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20240802085706788
+tags: basic
+title: 在 Unity 中如何查找一个对象
+type: text/vnd.tiddlywiki
+
+[img[https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/08/02/16-38-25-202408021638457.png]]
+
+`transform.Find("Path")`
+
+* 效率不高，只用来初始化
+* 需要传递路径
+* 对象需要是激活状态

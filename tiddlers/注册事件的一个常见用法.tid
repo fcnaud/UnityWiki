@@ -1,0 +1,29 @@
+created: 20240802065724854
+modified: 20240802071649017
+page-cover: 
+tags: trick
+title: 注册事件的一个常见用法
+type: text/vnd.tiddlywiki
+
+```csharp
+        public bool IsDone { get; private set; }
+        public event Action Callback
+        {
+            add
+            {
+                if (IsDone)
+                {
+                    value?.Invoke();
+                }
+                else
+                {
+                    callback += value;
+                }
+            }
+            
+            remove
+            {
+                callback -= value;
+            }
+        }
+```
