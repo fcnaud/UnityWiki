@@ -1,0 +1,26 @@
+caption: autonumhead
+created: 20240805022841220
+description: 自动添加标号
+modified: 20240805024917718
+tags: $:/tags/ViewToolbar custom
+title: ui/button/autonumhead
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+<$button tooltip="auto number header" aria-label="autonumhead" class=<<tv-config-toolbar-class>>>
+<$list filter="[<tv-config-toolbar-icons>match[yes]]">
+{{$:/core/images/heading-1}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>match[yes]]">
+<span class="tc-btn-text">
+<$text text="autonumhead1"/>
+</span>
+</$list>
+  <$list filter="[<currentTiddler>has[class]]">
+    <$action-deletefield $field="class"/>
+  </$list>
+  <$list filter="[<currentTiddler>!has[class]]">
+    <$action-setfield $field="class" $value="autonumhead"/>
+  </$list>
+</$button>

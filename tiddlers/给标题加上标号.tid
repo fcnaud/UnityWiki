@@ -1,7 +1,7 @@
 created: 20240709031430442
 done: no
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20240802093752930
+modified: 20240805024600366
 page-cover: 
 tags: custom inbox tw
 title: 给标题加上标号
@@ -11,3 +11,5 @@ type: text/vnd.tiddlywiki
 
 在需要自动显示标号的tiddler中，加上字段`class: autonumhead`。
 后边考虑加一个切换的按钮，在下拉菜单里 [[自定义Field显示]]
+
+目前只是会直接删除和添加 class 字段，但是如果已经存在 class 字段并且里边有其他内容的时候，就不能简单地删除，而是对其中的内容进行处理。 [[ui/button/autonumhead]]
