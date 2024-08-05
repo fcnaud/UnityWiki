@@ -1,7 +1,7 @@
 caption: autonumhead
 created: 20240805022841220
 description: 自动添加标号
-modified: 20240805024917718
+modified: 20240805033708418
 tags: $:/tags/ViewToolbar custom
 title: ui/button/autonumhead
 type: text/vnd.tiddlywiki
@@ -17,10 +17,10 @@ type: text/vnd.tiddlywiki
 <$text text="autonumhead1"/>
 </span>
 </$list>
-  <$list filter="[<currentTiddler>has[class]]">
-    <$action-deletefield $field="class"/>
+  <$list filter="[<currentTiddler>search:class[autonumhead]]">
+    <$action-setfield $field="class" $value={{{ [<currentTiddler>get[class]split[ ]!match[autonumhead]join[ ]] }}}/>
   </$list>
-  <$list filter="[<currentTiddler>!has[class]]">
-    <$action-setfield $field="class" $value="autonumhead"/>
+  <$list filter="[<currentTiddler>!search:class[autonumhead]]">
+    <$action-setfield $field="class" $value={{{ [<currentTiddler>get[class]addsuffix[ ]addsuffix[autonumhead]] }}}/>
   </$list>
 </$button>
