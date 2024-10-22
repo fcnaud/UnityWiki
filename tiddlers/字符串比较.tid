@@ -1,0 +1,39 @@
+created: 20241021114632421
+modified: 20241021114732540
+tags: snippet c#
+title: 字符串比较
+type: text/vnd.tiddlywiki
+
+[[Unity - Manual: Strings and text (unity3d.com)|https://docs.unity3d.com/Manual/UnderstandingPerformanceStringsAndText.html]] 根据文档中描述，自定义比较，比 C# 中的实现，快很多
+
+```csharp
+public static bool CustomEndsWith(this string a, string b)
+{
+    int ap = a.Length - 1;
+    int bp = b.Length - 1;
+
+    while (ap >= 0 && bp >= 0 && a[ap] == b[bp])
+    {
+        ap--;
+        bp--;
+    }
+
+    return (bp < 0);
+}
+
+public static bool CustomStartsWith(this string a, string b)
+{
+    int aLen = a.Length;
+    int bLen = b.Length;
+
+    int ap = 0; int bp = 0;
+
+    while (ap < aLen && bp < bLen && a[ap] == b[bp])
+    {
+        ap++;
+        bp++;
+    }
+
+    return (bp == bLen);
+}
+```

@@ -1,0 +1,49 @@
+created: 20241021180021064
+modified: 20241021180507801
+tags: 寻路
+title: Navigation 使用中的一些问题
+type: text/vnd.tiddlywiki
+
+
+!! 如何设置不可行走区域
+
+可以使用 NavObastcle，勾选 Carve 选项后可以方便在 NavMesh 上挖洞，不用再添加一个不可行走的物体，重新烘焙。
+
+!! 如何停止一个 Agent
+
+通过对 isStopped、updatePosition、updateRotation、velocity 的设置来实现 agent 的停止启动。
+
+```
+    private void AgentStop()
+    {
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.velocity = Vector3.zero;
+    }
+
+    private void AgentStart()
+    {
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        agent.Warp(Trans.position);
+        agent.velocity = Trans.forward * _speed;
+    }
+```
+
+Warp 可以同步在寻路系统中的位置，在使用其他方式操作该物体的时候，把位置状态同步给nav系统
+
+UpdateUpAxis 控制是否平行于 Y 轴
+
+!! 当目标点不在 NavMesh 上时
+
+Unity 提供的 api NavMesh.SamplePosition，文档中写可以获取最近的一个点，但是从结果看，似乎时忽略了 Y 轴。目标点的正下方存在 NavMesh 的时候，会拿到下方的点，而不是旁边的点，即使距离更近。
+
+更新，英文文档中写明了忽略 Y 轴。
+
+
+!! nav mesh link
+
+可以连接两块不相接的 nav mesh，但是直接使用会瞬移过去，可以参考下面的链接，自己手动控制这个过程。
+
+* [[Unity使用OffMesh-Link时匹配动画动作_isonoffmeshlink-CSDN博客|https://blog.csdn.net/alexhu2010q/article/details/108143675]]
+* [[NavMesh - Off Mesh Link - Velocity Control - Unity Engine - Unity Discussions|https://discussions.unity.com/t/navmesh-off-mesh-link-velocity-control/708401]]

@@ -1,6 +1,6 @@
 created: 20240801084958107
-modified: 20240802021001061
-tags: Coroutine
+modified: 20241021115625351
+tags: Coroutine 坑
 title: 一个异步操作只能被yield一次
 type: text/vnd.tiddlywiki
 

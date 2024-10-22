@@ -1,0 +1,38 @@
+created: 20241021180656457
+modified: 20241021181239116
+tags: Font
+title: 在ugui中使用emoji
+type: text/vnd.tiddlywiki
+
+图文混排的时候，需要使用Emoji。可以通过创建 SpriteAsset 来添加 emoji，使用网上别人创建好的资源。[[Foryun1009/UnityEmoji: unity ugui emoji (github.com)|https://github.com/Foryun1009/UnityEmoji]]
+
+!! unicode emoji 的一些问题
+
+* 目前 unity tmp 似乎不支持复合 emoji，因为使用一个 unicode 进行映射的贴图集。
+    
+* 3.2.0 之前的 TMP 不支持 use filenames as Unicode，默认是 0XFFFE
+    
+** 比如我自己使用的 3.0.6，通过修改 TMP_SpriteAssetImporter 中的
+        
+```csharp
+spriteCharacter.unicode = (uint)TMP_TextUtilities.StringHexToInt(spriteCharacter.name);
+```
+** 或者直接升级到 3.2.0 以上版本。
+
+
+!! 创建一个 emoji 图集
+
+如何使用 TexturePacker 打图集
+[[Unity中使用TextMeshPro打出Emoji表情_unity开发对emoji表情包 微信-CSDN博客|https://blog.csdn.net/hmf532123602/article/details/127124752]]
+
+一个 emoji 集 [[GitHub - cj1128/emoji-images: 📎 Images (200x200) of all emojis in Unicode v13.1.|https://github.com/cj1128/emoji-images]]
+
+!! 如何输入一个 unicode 字符
+
+```
+Escape Sequence  Meaning
+\xnn             Character with  8-bit hex value nn
+\unnnn           Character with 16-bit hex value nnnn
+\Unnnnnnnn       Character with 32-bit hex value nnnnnnnn
+```
+

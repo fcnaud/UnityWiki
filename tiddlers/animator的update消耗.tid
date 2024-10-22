@@ -1,0 +1,27 @@
+created: 20241021120144138
+modified: 20241021120735976
+tags: 优化
+title: animator的update消耗
+type: text/vnd.tiddlywiki
+
+游戏内使用animator的物体过多时，update的消耗会非常大
+
+[img[https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/a/p282eEaPlt512jE3/cc74d75eeb7142ea9c82164e54ec07db0105.png]]
+
+!! 两个解决方案
+
+* （目前项目中采用的）当渲染物体不在摄像机内时，disable 掉 Animator 组件。可以这样做是因为:
+** animator 脚本关闭后，还是可以设置 bool 和 trigger，只不过不会运行 update，进行相应的处理。再重新打开后，会根据参数的情况，开始进行状态机切换等
+** 当前游戏内的 trigger 大部分都比较短，影响较小，可以直接进行忽略，在重新打开 animator 脚本后，对所有的 trigger 进行 reset 处理
+    
+这样做的缺点是，一些和 trigger 触发的动画相关的逻辑执行会有问题
+
+* Animator 中的 Culling Mode 设置 Cull Update Transform
+    
+根据文档中的描述，会关闭 Retarget，IK 和骨骼动画等，需要确定这个方案的影响范围，和当前项目中采用的方案优化的程度差异。
+
+!! 结论
+
+enable 掉 animator 组件，会关掉所有的更新，包括状态机。设置 culling mode 为 cull update transform 后，只会关闭 IK、骨骼动画等，状态机还是会执行，缺点是 DirectorUpdateAnimationBegin 的耗时不会得到优化，优点是逻辑执行方面不会有问题。
+
+设置 culling mode 是更好的方案。

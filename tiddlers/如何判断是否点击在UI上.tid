@@ -1,0 +1,51 @@
+created: 20241021123228410
+modified: 20241021123744477
+tags: Input snippet
+title: 如何判断是否点击在UI上
+type: text/vnd.tiddlywiki
+
+在 pc 上，可以使用`EventSystem.current.IsPointerOverGameObject()`直接判断是否是否点击在 UI 上。
+
+这个函数在 Android 上使用是有限的，只有关闭了多点触控（MultiInput）时可以直接使用。否则需要传递一个 fingerId，可以借用 Input.GetTouch(0) 获取第一个手指的输入来判断。
+
+```csharp
+    /// <summary>
+    /// 判断点击是否落在UI上，只判断 touch index 0
+    /// </summary>
+    public static bool IsPointerOverGameObject()
+    {
+        bool isOverUI = false;
+#if UNITY_EDITOR
+        isOverUI = EventSystem.current.IsPointerOverGameObject();
+#else
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            isOverUI = EventSystem.current.IsPointerOverGameObject(touch.fingerId);
+        }
+#endif
+        return isOverUI;
+    }
+```
+
+当 poingter exit 的时候，就无法判断了，因为 GetTouch(0)已经拿不到数据了
+
+当你在Input.GetMouseButtonUp(0)为true的时候调用Input.GetTouch(0)，你可能无法获取到有效的触摸事件。因为当手指抬起时，触摸事件可能已经结束，Input.GetTouch(0)可能无法获取到有效的触摸事件。
+
+如果你想在手指抬起时获取触摸事件，你应该检查Touch.phase属性是否为TouchPhase.Ended，如下所示：
+
+```csharp
+void Update()
+{
+    if (Input.touchCount > 0)
+    {
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Ended)
+        {
+            // 手指抬起，处理触摸事件
+        }
+    }
+}
+```
+
+在这个示例中，首先检查是否有触摸事件，然后获取第一个触摸点的信息。然后，检查触摸的阶段是否为，如果是，那么处理触摸事件。

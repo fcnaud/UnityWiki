@@ -1,24 +1,9 @@
-class: autonumhead
+class: 
 created: 20240805021534907
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20240805022330508
+modified: 20241021121515481
 tags: 资源管理
 title: Bundle Manager
 type: text/vnd.tiddlywiki
 
 ''前置''：[[Download Manager]]
-
-!! 一些问题
-
-!!! 卸载场景 bundle
-`AssetBundle.UnloadAllAssetBundle`，不会卸载场景 bundle，需要手动卸载
-
-```csharp
-foreach (AssetBundle asset in Resources.FindObjectsOfTypeAll<AssetBundle>())
-{
-    if (asset.isStreamedSceneAssetBundle)
-    {
-        asset.Unload(false);
-    }
-}
-```

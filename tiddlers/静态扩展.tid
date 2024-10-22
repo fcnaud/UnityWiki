@@ -1,6 +1,7 @@
 created: 20230918185438155
-modified: 20230918190512747
-tags: snippet
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241021113718500
+tags: snippet example
 title: 静态扩展
 type: text/vnd.tiddlywiki
 

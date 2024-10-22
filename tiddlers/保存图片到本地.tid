@@ -1,0 +1,25 @@
+created: 20241021114256600
+modified: 20241021122711376
+tags: snippet 图像
+title: 保存图片到本地
+type: text/vnd.tiddlywiki
+
+保存一个 sprite 到本地
+
+```csharp
+public static void SaveSprite(Sprite sprite, string path)  
+{  
+    // 将Sprite转换为Texture2D  
+    Texture2D texture = sprite.texture;  
+  
+    // 创建一个新的Texture2D，以防止修改Sprite的原始Texture2D  
+    Texture2D copyTexture = new Texture2D(texture.width, texture.height, texture.format, false);  
+    copyTexture.SetPixels(texture.GetPixels());  
+    copyTexture.Apply();  
+  
+    // 将Texture2D保存为PNG图像  
+    byte[] pngData = copyTexture.EncodeToPNG();  
+    // 保存PNG图像到本地文件  
+    File.WriteAllBytes(path, pngData);
+}
+```

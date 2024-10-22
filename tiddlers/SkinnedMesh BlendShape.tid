@@ -1,0 +1,9 @@
+created: 20241021122959087
+modified: 20241021123027945
+tags: 
+title: SkinnedMesh BlendShape
+type: text/vnd.tiddlywiki
+
+SkinnedMeshRender 中的一个功能，可以实现一些小的动作，本质上是个 Mesh 动画。
+
+可以使用`Get/SetBlendShapeWeight`获取设置相应的值，index 从 0 开始，越界会报错，可以通过 blendShapeCount 获取数量。

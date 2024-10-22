@@ -1,0 +1,13 @@
+created: 20241021122331638
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241021122452066
+tags: 摄像机 snippet 渲染
+title: 渲染摄像机内容到指定RenderTexture
+type: text/vnd.tiddlywiki
+
+```csharp
+var renderTexture = new RenderTexture(Screen.width, Screen.height, 16);
+camera.targetTexture = renderTexture;
+camera.Render();
+camera.targetTexture = null;
+```

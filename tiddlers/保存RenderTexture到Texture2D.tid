@@ -1,0 +1,37 @@
+created: 20241021122458100
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241021122701923
+tags: snippet 图像
+title: 保存RenderTexture到Texture2D
+type: text/vnd.tiddlywiki
+
+!! RenderTexture to Texture2D
+
+[[Unity - Scripting API: RenderTexture.active (unity3d.com)|https://docs.unity3d.com/ScriptReference/RenderTexture-active.html]]
+
+```csharp
+using UnityEngine;
+using System.Collections;
+
+// Get the contents of a RenderTexture into a Texture2D
+public class ExampleClass : MonoBehaviour
+{
+    static public Texture2D GetRTPixels(RenderTexture rt)
+    {
+        // Remember currently active render texture
+        RenderTexture currentActiveRT = RenderTexture.active;
+
+        // Set the supplied RenderTexture as the active one
+        RenderTexture.active = rt;
+
+        // Create a new Texture2D and read the RenderTexture image into it
+        Texture2D tex = new Texture2D(rt.width, rt.height);
+        tex.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
+        tex.Apply();
+
+        // Restore previously active render texture
+        RenderTexture.active = currentActiveRT;
+        return tex;
+    }
+}
+```

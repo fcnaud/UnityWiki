@@ -1,0 +1,39 @@
+created: 20241021182716405
+modified: 20241021182830711
+tags: 编辑器扩展 snippet
+title: 创建一个自定义窗口
+type: text/vnd.tiddlywiki
+
+!! 如何创建一个自定义窗口
+
+* 继承 EditorWindow
+    
+* 实现一个启动函数
+    
+    ** GetWindow 获取窗口实例
+        
+    ** 添加菜单选项
+        
+* 在 OnGUI 中实现逻辑
+    
+
+```csharp
+using System;
+using UnityEditor;
+using UnityEngine;
+
+public class CustomWindow : EditorWindow
+{
+    [MenuItem("Tools/ShowCustomWindow")]
+    private static void Init()
+    {
+        // var window = GetWindow(typeof(CustomWindow)) as CustomWindow;
+        var window = GetWindow<CustomWindow>();
+    }
+    
+    private void OnGUI()
+    {
+        
+    }
+}
+```

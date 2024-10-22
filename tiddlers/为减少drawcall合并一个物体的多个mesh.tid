@@ -1,0 +1,21 @@
+created: 20241021124031928
+modified: 20241021124519512
+tags: ?
+title: 为减少drawcall合并一个物体的多个mesh
+type: text/vnd.tiddlywiki
+
+参考 [[技巧 Unity中Avatar换装实现 - UWA问答 博客 游戏及VR应用性能优化记录分享 侑虎科技|https://blog.uwa4d.com/archives/avartar.html]]
+
+问题：mesh 中包含 submesh 无法显示
+
+[[UWA问答 游带多个submeshes模型合并，无法显示|https://answer.uwa4d.com/question/5fe55b1a10a17c6c2b09d778]]
+
+问题：模型多材质
+
+[[UWA问答 多材质的模型可以合并成一个SkinnedMeshRenderer吗|https://answer.uwa4d.com/question/59e5ca1cb14643344f35a835]]
+
+出现新的问题：
+
+* 动画无法播放，暂时没有找到原因
+* 合并 mesh 后，blendshape 会消失
+** 解决思路：没看懂 [[Combined meshes with blendshapes (morph targets) lose the blendshape data|https://forum.unity.com/threads/combined-meshes-with-blendshapes-morph-targets-lose-the-blendshape-data.337263/]]

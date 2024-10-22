@@ -1,0 +1,9 @@
+created: 20241021122017827
+modified: 20241021122111984
+tags: Scene
+title: 场景切换
+type: text/vnd.tiddlywiki
+
+* 调用 LoadScene 后，会从下一帧开始进行加载。
+* 一个合理的场景切换，应该是切到空场景，释放资源，再切到目标场景
+** [[Question - Proper way to load & unload a scene - Unity Forum|https://forum.unity.com/threads/proper-way-to-load-unload-a-scene.1399861/#post-8807440]]

@@ -1,0 +1,18 @@
+created: 20241021121406544
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241021122011899
+tags: 坑 资源管理 Scene
+title: 卸载场景bundle
+type: text/vnd.tiddlywiki
+
+`AssetBundle.UnloadAllAssetBundle`，不会卸载场景 bundle，需要手动卸载
+
+```csharp
+foreach (AssetBundle asset in Resources.FindObjectsOfTypeAll<AssetBundle>())
+{
+    if (asset.isStreamedSceneAssetBundle)
+    {
+        asset.Unload(false);
+    }
+}
+```

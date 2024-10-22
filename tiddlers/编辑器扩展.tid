@@ -1,0 +1,12 @@
+created: 20241021182943358
+modified: 20241021182956481
+title: 编辑器扩展
+type: text/vnd.tiddlywiki
+
+一些问题
+
+# EditorGUI.EndChangeCheck()
+    
+# 刷新 Repaint()
+    
+# 监听 PlayMode [EditorWindow: How to tell when returned to editor mode from play mode?? - Unity Forum](https://forum.unity.com/threads/editorwindow-how-to-tell-when-returned-to-editor-mode-from-play-mode.541578/)

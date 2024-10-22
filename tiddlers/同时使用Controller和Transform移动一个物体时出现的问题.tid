@@ -1,0 +1,14 @@
+created: 20241021124626516
+modified: 20241021170200525
+tags: CharacterController 坑
+title: 同时使用Controller和Transform移动一个物体时出现的问题
+type: text/vnd.tiddlywiki
+
+在使用 controller 移动物体的同时，使用 transform 直接设置位置，移动会忽略这个，使用旧的位置，这个似乎是因为同步的问题，即使在同一帧也是有先后的，具体细节需要后边进行研究。
+
+
+!! 参考
+
+* [[Character Controller ignores transform.position - Unity Forum|https://forum.unity.com/threads/character-controller-ignores-transform-position.617107/]]
+    
+* [[Does transform.position work on a charactercontroller? - Unity Forum|https://forum.unity.com/threads/does-transform-position-work-on-a-charactercontroller.36149/]]

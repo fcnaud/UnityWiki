@@ -1,0 +1,50 @@
+created: 20241021181252043
+modified: 20241021182629706
+tags: Font
+title: 动态字体
+type: text/vnd.tiddlywiki
+
+使用动态字体可以根据实际使用的字符来创建图集，但是会有一些问题需要注意：
+
+!! 图集大小设置
+
+!!! 动态图集是如何工作的
+
+需要显示新的字体的时候，会从字体文件中把这个字写入图集中，也就是图集会慢慢变大。如果图集大小不够，那么多出来的字就不会显示。
+
+!!! 如何设置
+
+需要根据情况设置 Altas Width/Height，可以选择勾选 Multi Atlas Textures，否则图集填满后，新的字符就不会显示。
+
+[img[|https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/collab/a4jKqmX893ZLnw19/c78e880a-8ed4-4deb-95b5-2e63deede0b3.png]]
+
+!! 如何创建一个动态字体
+
+* 在字体文件上，右键，选择创建，这样默认是 dynamic
+* 创建字体后，字体设置中，把 static 改成 dynamic
+
+!! 添加对特殊字符集的支持
+
+一个字体可能会对特殊字符支持不够，可以找一个专门的字符字体，创建一个 tmp 字体做 Fallback Font。
+
+* symbola：一个对字符支持比较好的字体 [[Symbola|https://fontlibrary.org/en/font/symbola#google_vignette]]
+
+* 参考 [[unity game engine - How to get support all type of fonts in unity3d textmeshpro - Stack Overflow|https://stackoverflow.com/questions/71557554/how-to-get-support-all-type-of-fonts-in-unity3d-textmeshpro]]
+
+!! 更好的使用策略
+
+兼顾性能的做法是，在创建字体的时候，使用一个常用的字符表来生成一个静态字体，再创建一个动态字体做 Fallback Font。fallback 查找链 [[Fallback font assets TextMeshPro 3.2.0-pre.10 |https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/FontAssetsFallback.html]]
+
+
+!! 相关链接
+
+* [[字符查询网站|https://github.com/symbl-cc/symbl-data]]
+* [[查找 Unicode 字符信息网站|https://www.fileformat.info/]]  
+* [[Unifont 字体下载链接|https://ftp.gnu.org/gnu/unifont/]]
+* [[UWA问答 TextMesh Pro插件使用的经验|https://answer.uwa4d.com/question/5a4deec4ecb4a02cff5039d3]]
+* [[TextMeshPro 不同版本的 mirror |https://github.com/needle-mirror/com.unity.textmeshpro]]
+* [[常用中文字符集|https://github.com/wy-luke/Unity-TextMeshPro-Chinese-Characters-Set]]
+* [[一个提供了多种特殊字符的博客|https://blog.csdn.net/feigebabata/article/details/105277312]]
+
+* [[ugui 优化 tmp 文章|https://xinzhuzi.github.io/2020/05/11/UnityUI/UGUI&TMP%20%E7%B3%BB%E5%88%97%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/]]
+    
