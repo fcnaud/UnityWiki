@@ -1,0 +1,14 @@
+created: 20241022083805542
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241022083922935
+tags: 物理 坑
+title: 使用Controller时，无法触发trigger的问题
+type: text/vnd.tiddlywiki
+
+在使用中，发现使用 Controller 后，会出现接触后无法触发 Trigger 的问题，只有当超过中点的时候，才会触发。
+    
+[img[|https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/collab/0QvjnApjxDQ2lXo5/26ff0ad8-0176-4a5d-a971-3f0718958a04.png]]
+
+似乎和SkinWidth有一定的关系，把这个值调的很小，可以让触发的距离缩短，但还是会有一定的触发距离。目前只能通过调整碰撞盒的大小来解决，没有找到原因。
+
+网上说应该使用 OnControllerColliderHit，但是不是很好用，只有 collision 没有 trigger，并且每一帧都会触发。

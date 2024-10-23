@@ -1,0 +1,49 @@
+created: 20230109164046438
+modified: 20241022084938490
+tags: 序列化 snippet
+title: JsonUtility
+type: text/vnd.tiddlywiki
+
+JsonUtility 是 Unity 自带的 Json 库。
+
+* 优点：简单，使用方便
+* 缺点：简单，不够强大
+
+!! 基本用法
+
+```csharp
+// to object
+JsonUtility.FromJson<T>(string);
+
+// to json
+JsonUtility.ToJson(object);
+```
+
+!! 如何处理 List
+
+无法直接对 List 进行序列化，需要在外边包一层。例如
+
+```csharp
+[Serializable]
+public class Data
+{
+  public int Id;
+  public string Name;
+}
+
+[Serializable]
+public class MyData
+{
+  public List<int> Datas; 
+}
+
+// 使用
+JsonUtility.FromJson<MyData>(json)
+```
+
+可以实现一个 helper 类，使用一个范型 WrapperList把 list 包起来
+
+!! 如何处理 Dictionary
+
+ISerializationCallbackReceiver 的使用 [[Unity - Scripting API: ISerializationCallbackReceiver (unity3d.com)|https://docs.unity3d.com/ScriptReference/ISerializationCallbackReceiver.html]]
+

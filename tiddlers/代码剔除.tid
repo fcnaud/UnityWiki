@@ -1,0 +1,23 @@
+created: 20241022085048921
+modified: 20241022085315999
+tags: 
+title: 代码剔除
+type: text/vnd.tiddlywiki
+
+* 代码剔除导致运行报错，可以根据报错的 class id 从 [[Unity - Manual: Classes ordered by ID number (unity3d.com)|https://docs.unity3d.com/Manual/ClassIDReference.html]] 查询具体是哪个类被剔除了。
+    
+* 可以通过遍历 bundle，获取所有需要的类型，来设置 link.xm 防止 bundle 中的 class 被剔除。
+    
+* 还要遍历场景文件同名文件夹，对一些场景资源进行处理，另外这样似乎是无法识别，NavAgent、NavOfflineLink 等一些内容，可以通过在空物体上添加如上脚本，并打进 bundle 来处理。
+    
+    ** 这样过于麻烦，可以直接遍历需要打包 bundle 的场景，添加相关的脚本
+        
+* AudioMixerSnapshotController 被裁剪的问题，直接加上一级的 Audio 的 namespace
+    
+    ** [[Could not produce class with ID 245 - Unity Forum|https://forum.unity.com/threads/could-not-produce-class-with-id-245.901013/]]
+        
+    ** [[Unity 的 Strip Engine Code - 知乎 (zhihu.com)|https://zhuanlan.zhihu.com/p/594332649]]
+        
+* Timeline 相关的 Playable 被剔除的问题
+    
+    ** 需要注意 assembly name 是 Unity.Timeline 而不是 UnityEngine.Timeline

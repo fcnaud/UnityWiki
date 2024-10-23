@@ -1,0 +1,10 @@
+created: 20241023034358352
+modified: 20241023034537774
+tags: 图像
+title: 图像压缩格式
+type: text/vnd.tiddlywiki
+
+* ios 使用 astc
+* android 使用 etc2/astc
+
+我的 android 项目都是用的 etc2，但是 astc 的压缩格式似乎逐渐在变得主流，后边了解一下。

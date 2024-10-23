@@ -1,8 +1,12 @@
 created: 20240802031138939
-modified: 20241021121325293
+modified: 20241023095252600
 tags: 
 title: 资源管理
 type: text/vnd.tiddlywiki
 
 !!相关链接
 * [[博客的开篇和目录_wowo1gt-CSDN博客|https://blog.csdn.net/wowo1gt/article/details/100580365]] 这个博主在龙之谷项目处理管理资源 1 年多，整理了些内容
+
+!! 资源加载
+
+* [[Unity加载模块深度解析之动画资源 - UWA问答 博客 游戏及VR应用性能优化记录分享 侑虎科技|https://blog.uwa4d.com/archives/Loading_AnimationClip.html]]

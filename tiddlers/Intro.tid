@@ -2,7 +2,7 @@ class:
 created: 20220116165838625
 creator: fcnaud
 icon: 
-modified: 20240805093121238
+modified: 20241023062758378
 modifier: fcnaud
 page-cover: 
 tags: toc
@@ -31,7 +31,7 @@ type: text/vnd.tiddlywiki
     <$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/GitHubHeatMap.js" $width="100%" $height="100%" year={{$:/state/heatmap!!year}} subfilter="[all[tiddlers]!is[shadow]!is[system]!field:calendarEntry[yes]]" />
 </div>
 
-这个网站会整理一些 Unity 开发中的一些基础的技巧、代码片段，游戏开发知识点等，方便我自己后边查找。
+这是一个笔记性质的网站，会整理一些 Unity 开发中的一些基础的技巧、代码片段，游戏开发知识点等，方便我自己后边查找。
 
 <fieldset>
 	<legend>快速添加</legend>

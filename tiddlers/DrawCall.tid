@@ -1,0 +1,47 @@
+created: 20241023062653017
+modified: 20241023081459174
+tags: 渲染
+title: DrawCall
+type: text/vnd.tiddlywiki
+
+
+!! 基本介绍
+
+!!! Batches
+
+把多个网格数据合并成一个，给 drawcall 使用
+
+!!! Draw Call 
+
+是指CPU向GPU发出的一次绘制命令。每个Draw Call都会有一定的开销，因为它涉及到CPU和GPU之间的通信。
+
+特点：
+
+* 开销大：每个Draw Call都有固定的开销，过多的Draw Call会导致性能下降。
+* 独立性：每个Draw Call通常对应一个独立的渲染对象或材质。
+
+!!! SetPassCall 
+
+{{SetPassCall}}
+
+
+!! 如何减少 drawcall
+
+!!! 静态批处理
+
+静态批处理仅适用于那些在运行时不会移动、旋转或缩放的对象。将场景中的物体设置为 static 即可。
+
+!!! 动态批处理
+
+动态批处理需要满足的条件
+
+* 对象使用相同的材质。
+* 对象的顶点数在300以下。
+
+借助动态批处理优化渲染消耗的技巧
+
+* 减少单个模型的点面
+* 尽可能使用相同材质
+** 同一材质不同属性，可以借助 MaterialPropertyBlock
+* 同一模型大量绘制，不同缩放旋转材质属性，可以借助 DrawInstance + MaterialPropertyBlock 
+** 见 [[【Unity TIL】3. Unity 通过 DrawInstance  一次绘制多个实例]]

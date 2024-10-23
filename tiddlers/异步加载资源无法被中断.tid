@@ -1,0 +1,9 @@
+created: 20241022084605521
+modified: 20241022084703892
+tags: Bundle 坑
+title: 异步加载资源无法被中断
+type: text/vnd.tiddlywiki
+
+[[AssetBundle异步加载被中断的问题_yptianma的博客-CSDN博客|https://blog.csdn.net/yptianma/article/details/103268504]]
+
+可以调用 request.assetBundle.Unload(false); 会直接触发回调，然后做特殊处理

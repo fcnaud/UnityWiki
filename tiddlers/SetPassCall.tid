@@ -1,0 +1,9 @@
+created: 20241023080539562
+modified: 20241023080814527
+tags: 渲染
+title: SetPassCall
+type: text/vnd.tiddlywiki
+
+是指在渲染过程中，Unity需要切换材质或着色器时所进行的操作。每次切换材质或着色器都会产生一个SetPass Call。
+
+SetPass Call的开销通常比Draw Call更大，因为它涉及到切换GPU状态。

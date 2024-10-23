@@ -1,0 +1,8 @@
+created: 20241023034543043
+modified: 20241023034759575
+tags: 图像
+title: 图像导入设置
+type: text/vnd.tiddlywiki
+
+* read/write enable : 一般来说需要关闭，不然会占用额外一份内存
+* generate mip maps : 不会有远近变化的话（比如UI或者固定视角的游戏）关闭

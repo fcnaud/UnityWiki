@@ -1,0 +1,17 @@
+created: 20241022084318425
+modified: 20241022084340321
+tags: [[Download Manager]] snippet
+title: 获取下载文件的大小
+type: text/vnd.tiddlywiki
+
+
+```csharp
+        private IEnumerator GetFileSize()
+        {
+	        var request = UnityWebRequest.Head(url);
+	        yield return request.SendWebRequest();
+	        float size = (float)Convert.ToDouble(request.GetResponseHeader("Content-Length"));
+	        LogUtil.LogDebug($"file size {size}. {(float)size/1024/1024} {url}");
+        }
+
+```

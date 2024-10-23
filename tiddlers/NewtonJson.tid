@@ -1,0 +1,34 @@
+created: 20241022084849007
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241022084956283
+tags: 序列化 snippet
+title: NewtonJson
+type: text/vnd.tiddlywiki
+
+c# 里使用最多的库，强大易用，但是会有一些使用上的问题。
+
+比如我这次想用，就碰到了 AOT 的问题，一时半会解决不掉，还是放弃使用了。
+
+```csharp
+// 解析对象
+JObject.Parse(jsonStr)
+
+// 解析数组
+JArray.Parse(jsonStr)
+
+// 获取对象，JObject，返回类型为 JToken
+// eg. 获取名称为 name 类型为 string 的字段
+obj.GetValue("name").Value<string>();
+
+// 创建一个 json 对象，可以嵌套
+var jsonObj = new JObject {
+  new JProperty("property1", true),
+  new JProperty("property2", 1)
+};
+
+// to string
+JsonConvert.SerializeObject(target, Formatting.Indented)
+
+// string to instance
+JsonConvert.DeserializeObject<T>(jsonStr)
+```

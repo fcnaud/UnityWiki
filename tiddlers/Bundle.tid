@@ -1,0 +1,30 @@
+class: 
+created: 20240805021534907
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241023095155705
+tags: 资源管理
+title: Bundle
+type: text/vnd.tiddlywiki
+
+''前置''：[[Download Manager]]
+
+关于bunble的格式
+
+* [[云风的 BLOG: Unity3D asset bundle 格式简析 (codingnow.com)|https://blog.codingnow.com/2014/08/unity3d_asset_bundle.html]]
+* [[Asset Bundle 格式简析_unity assetbundle文件结构-CSDN博客|https://blog.csdn.net/TorstenZhou/article/details/107360345]]
+* [[AssetBundle研究报告 BLOG (dupouyer.github.io)|https://dupouyer.github.io/2020/06/24/AssetBundle%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A/]]
+* [[深入Assetbundle机制 · GameDev (gitbooks.io)|https://jonyzhao.gitbooks.io/gamedev/content/Unity/Asset/DiveIntoAssetBundle.html]]
+
+打bundle
+
+* [[Unity5.X打包场景为AssetBundle后,加载场景后烘培灯光贴图不显示 - 简书 (jianshu.com)|https://www.jianshu.com/p/dcd27cceaac7]]
+
+* [[关于Unity3D的AssetBundle打包的建议 - 知乎 (zhihu.com)|https://zhuanlan.zhihu.com/p/63686076]]
+
+* 多次打包bundle，资源没变但是md5变化的问题，可能是由于 shader stripping 的问题
+
+* 如何让 bundle 的 md5 稳定 [[UWA问答 游戏开发者互动问答社区 侑虎科技|https://answer.uwa4d.com/question/5dac2d919fabd93d420711f7]]
+
+bundle 管理
+
+* [[你应该知道的AssetBundle管理机制 - UWA问答 博客 游戏及VR应用性能优化记录分享 侑虎科技|https://blog.uwa4d.com/archives/ABTheory.html]]
