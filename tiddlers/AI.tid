@@ -1,0 +1,14 @@
+created: 20241027160725152
+modified: 20241027160759582
+title: AI
+type: text/vnd.tiddlywiki
+
+!! 状态
+
+* 状态机
+* 决策树
+
+!! 参考链接
+
+* [[有限状态机时代终结的10大理由_有限状态机的替代-CSDN博客|https://blog.csdn.net/gzlaiyonghao/article/details/2070675?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171574520116800180672927%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=171574520116800180672927&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-2070675-null-null.nonecase&utm_term=%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA&spm=1018.2226.3001.4450]]
+* [[浅谈游戏怪物AI：状态机 、行为树 - 知乎 (zhihu.com)|https://zhuanlan.zhihu.com/p/627785604]]

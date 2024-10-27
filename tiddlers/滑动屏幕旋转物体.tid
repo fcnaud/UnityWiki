@@ -1,0 +1,41 @@
+created: 20241026181603871
+modified: 20241026181831948
+tags: Input example
+title: 滑动屏幕旋转物体
+type: text/vnd.tiddlywiki
+
+获取移动的距离使用 [[如何保证在不同分辨率手机下滑动操作的一致性]]
+
+```csharp
+// targetRot 目标旋转角度
+// RotSpeed 旋转速度
+// Cube 目标物体
+// Sensitivity 灵敏度
+
+private void Update()
+{
+    Cube.rotation = Quaternion.Slerp(Cube.rotation, targetRot, RotSpeed * Time.deltaTime);
+}
+
+public void OnDrag(PointerEventData eventData)
+{   
+    var axis = MainCam.transform.rotation * Quaternion.Euler(0, 0, -90) * eventData.delta;
+    var moveDelta = GetWorldDelta(eventData.delta);
+
+    targetRot = Quaternion.AngleAxis(Sensitivity * moveDelta, axis) * targetRot;
+    
+    // Cube.rotation = Quaternion.AngleAxis(Sensitivity * moveDelta, axis) * Cube.rotation;
+}
+
+public float GetWorldDelta(Vector2 delta)
+{
+    Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 1f);
+    Vector3 screenTouch = screenCenter + new Vector3(delta.x, delta.y, 0f);
+
+    Vector3 worldCenterPos = MainCam.ScreenToWorldPoint(screenCenter);
+    Vector3 worldTouchPos = MainCam.ScreenToWorldPoint(screenTouch);
+
+    return (worldTouchPos - worldCenterPos).magnitude;
+}
+
+```

@@ -1,5 +1,128 @@
 created: 20241021124610893
-modified: 20241021124625133
-tags: 
+modified: 20241026182842230
+tags: example
 title: CharacterController
 type: text/vnd.tiddlywiki
+
+!! 基本使用
+
+Unity 提供的一个简单的有基本物理交互的控制器，不使用刚体。通过暴露的 `Move` 和 `SimpleMove` 进行移动，每一帧最好只执行一次 move。
+
+* Move 通过增量移动。
+
+* SimpleMove 通过提供一个速度进行移动，会忽略 Y 轴的速度，直接使用重力。
+
+* OnControllerColliderHit CharacterController 不带刚体，碰撞时间可能会检测不到，需要使用自身提供的事件。
+* isGrounded 判定是否在地面上，需要每帧都进行移动。
+
+eg. 移动和跳跃
+
+手动检测是否位于地面，添加一个跳跃的启动状态。
+
+```csharp
+using UnityEngine;
+
+public class TestCharacter : MonoBehaviour
+{
+    public Transform GroundCheckTrans;
+    public float GroundCheckRadius;
+    public LayerMask WhatIsGround;
+
+    public float Speed;
+
+    public float Gravity = 5;
+
+    public float JumpVelocity = 4;
+    
+    private CharacterController controller;
+    private bool isGrounded;
+    private float yVelocity;
+    private bool actionJump;
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        isGrounded = false;
+        yVelocity = 0;
+        actionJump = false;
+    }
+
+    private void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 movement = direction * Speed;
+        
+        isGrounded = Physics.CheckSphere(GroundCheckTrans.position, GroundCheckRadius, WhatIsGround);
+        if (isGrounded) {
+            // 
+        } else {
+            // 确保离地后，跳跃行为结束
+            if (actionJump) { actionJump = false; }
+        }
+        
+        if (isGrounded && Input.GetButtonDown("Jump")) {
+            yVelocity = JumpVelocity;
+            actionJump = true;
+        }
+        movement.y = yVelocity;
+        
+        // controller.SimpleMove(movement * Speed);
+        controller.Move(movement * Time.deltaTime);
+
+        yVelocity -= Gravity * Time.deltaTime;
+        if (isGrounded && !actionJump) { yVelocity = 0; }
+
+    }
+}
+```
+
+
+
+使用自带的 isGrounded，在落地将下落速度给一个值，而不是设为零 0。
+
+```csharp
+using UnityEngine;
+
+public class TestCharacter1 : MonoBehaviour
+{
+    private CharacterController controller;
+    private float yVelocity;
+    
+    public float Gravity = 10;
+    public float Speed;
+    public float JumpVelocity = 5;
+    
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        yVelocity = 0;
+    }
+
+    private void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 movement = direction * Speed;
+        
+        // jump
+        if (controller.isGrounded && Input.GetButtonDown("Jump")) {
+            yVelocity = JumpVelocity;
+        }
+        movement.y = yVelocity;
+        
+        // move
+        controller.Move(movement * Time.deltaTime);
+
+        // gravity
+        yVelocity -= Gravity * Time.deltaTime;
+        if (controller.isGrounded && yVelocity < 0) {
+            // 这里直接设置为 0 的话，下一帧 y 轴移动为 0，会导致 isGrounded 为 false
+            yVelocity = -Gravity;
+        }
+    }
+}
+```
+

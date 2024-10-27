@@ -1,0 +1,48 @@
+created: 20241026182615946
+modified: 20241027112718222
+tags: snippet
+title: 以某一点为中心进行旋转
+type: text/vnd.tiddlywiki
+
+
+```csharp
+/// <summary>
+/// https://forum.unity.com/threads/scale-around-point-similar-to-rotate-around.232768/#post-5505829
+/// 注意缩放的时候不要缩放到 0，这个时候 delta 这个偏移量就失去意义了，再放大的时候这个信息就丢失了，得不到想要的结果。
+/// </summary>
+/// <param name="trans"></param>
+/// <param name="pivot">预想的中心点，要和 target 的 local position 处于同一空间</param>
+/// <param name="scaleFactor">缩放倍数，相对于当前的大小/param>
+public static void ScaleAroundRelative(this Transform trans, Vector3 pivot, Vector3 scaleFactor)
+{
+    Vector3 pivotDelta = trans.localPosition - pivot;
+    pivotDelta.Scale(scaleFactor);
+    trans.localPosition = pivot + pivotDelta;
+
+    Vector3 finalScale = trans.localScale;
+    finalScale.Scale(scaleFactor);
+    trans.localScale = finalScale;
+}
+/// <param name="newScale">需要设置的 scale 大小</param>
+public static Transform ScaleAround(this Transform trans, Vector3 pivot, Vector3 newScale)
+{
+    float GetScaleFactor(float s1, float s2)
+    {
+        if (s2 == 0) return 0;
+        return s1 / s2;
+    }
+            
+    Vector3 pivotDelta = trans.localPosition - pivot;
+    Vector3 scaleFactor = new Vector3(
+        GetScaleFactor(newScale.x, trans.localScale.x),
+        GetScaleFactor(newScale.y, trans.localScale.y),
+        GetScaleFactor(newScale.z, trans.localScale.z));
+            
+    pivotDelta.Scale(scaleFactor);
+    trans.localPosition = pivot + pivotDelta;
+
+    trans.localScale = newScale;
+
+    return trans;
+}
+```

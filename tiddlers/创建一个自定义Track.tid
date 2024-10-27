@@ -1,0 +1,54 @@
+created: 20241026180639226
+modified: 20241026180714534
+tags: Timeline
+title: 创建一个自定义Track
+type: text/vnd.tiddlywiki
+
+创建一个类继承 `TrackAsset`，使用 `TrackClipType` 指定可以添加的 Clip 对象，`TrackBindingType` 指定 Bound Object 类型。
+
+```csharp
+[TrackColor(0, 1, 0)]
+[TrackClipType(typeof(EnterAnimLife))]
+[TrackClipType(typeof(ExitAnimLife))]
+[TrackBindingType(typeof(BaseView))]
+public class BaseViewAnimTrack : TrackAsset {}
+
+```
+
+还可以借助其他特性，对 Track 进行设置。例如 `TrackColor` 可以指定 Track 颜色。
+
+
+
+定义完 Track 信息后，添加时，需要在最前边指定对应的 `Bound Object`。此时，如果想要在 `Behaviour` 中的 `ProcessFrame` 中使用该对象，可以不借助 `ExposedReference` 传递，直接使用传进来的 playerData 进行转换。但是这个目前有一个问题，就是走不到最后一帧……
+
+
+```csharp
+public virtual void ProcessFrame(Playable playable, FrameData info, object playerData)
+```
+
+如果想在其他阶段使用，可以借助一个小技巧。在创建 Mixer 的时候进行赋值。
+
+```csharp
+[TrackColor(0, 1, 0)]
+[TrackClipType(typeof(EnterAnimLife))]
+[TrackClipType(typeof(ExitAnimLife))]
+[TrackBindingType(typeof(BaseView))]
+public class BaseViewAnimTrack : TrackAsset
+{
+    public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
+    {
+        foreach (var c in GetClips())
+        {
+            if (c.asset is EnterAnimLife enterAnim) {
+                enterAnim.TargetView = go.GetComponent<PlayableDirector>().GetGenericBinding(this) as BaseView;
+            }
+
+            if (c.asset is ExitAnimLife exitAnim) {
+                exitAnim.TargetView = go.GetComponent<PlayableDirector>().GetGenericBinding(this) as BaseView;
+            }
+        }
+        return base.CreateTrackMixer(graph, go, inputCount);
+    }
+}
+```
+

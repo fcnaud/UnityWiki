@@ -1,0 +1,41 @@
+created: 20241026180221495
+modified: 20241026180538789
+tags: Timeline
+title: 创建一个自定义TimelineClip
+type: text/vnd.tiddlywiki
+
+实现一个行为类，继承自 `PlayableBehaviour`
+
+例子中的 BaseView HostView 是一个自定义的属性，可以通过在面板上拖拽赋值。
+
+```csharp
+public class ExitAnimTrack : PlayableBehaviour
+{
+    public BaseView HostView;
+    public override void OnGraphStop(Playable playable)
+    {
+        if(Application.isPlaying)
+            HostView?.OnCloseAnimEnd();
+    }
+}
+```
+
+创建一个类，继承自 `PlayableAsset`，实现抽象方法 `CreatePlayable`。在其中创建上边的行为类，可以使用 `ExposedReference` 动态获取对象，进行传递。
+
+```csharp
+[System.Serializable]
+public class ExitAnimLife : PlayableAsset
+{
+    public ExposedReference<BaseView> HostView;
+    public override Playable CreatePlayable(PlayableGraph graph, GameObject go)
+    {
+        var track = new ExitAnimTrack();
+        track.HostView = HostView.Resolve(graph.GetResolver());
+        return ScriptPlayable<ExitAnimTrack>.Create(graph, track);
+    }
+}
+
+```
+
+这样创建出来的 PlayableAsset 默认归类与 Playable Track
+

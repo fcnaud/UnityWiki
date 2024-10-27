@@ -1,5 +1,5 @@
 created: 20240802031138939
-modified: 20241023095252600
+modified: 20241027161252795
 tags: 
 title: 资源管理
 type: text/vnd.tiddlywiki
@@ -10,3 +10,11 @@ type: text/vnd.tiddlywiki
 !! 资源加载
 
 * [[Unity加载模块深度解析之动画资源 - UWA问答 博客 游戏及VR应用性能优化记录分享 侑虎科技|https://blog.uwa4d.com/archives/Loading_AnimationClip.html]]
+
+!! 资源的加载卸载
+
+如何加载
+
+* 从Resources目录加载
+* 编辑器环境下，AssetDatabase系列API加载
+* 从Bundle中加载

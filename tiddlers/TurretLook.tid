@@ -1,0 +1,24 @@
+created: 20241026182502261
+modified: 20241026182532685
+tags: snippet
+title: TurretLook
+type: text/vnd.tiddlywiki
+
+
+```csharp
+/// <summary>
+/// https://gamedev.stackexchange.com/questions/133353/using-quaternions-what-can-i-do-with-them-without-the-maths/133357#133357?newreg=b6186425e3194e9d87d2ed40913cdd2c
+/// local up 指向 exactUp，local forward 接近 approximateForward
+/// 和 look rotation 相对应
+/// </summary>
+/// <param name="approximateForward"></param>
+/// <param name="exactUp"></param>
+/// <returns></returns>
+public static Quaternion TurretLookRotation(Vector3 approximateForward, Vector3 exactUp)
+{
+    Quaternion rotateZToUp = Quaternion.LookRotation(exactUp, -approximateForward);
+    Quaternion rotateYToZ = Quaternion.Euler(90f, 0f, 0f);
+
+    return rotateZToUp * rotateYToZ;
+}
+```

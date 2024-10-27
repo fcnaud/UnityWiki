@@ -1,0 +1,24 @@
+created: 20241026175749092
+modified: 20241026180037941
+tags: Input
+title: 如何保证在不同分辨率手机下滑动操作的一致性
+type: text/vnd.tiddlywiki
+
+!! 在不同分辨率手机下保证滑动操作的一致性
+
+通过将屏幕上像素的移动，转换到世界坐标系中，再进行处理。
+
+```csharp
+public float GetWorldDelta(Vector2 delta)
+{
+    Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 1f);
+    Vector3 screenTouch = screenCenter + new Vector3(delta.x, delta.y, 0f);
+
+    Vector3 worldCenterPos = MainCam.ScreenToWorldPoint(screenCenter);
+    Vector3 worldTouchPos = MainCam.ScreenToWorldPoint(screenTouch);
+
+    return (worldTouchPos - worldCenterPos).magnitude;
+}
+```
+
+参考链接 [[Drag with speed in Unity game not equal depending on resolution|https://stackoverflow.com/questions/33812910/drag-with-speed-in-unity-game-not-equal-depending-on-resolution]]

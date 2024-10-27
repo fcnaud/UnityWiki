@@ -1,0 +1,13 @@
+created: 20241026180737053
+modified: 20241026180755300
+tags: Animation
+title: 重置动画
+type: text/vnd.tiddlywiki
+
+
+```csharp
+anim.Play(playAnim);
+anim[playAnim].normalizedTime = 0;
+anim.Sample();
+anim.Stop();
+```

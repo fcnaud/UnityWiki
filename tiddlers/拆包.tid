@@ -1,5 +1,5 @@
 created: 20231029163517045
-modified: 20240802091315775
+modified: 20241027114416532
 tags: 逆向
 title: 拆包
 type: text/vnd.tiddlywiki
@@ -8,9 +8,34 @@ type: text/vnd.tiddlywiki
 
 !! 资源
 
-推荐使用 [[Assetstudio]]，不过不再更新了。
-后边如果有使用到再来补充一下。
+!!! AssetStudio
+[Perfare/AssetStudio: AssetStudio is a tool for exploring, extracting and exporting assets and assetbundles. (github.com)](https://github.com/Perfare/AssetStudio)
+简单易用，不过作者不再更新了。只有 windows 版
+
+!!! UnityRipper
+mac 下可以使用这个，作者同样不再更新了。这个项目可以导出 unity 项目
+[[mafaca/UtinyRipper: GUI and API library to work with Engine assets, serialized and bundle files (github.com)|https://github.com/mafaca/UtinyRipper]]
+
+另外一个人维护的替代品
+[[AssetRipper/AssetRipper: GUI Application to work with engine assets, asset bundles, and serialized files (github.com)|https://github.com/AssetRipper/AssetRipper]]
+
+!!! 使用
+把 apk 解压缩，直接把 Data 目录拖进工具里就行。
 
 !! 代码
 
-早期 unity 程序都用的 mono，拆包后，可以直接把游戏内的 Assembly-CSharp.dll 拖入 [[ILSpy]] dnSpy 之类的工具查看代码。不过 18 年后，google 商店要求应用要逐步支持 64 位，所以后边的游戏都改用 il2cpp 作为脚本后端，需要借助 [[IDA]] 之类的软件逆向 so 库。不过 pc 端的很多游戏还是用的 mono，可以直接查看学习。
+!!! mono
+早期的 unity 项目都是用 mono 做代码后端的，可以认为是完全不设防。apk 解压缩后，找到 Assembly-CSharp.dll，大致在如下的目录。把 dll 拖进反编译软件即可查看代码。
+
+!!! 反编译软件
+推荐使用 ILSpy，功能强大，但是只有 windows 版。[[icsharpcode/ILSpy: .NET Decompiler with support for PDB generation, ReadyToRun, Metadata (&more) - cross-platform! (github.com)|https://github.com/icsharpcode/ILSpy]]
+
+有个 mac 版，但是大概处在一个能用的状态吧。
+[[icsharpcode/AvaloniaILSpy: Avalonia-based .NET Decompiler (port of ILSpy) (github.com)|https://github.com/icsharpcode/AvaloniaILSpy]]
+
+!!! IL2cpp
+18 年后，谷歌商店要求新的游戏要支持 64 位，基本现在的游戏都换 il2cpp 做代码后端，代码都不再是 dll 而是 so 了（如果有 pc 版，那么基本上还都是用的 mono）。可以借助 IL2CppDumper + IDA 逆向查看代码。
+[[Perfare/Il2CppDumper: Unity il2cpp reverse engineer (github.com)|https://github.com/Perfare/Il2CppDumper]]
+
+!! 一些有用的链接
+* apkpure 可以下载谷歌商店的 apk，还会保留有老版本 [[Download APK on Android with Free Online APK Downloader - APKPure|https://apkpure.com/]]

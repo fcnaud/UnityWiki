@@ -1,0 +1,8 @@
+caption: 抗锯齿
+created: 20241026182318405
+modified: 20241026182404887
+tags: 
+title: AntiAliasing
+type: text/vnd.tiddlywiki
+
+抗锯齿，分别为 2x、4x、8x 可以通过 `QualitySettings.antiAliasing` 设置，取值为 0、 2、 4、 8。高性能 android 机可以考虑开 2x 。同时摄像机需要开启 ''Allow MSAA'' 才可生效。

@@ -1,5 +1,21 @@
 created: 20241021123212240
-modified: 20241021123217431
+modified: 20241027161054835
 tags: 
 title: Input
 type: text/vnd.tiddlywiki
+
+
+!! 一些名词概念
+
+* chords 组合键
+* sequence 一系列按键
+* digital 数字信号，按键只有按下和非按下两种状态
+* analog 模拟信号，摇杆可以提供一定范围内的一个值
+* dead zone 摇杆输入，被忽略的一个范围
+	** 需要做一个 filter（映射），减少 dead zone 的影响
+* 基于事件的输入系统
+	** 事件注册代替轮询
+* 移动输入
+	** 触摸和手势
+	** 加速器和陀螺仪
+	** Rubine algorithm

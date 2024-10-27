@@ -1,0 +1,21 @@
+created: 20241026180830088
+modified: 20241026180922848
+tags: Animation
+title: Animator Interruption
+type: text/vnd.tiddlywiki
+
+默认情况下，Animator 在两个 state 间进行转移 (transition) 时是不能被打断的。
+
+transition 被触发后，当前的状态被称为 current state，目标被称为 next state。如果 transition 需要被打断，需要修改 interruption source 选项。
+
+!!! Interruption source 共有 5 个选项。
+
+# None：不能被打断
+# Current state：只考虑 Current state 上的 transition
+# Next state：只考虑 Next state 上的 transition
+# Current Then Next：综合考虑
+# Next Then Current：综合考虑和 4 优先级不同
+
+!!! Ordered Interruption 选项（默认勾选）。
+
+勾选时，只有优先级（state 上 transitions 的顺序）高于当前 transition 才会被打断。如果有多个 transition 满足可以打断的条件时，也按照优先级。

@@ -1,0 +1,50 @@
+created: 20241026181021756
+modified: 20241026181455818
+tags: Input
+title: 获取用户输入
+type: text/vnd.tiddlywiki
+
+!! 基本的API
+
+!!! 判断鼠标的按下状态
+  0，1，2 分别代表鼠标左中右键。
+
+```csharp
+Input.GetMouseButton(int button);
+Input.GetMouseButtonUp(int button);
+Input.GetMouseButtonDown(int button);
+```
+
+!!! 判断键盘的按下状态
+[[KeyCode|https://docs.unity.cn/cn/current/ScriptReference/KeyCode.html]]
+
+```csharp
+Input.GetKey(KeyCode key)
+Input.GetKeyDown(KeyCode key)
+Input.GetKeyUp(KeyCode key)
+```
+
+!!! 获取虚拟轴的值
+  axisName 为 Input Setting 中设置的名称。常用的包括：`Horizontal`，`Vertcial`，`Mouse X`，`Mouse Y`
+
+```csharp
+Input.GetAxis(string axisName);
+Input.GetAxisRaw(string axisName);
+```
+
+!!! 获取虚拟按键的状态
+
+  可以在 Input Setting 中配置，常用的包括：`Fire1`，`Jump`
+
+```csharp
+Input.GetButton(string buttonName)
+Input.GetButtonDown(string buttonName)
+Input.GetButtonUp(string buttonName)
+```
+
+!!! 获取鼠标位置
+
+```csharp
+Input.mousePosition 获取的是像素坐标
+PointerEventData.position 在 UGUI 的点击事件中，传入的数据。获取的是 UI 坐标
+```
