@@ -1,0 +1,7 @@
+created: 20241028112544784
+modified: 20241028112647411
+tags: todo
+title: 日志处理
+type: text/vnd.tiddlywiki
+
+* Application.logMessageReceived

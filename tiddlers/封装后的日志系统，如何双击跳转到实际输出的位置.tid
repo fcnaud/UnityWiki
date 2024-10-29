@@ -1,0 +1,175 @@
+created: 20241029125150987
+modified: 20241029125633576
+tags: 日志处理
+title: 封装后的日志系统，如何双击跳转到实际输出的位置
+type: text/vnd.tiddlywiki
+
+
+<<<
+如果日志输出被封装后，点击会跳转到封装函数实现的地方，而不是真正想要输出的位置。
+<<<
+
+
+!!! 解决思路
+[[OnOpenAssetAttribute|https://docs.unity3d.com/ScriptReference/Callbacks.OnOpenAssetAttribute.html]] 是一个特性，它所修饰的静态函数 `static bool OnOpenAsset(int instanceID, int line)` 在 Unity 需要打开一个资源时，会尝试进行拦截处理。通过分析打开的资源、打开的窗口和输出的日志等内容来进行重定向的处理。
+
+要对我们自己编写的日志输出函数进行忽略，直接跳转至实际输出的位置进行打开，需要满足两个条件。
+
+* 打开的资源是我们编写的日志类。这是我们需要忽略的对象
+* 打开时活跃的窗口是 Console Window。排除正常打开的情况
+
+在满足这些条件的情况下，通过分析输出的日志，对一定的语句进行忽略。
+
+!!! 确定打开的活跃窗口并获取日志
+
+通过反射获取需要的数据，`UnityEditor.ConsoleWindow` 的非公有静态属性 `ms_ConsoleWindow` 为 ConsoleWindow 实例。`ConsolwWindow` 的非公有实例属性 `m_ActiveText` 为当前日志。
+
+```csharp
+private static string GetStackTrace()
+{
+    // 获取 ConsoleWindow 实例
+    var consoleWindowType = typeof(UnityEditor.EditorWindow).Assembly.GetType("UnityEditor.ConsoleWindow");
+    var consoleWindowField = consoleWindowType.GetField("ms_ConsoleWindow",
+        System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+    var consoleInstance = consoleWindowField.GetValue(null);
+    
+    // 判断是否为 focused 窗口并返回当前日志
+    if (consoleInstance != null)
+    {
+        if (EditorWindow.focusedWindow == (EditorWindow) consoleInstance)
+        {
+            var activeTextField = consoleWindowType.GetField("m_ActiveText",
+                System.Reflection.BindingFlags.Instance | 
+                System.Reflection.BindingFlags.NonPublic);
+            string activeText = activeTextField.GetValue(consoleInstance).ToString();
+            return activeText;
+        }
+    }
+    return null;
+}
+```
+
+!!! 确定打开的资源
+
+`EditorUtility.InstanceIDToObject` 可以通过 InstanceID 得到 Object。
+
+```csharp
+var monoScript = EditorUtility.InstanceIDToObject(instanceID) as MonoScript;
+// 判断当前需要打开的脚本资源是否为 FUtils.FLog
+if (monoScript != null && monoScript.GetClass() == Type.GetType("FUtils.FLog"))
+{
+	// ...
+}
+```
+
+!!! 分析日志，忽略部分语句
+
+[img[https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2021/11/19/19-20-08-20211119192007-173608.png]]
+
+通过分析 Unity 的输出我们可以得到调用栈的格式为 `class:func(args) (at path:line)`，使用正则表达式就可以获取需要的数据 `@"(.+\:.+)\(at (.+)\:(\d+)\)"`
+
+```csharp
+var matchs = System.Text.RegularExpressions.Regex.Match(stackTrace, @"(.+\:.+)\(at (.+)\:(\d+)\)",
+                        System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+while (matchs.Success)
+{
+    string filePath = matchs.Groups[2].Value;
+    string call = matchs.Groups[1].Value;
+    if (!filePath.Contains("FLog.cs"))
+    {
+        line = int.Parse(matchs.Groups[3].Value);
+        // 找到第一句不来自需要排除的类输出的日志。
+        // 得到需要的 filePath, line
+        break;
+    }
+    matchs = matchs.NextMatch();
+}
+```
+
+!!! 处理
+
+获取实际想要打开的资源数据后，通过 `UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal` 直接打开，或者再次调用 `AssetDatabase.OpenAsset` 传入真实数据。
+
+```csharp
+// rider 的插件对这个有影响，会导致能打开但没有跳转。我用的 rider 2021.2.2
+string fullPath = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf("Assets")) + filePath;
+UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal(fullPath.Replace('/', '\\'), line);
+```
+
+```csharp
+// 简单，但是有重入的问题，会导致死循环，需要在最开始进入时判断。
+AssetDatabase.OpenAsset(AssetDatabase.LoadAssetAtPath<Object>(filePath), line);
+```
+
+!!! example
+
+```csharp
+private static string GetStackTrace()
+{
+    var consoleWindowType = typeof(UnityEditor.EditorWindow).Assembly.GetType("UnityEditor.ConsoleWindow");
+    var consoleWindowField = consoleWindowType.GetField("ms_ConsoleWindow",
+        System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+    var consoleInstance = consoleWindowField.GetValue(null);
+    if (consoleInstance != null)
+    {
+        if (EditorWindow.focusedWindow == (EditorWindow) consoleInstance)
+        {
+            var activeTextField = consoleWindowType.GetField("m_ActiveText",
+                System.Reflection.BindingFlags.Instance | 
+                System.Reflection.BindingFlags.NonPublic);
+            string activeText = activeTextField.GetValue(consoleInstance).ToString();
+            return activeText;
+        }
+    }
+    return null;
+}
+
+[UnityEditor.Callbacks.OnOpenAssetAttribute(0)]
+private static bool OnOpenAsset(int instanceID, int line)
+{
+    var monoScript = EditorUtility.InstanceIDToObject(instanceID) as MonoScript;
+    // 处理一下重入的问题，不然有死循环
+    if (monoScript != null && monoScript.GetClass() == Type.GetType("FUtils.FLog"))
+    {
+        string stackTrace = GetStackTrace();
+        if (!string.IsNullOrEmpty(stackTrace) && stackTrace.Contains("FUtils.FLog:Log"))
+        {
+            var matchs = System.Text.RegularExpressions.Regex.Match(stackTrace, @"(.+\:.+)\(at (.+)\:(\d+)\)",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+            string filePath = string.Empty;
+            string call = string.Empty;
+            while (matchs.Success)
+            {
+                filePath = matchs.Groups[2].Value;
+                call = matchs.Groups[1].Value;
+                if (!filePath.Contains("FLog.cs") && 
+                    !call.Contains("AdvanceMonoBehaviour:F") &&
+                    !call.Contains("StringExtension:F"))
+                {
+                    line = int.Parse(matchs.Groups[3].Value);
+                    
+                    // 本来可以直接用这个函数打开，也不会有重入的问题，但是 rider 的 resharper 插件有重写这个，导致直接使用的话
+                    // 会打开但是不会跳转
+                    // string fullPath = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf("Assets"));
+                    // fullPath = fullPath + path;
+                    // UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal(fullPath.Replace('/', '\\'),
+                    //     line);
+
+                    // 所以使用 OpenAsset 来进行调用，这个就会导致重入的问题
+                    AssetDatabase.OpenAsset(AssetDatabase.LoadAssetAtPath<Object>(filePath), line);
+                    break;
+                }
+                matchs = matchs.NextMatch();
+            }
+
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+!! 参考
+
+*[[【游戏开发进阶】新发带你玩转Unity日志打印技巧（彩色日志 日志存储与上传 日志开关 日志双击溯源）_unity 打印object-CSDN博客|https://linxinfa.blog.csdn.net/article/details/119280053]]
+

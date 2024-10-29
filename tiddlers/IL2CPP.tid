@@ -1,0 +1,13 @@
+created: 20241029122510511
+modified: 20241029130824157
+tags: unity
+title: IL2CPP
+type: text/vnd.tiddlywiki
+
+> AOT 编译泛型与函数时会报错
+
+[[官方文档 ScriptingRestrictions|https://docs.unity3d.com/Manual/ScriptingRestrictions.html]]
+
+简单说就是用父类指针调用泛型函数，会导致编译器不知道如何处理。必须提前声明一下需要的情况。
+
+[[unity 论坛的一些相关讨论|https://forum.unity.com/threads/il2cpp-loading-c-assembly-at-runtime.417553/?_ga=2.112409857.423717411.1619319076-386631173.1610694261]]

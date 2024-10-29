@@ -1,0 +1,29 @@
+created: 20241028090301933
+modified: 20241028105201575
+tags: 渲染
+title: 渲染管线
+type: text/vnd.tiddlywiki
+
+也就是渲染流程，可以粗略地分成两个大阶段。
+
+* 顶点阶段（几何阶段），处理模型数据
+** 顶点着色器 vertex shader，通常都在这里处理数据
+** 曲面细分 tessellation shader
+** 几何着色器 gemoetry shader
+** 变换回执 transform feedback
+** 裁剪 clipping，根据视域裁剪掉不可见的部分，生产新的顶点
+** 屏幕映射
+** 图元装配 primitive assembly。unity 中的 cull back 是在这个阶段完成的
+* 片元阶段（光栅化阶段），处理像素数据
+** 光栅化
+*** 多重抗锯齿采样 MASS
+** 提前深度测试 early depth test
+** 片元着色器，fragment shader，可编程管线的片元部分
+** 逐片元操作
+*** 裁切测试
+*** 透明测试
+*** 模板测试
+*** 深度测试
+** 混合
+*** 混合 blend
+*** 遮罩 color mask

@@ -1,0 +1,14 @@
+created: 20241029123017855
+modified: 20241029123030852
+tags: c#
+title: 迭代器
+type: text/vnd.tiddlywiki
+
+需要遍历的类继承 IEnumerable 接口，实现 GetEnumerator 函数，返回一个迭代器 Enumerator。
+这个迭代器继承自 IEnumerator 需要实现三个功能
+
+* Current
+* MoveNext
+* Reset
+
+使用泛型的迭代器，分别继承 IEnumerable<T> 和 IEnumerator<T>。同时需要实现对应的 Current 和 GetEnumerator 泛型版本。

@@ -1,0 +1,39 @@
+created: 20241029123307666
+modified: 20241029124741451
+tags: 
+title: Unity中各种时间的概念
+type: text/vnd.tiddlywiki
+
+!!! DeltaTime
+
+* deltaTime 上一帧到当前帧的间隔，受到 maximumDeltaTime 限制
+* unscaledDeltaTime 概念同上，不受 timeScale 影响
+* smoothDeltaTime 利用前几帧的 dt 取平均值
+* fixedDeltaTime 物理帧时间，固定时长。受 dt 影响，当 timeScale 为 0 时，FiexdUpdate 也不会执行
+
+!!! dt 和 timeScale 的关系
+
+当 timeScale 从 1 变为 0.5 时
+
+* deltaTime 受 scale 影响，变小，时间变慢
+* unscaledDeltaTime 不变
+* fixedDeltaTime 固定值，不变
+* 帧率 不变
+* 物理帧，变少，因为 dt 变小，物理帧实际上只依赖于 dt，所以也会变少
+
+!!! time
+
+* time 游戏时间。游戏开启到当前帧开始的时间，在所有物体 Awake 和 Start 之前，行为是未定义的，所以比 unscaledTime 和 realtimeSinceStartup 稍微少一点
+* fiexdTime ？
+* unscaledTime 游戏内体感时间。不受timeScale影响的time
+* realtimeSinceStartup 游戏外真实世界时间。不受 timeScale 影响，暂停也会计时
+
+!!! other
+
+Time.maximumDeltaTime 当游戏卡顿十分严重，dt 过大时，会直接使用这个值
+
+!!! Time logic
+
+FixedUpdate 的执行逻辑，当unity的生命周期执行到FixedUpdate时，会判断，当前Update的deltaTime可以满足几个物理帧的执行，并且在每个回调中传入固定的 fixedDeltaTime 值。
+
+FixedUpdate 受 deltaTime 影响，deltaTime 受 timeScale 影响

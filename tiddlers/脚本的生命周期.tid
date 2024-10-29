@@ -1,0 +1,25 @@
+created: 20241028083736680
+modified: 20241029130950604
+tags: 
+title: 脚本的生命周期
+type: text/vnd.tiddlywiki
+
+!! 一些常见的问题
+
+
+!!! Awake
+
+创建后立即执行，先于 Start。
+Awake 是否执行与当前脚本是否 enable 无关，只与当前 GameObject 是否 active 有关。
+
+!!! Start
+
+第一次帧更新前。
+
+!!! OnDestroy 什么时候执行
+
+当使用 Destory 销毁一个 GameObject 时，OnDisable 会立即执行，OnDestroy 会在当前帧的最后执行。
+
+!! 参考
+
+[[事件函数的执行顺序 - Unity 手册 (unity3d.com)|https://docs.unity3d.com/cn/2020.3/Manual/ExecutionOrder.html]]

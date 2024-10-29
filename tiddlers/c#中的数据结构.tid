@@ -1,0 +1,39 @@
+created: 20241029122723817
+modified: 20241029122814164
+tags: 
+title: c#中的数据结构
+type: text/vnd.tiddlywiki
+
+!!! LinkedList
+
+双向链表，比单链表的一个特点就是如果已经拿到对应的节点，可以做到 O(1) 的删除。
+
+!!! Dictionary
+
+* foreach 循环的结果是 pair，可以通过 Key，Value 获取具体的值
+* 也可以通过 Keys，Values 获得单独的序列
+
+!!! HashSet
+
+一般来说集合这个数据结构是使用搜索树实现的，C# 用了 hash 的方式来做这个。
+
+常用函数
+
+* Add 一般来说这个函数就满足基本的需求了，当元素已存在是，返回为 false
+* Contains
+
+!!! SortedList
+
+c# 中没有直接提供优先队列，需要使用 SortedList 辅助实现一个。
+
+!!! PriorityQueue
+
+优先队列，c#新版本中直接提供了。
+
+PriorityQueue<TElement,TPriority> 第二个为优先级，不能获取。
+
+常用函数
+
+* Enqueue
+* Dequeue 弹出的是 Element，不包含 Priority
+* Count

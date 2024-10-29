@@ -1,0 +1,32 @@
+created: 20241029122840567
+modified: 20241029130818456
+tags: unity
+title: 协程
+type: text/vnd.tiddlywiki
+
+
+```csharp
+namespace UnityEngine
+{
+  /// <summary>
+  ///   <para>Base class for custom yield instructions to suspend coroutines.</para>
+  /// </summary>
+  public abstract class CustomYieldInstruction : IEnumerator
+  {
+    /// <summary>
+    ///   <para>Indicates if coroutine should be kept suspended.</para>
+    /// </summary>
+    public abstract bool keepWaiting { get; }
+
+    public object Current => (object) null;
+
+    public bool MoveNext() => this.keepWaiting;
+
+    public void Reset()
+    {
+    }
+  }
+}
+```
+
+通过[[迭代器]]实现，可以看到也是继承自 IEnumerator，主要功能也是借助 Current, MoveNext, Reset 实现。

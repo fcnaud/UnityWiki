@@ -1,0 +1,170 @@
+created: 20241029130126052
+modified: 20241029130759503
+tags: unity
+title: 条件编译
+type: text/vnd.tiddlywiki
+
+
+<<<
+在针对不同的 unity 版本，不同的平台（ios、android，pc），不同的包（debug，release）可能需要编写不同的代码
+<<<
+
+
+!! 条件编译
+
+!!! 定义符号
+
+* `#define`
+* `#undef`
+
+与 c/c++ 里的宏有很大区别，只用来定义符号，必须出现在文件最开始。
+
+!!! 条件编译
+
+预处理指令
+
+* `#if`
+* `#elif`
+* `#else`
+* `#endif`
+
+可以使用的运算符
+
+* `==`
+* `!=`
+* `&&`
+* `||`
+* `!`
+
+!! Conditional 特性
+
+!!! 如何使用
+
+当没有定义对应 Symbol 时，编译器会忽略相关调用，包括参数中的调用，比如例子中的 `GetArg`。
+
+此特性只能修饰返回值为 void 的函数和 attribute class。
+
+```csharp
+#define TEST
+
+using System.Diagnostics;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
+
+public class TestSymbol : MonoBehaviour
+{
+    private void Start()
+    {
+        T1();
+        T2(GetArg());
+    }
+
+    [Conditional("TEST")]
+    public void T1()
+    {
+        Debug.Log("T1");
+    }
+
+    [Conditional("TEST")]
+    public void T2(int input)
+    {
+        Debug.Log("T2");
+    }
+
+    public int GetArg()
+    {
+        Debug.Log("GetArg Invoke");
+        return 0;
+    }
+}
+
+```
+
+!! 两者的差别
+
+* 条件编译排除掉的内容，并不会被编译当然也不会经过ide的语法检测。这样通过ide提供的替换等功能时，会导致一些内容并不能被识别修改
+* conditional 的内容，会被编译，但是当没有对应symbol时，不会被调用
+
+!! unity 使用代码控制 symbol 的定义
+
+!!! api
+
+```csharp
+// GetScriptingDefineSymbolsForGroup
+public static extern string GetScriptingDefineSymbolsForGroup(BuildTargetGroup targetGroup);
+
+// SetScriptingDefineSymbolsForGroup
+public static void SetScriptingDefineSymbolsForGroup(BuildTargetGroup targetGroup, string defines);
+```
+
+!!! example
+
+```csharp
+// ref GameFramework https://gameframework.cn/
+
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
+
+namespace FUtils
+{
+    public static class ScriptingDefineSymbols
+    {
+        private static readonly BuildTargetGroup[] BuildTargetGroups = new BuildTargetGroup[]
+        {
+            BuildTargetGroup.Standalone,
+            BuildTargetGroup.Android,
+        };
+
+        public static string[] GetDefineSymbols(BuildTargetGroup buildTargetGroup)
+        {
+            return PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup).Split(';');
+        }
+        public static void SetDefineSymbols(BuildTargetGroup buildTargetGroup, string[] defineSymbols)
+        {
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, string.Join(";", defineSymbols));
+        }
+        public static bool HasDefineSymbol(BuildTargetGroup buildTargetGroup, string defineSymbol)
+        {
+            if (string.IsNullOrEmpty(defineSymbol)) return false;
+            var defineSymbols = GetDefineSymbols(buildTargetGroup);
+            return defineSymbols.Contains(defineSymbol);
+        }
+        public static void AddDefineSymbol(BuildTargetGroup buildTargetGroup, string defineSymbol)
+        {
+            if (string.IsNullOrEmpty(defineSymbol)) return;
+            if (HasDefineSymbol(buildTargetGroup, defineSymbol)) return;
+
+            var defineSymbols = new List<string>(GetDefineSymbols(buildTargetGroup))
+            {
+                defineSymbol,
+            };
+            SetDefineSymbols(buildTargetGroup, defineSymbols.ToArray());
+        }
+        public static void RemoveDefineSymbol(BuildTargetGroup buildTargetGroup, string defineSymbol)
+        {
+            if (string.IsNullOrEmpty(defineSymbol)) return;
+            if (!HasDefineSymbol(buildTargetGroup, defineSymbol)) return;
+
+            var defineSymbols = new List<string>(GetDefineSymbols(buildTargetGroup));
+            defineSymbols.RemoveAll(item => item == defineSymbol);
+            SetDefineSymbols(buildTargetGroup, defineSymbols.ToArray());
+        }
+
+        public static void AddDefineSymbol(string defineSymbol)
+        {
+            if (string.IsNullOrEmpty(defineSymbol)) return;
+            BuildTargetGroups.ForEach(buildTarget => {
+                AddDefineSymbol(buildTarget, defineSymbol);
+            });
+        }
+        public static void RemoveDefineSymbol(string defineSymbol)
+        {
+            if (string.IsNullOrEmpty(defineSymbol)) return;
+            BuildTargetGroups.ForEach(buildTarget => {
+                RemoveDefineSymbol(buildTarget, defineSymbol);
+            });
+        }
+    }
+}
+```

@@ -1,8 +1,18 @@
 caption: 动画
 created: 20240712021948688
-modified: 20241027112818283
+modified: 20241029121435494
 page-cover: 
 title: Animation
 type: text/vnd.tiddlywiki
+
+动画分类
+
+* 序列帧动画
+* 2d骨骼动画（spine）
+* 关键帧动画
+* 蒙皮动画（3d）
+* uv动画（shader）
+
+感兴趣的点
 
 * IK

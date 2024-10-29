@@ -1,0 +1,24 @@
+created: 20241028084920661
+modified: 20241028085818690
+title: 后处理
+type: text/vnd.tiddlywiki
+
+对摄像机的输出结果再次进行处理。
+
+unity 中的渲染接口
+
+```csharp
+void OnRenderImage(RenderTexture sourceTexture, RenderTexture destTexture)
+Graphics.Blit(sourceTexture, destTexture, renderMaterail)
+```
+
+常见的后处理效果
+
+* [[模糊效果]]
+* [[高斯模糊]]
+* [[径向模糊]]
+* [[锐化]]
+* [[Bloom(泛光效果)]]
+* [[辉光效果]]
+* [[边缘光]] outline
+* [[景深]]

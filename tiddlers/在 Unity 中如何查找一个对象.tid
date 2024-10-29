@@ -1,6 +1,6 @@
 created: 20240802084224980
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20241021113252408
+modified: 20241029124934884
 tags: Basic
 title: 在 Unity 中如何查找一个对象
 type: text/vnd.tiddlywiki
@@ -12,3 +12,17 @@ type: text/vnd.tiddlywiki
 * 效率不高，只用来初始化
 * 需要传递路径
 * 对象需要是激活状态
+
+按照路径查找，相对路径，查找自身的 child 节点
+
+`FindObjectOfType` 系列
+
+获取某一类型的脚本对象。例如，创建单例时，检测场景中是否已经存在该对象。
+
+`GameObject.Find()`
+
+按照路径查找，如果包含 '/' 则顺着路径查找，只查找 active 的物体。
+
+`GameObject.FindWithTag()/GameObject.FindGameObjectsWithTag()`
+
+按照 tag 查找，传入的 tag 必须存在

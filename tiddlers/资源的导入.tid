@@ -1,0 +1,12 @@
+created: 20241028085833574
+modified: 20241028090044037
+tags: 资源管理
+title: 资源的导入
+type: text/vnd.tiddlywiki
+
+!! 相关API
+
+* AssetPostprocessor 类可以在导入资源时，或者导入资源后，捕获到相应的信息
+* OnPreprocessTexture
+* OnPostprocessTexture
+

@@ -1,0 +1,109 @@
+created: 20241029122216892
+modified: 20241029122357340
+title: IO
+type: text/vnd.tiddlywiki
+
+
+<<<
+文件的读写
+<<<
+
+
+!!! 写入文件
+
+```csharp
+// string path
+
+using (FileStream fileStream = File.Create(path)) {
+    using (StreamWriter streamWriter = new StreamWriter(fileStream)) {
+        streamWriter.WriteLine("content");
+    }
+}
+```
+
+eg.
+
+```csharp
+public void SavePuzzle()
+{
+    #if UNITY_EDITOR
+    string path = EditorUtility.SaveFilePanel("Save Puzzle", "", "puzzle", "txt");
+    if (path.Length > 0) {
+        using (FileStream fileStream = File.Create(path)) {
+            using (StreamWriter streamWriter = new StreamWriter(fileStream)) {
+                // streamWriter.WriteLine("PuzzleInfo");
+            }
+        }
+    }
+    #endif
+}
+```
+
+!!! 读取文件
+
+```csharp
+// string path
+
+using (FileStream fileStream = File.OpenRead(path)) {
+    using (StreamReader streamReader = new StreamReader(fileStream)) {
+        string line = streamReader.ReadLine();
+        while(line != null) {
+            // do some ...
+            line = streamReader.ReadLine();
+        }
+    }
+}
+```
+
+同样可以使用 `EditorUtility.OpenFilePanel` 函数加载文件
+
+!!! unity 读取 TextAsset
+
+按照 string 进行读取
+
+```csharp
+// TextAsset textObj
+string[] lines = textObj.text.Split(new []{'\n', '\r'});
+foreach (var line in lines) {
+    // do some line
+}
+```
+
+按照 bytes 进行读取
+
+```csharp
+private void ReadByBytes(TextAsset textAsset, bool skipEmptyLine = true)
+{
+    var bytes = textAsset.bytes;
+    
+    int max = bytes.Length;
+    int lineStart = 0;
+    
+    if (skipEmptyLine) {
+        while (lineStart < max && bytes[lineStart] < 32) ++lineStart;
+    }
+    
+    while (lineStart < max)
+    {
+        int lineEnd = lineStart;
+        while (lineEnd < max)
+        {
+            int ch = bytes[lineEnd++];
+            if (ch == '\n' || ch == '\r') break;
+        }
+        string line = Encoding.UTF8.GetString(bytes, lineStart, lineEnd - lineStart);
+        Debug.Log(line);
+        lineStart = lineEnd;
+        
+        if (skipEmptyLine) {
+            while (lineStart < max && bytes[lineStart] < 32) ++lineStart;
+        }
+    }
+}
+```
+
+!!! 读取 csv
+
+需要处理 `""` 中的分隔符之类的一些特殊情况，直接使用 NGUI 的 ByteReader、DataReader 和 BetterList 脚本。
+
+
