@@ -1,5 +1,5 @@
 created: 20241027160725152
-modified: 20241028111220493
+modified: 20241112171823658
 title: AI
 type: text/vnd.tiddlywiki
 
@@ -7,6 +7,7 @@ type: text/vnd.tiddlywiki
 * 状态机
 * 决策树
 * 任务调配
+* GOAP 基于目标的行动规划
 
 !! 参考链接
 

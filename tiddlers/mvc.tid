@@ -1,0 +1,12 @@
+created: 20241112165041715
+modified: 20241113063746369
+title: mvc
+type: text/vnd.tiddlywiki
+
+* model 存储数据
+* view 控制显示
+* controller 处理逻辑，联通mv
+
+mvc 主要做的就是把数据和界面显示逻辑分隔开，业务逻辑单独放在controller里。
+
+* [[【唐老狮】Unity中的MVC思想—5—使用MVC制作UI逻辑|https://www.bilibili.com/video/BV1vv411r7Mn]]

@@ -1,0 +1,10 @@
+created: 20241112090635463
+modified: 20241112090842959
+title: UI
+type: text/vnd.tiddlywiki
+
+unity ui 方案
+
+* ngui 如果是维护老的项目，可能还有在使用。内容值得学习
+* ugui 官方实现，也是最常用的
+* fairy gui 一个跨平台的 ui 方案，但是使用的人似乎很少，网上看不到太多相关的内容

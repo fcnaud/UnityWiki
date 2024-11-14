@@ -1,0 +1,16 @@
+created: 20241112061631269
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241112062035193
+tags: 旋转
+title: 万向锁是如何出现的
+type: text/vnd.tiddlywiki
+
+万向锁出现在使用欧拉角表示旋转的情况下。
+
+欧拉角旋转，“Yaw-Pitch-Roll”（偏航 - 俯仰 - 滚转），使用三个角度来描述旋转。
+
+* Yaw 绕 Y 轴旋转，左转右转
+* Pitch 绕自身 X 轴旋转，抬头下压
+* Roll 绕自身 Z 轴旋转，翻滚
+
+当俯仰角为+90/-90度时，Yaw和Roll变成了等效的。

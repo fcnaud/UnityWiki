@@ -1,0 +1,95 @@
+created: 20241114164033721
+modified: 20241114180903770
+tags: 教程 物理
+title: 腾讯游戏课堂-游戏物理模拟-周轩
+type: text/vnd.tiddlywiki
+
+[[课程链接|https://gameinstitute.qq.com/course/detail/10254]]
+
+
+<<<
+基础物理概念介绍，讲的挺好的，但是看起来是从内部课程中截取了一部分出来。
+<<<
+
+
+常见物理引擎
+
+* PhysX Nvidia
+* havok Intel
+* Bullet AMD
+
+几何体
+
+* Sphere
+* OBB
+* Capsule
+* Convex
+* TriangleMesh
+* HeightMesh
+
+碰撞检测
+
+* 场景剔除，使用 Octree 进行场景管理
+* BroadPhase 粗略阶段，根据包围盒排除一些一定不想交的情况
+* NarrowPhase 精确阶段
+** 碰撞检测矩阵，根据不同的碰撞盒确定使用的具体算法
+* ResolvePhase 处理约束
+
+质点
+
+* 质点的状态
+** Mass 重力
+** Velocity 速度
+** Position 位置
+* 改变质点的状态
+** 力
+** 碰撞
+
+刚体
+
+* 刚体的属性和状态
+** 质点属性和状态
+** 形状、角速度、定向
+** 弹性系数
+* 刚体模拟
+** 运动状态模拟
+** 碰撞检测
+** 摩擦力
+
+胶囊体如何上台阶
+
+* 向下的射线检测，做一个提升
+* 抬升->移动->向下落
+
+约束
+
+* 点对点 point to point constraint
+
+[img width=300 [https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/15/01-15-06-20241115011456-fd67a8.png]]
+
+* hinge constraint
+
+[img width=300 [https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/15/01-15-56-20241115011555-83554f.png]]
+
+* slider constraint
+
+[img width=300 [https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/15/01-16-25-20241115011625-287691.png]]
+
+* 通用约束 6 dof(degrees of freedom) constraint
+
+约束构建的物理体
+
+* 刚体 + 约束
+** 铰接体：Ragdoll、链条、吊桥
+** Vehicle：带轮子的车
+* 质点、线段、三角形 + 约束
+** 二维网格质点：布料
+** 链式连接：绳索、头发
+
+学习资料推荐
+
+* 书籍
+** [[3D数学基础]]
+** [[实时碰撞检测技术]]
+** [[计算机几何工具详解]]
+** 游戏编程精粹 系列

@@ -1,0 +1,10 @@
+created: 20241112094142936
+modified: 20241112094217958
+tags: 
+title: 架构
+type: text/vnd.tiddlywiki
+
+* [[mvc]]
+* [[mvvm]]
+* [[flux]]
+* [[redux]]

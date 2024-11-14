@@ -1,5 +1,5 @@
 created: 20241029122840567
-modified: 20241029130818456
+modified: 20241113155629194
 tags: unity
 title: 协程
 type: text/vnd.tiddlywiki
@@ -30,3 +30,7 @@ namespace UnityEngine
 ```
 
 通过[[迭代器]]实现，可以看到也是继承自 IEnumerator，主要功能也是借助 Current, MoveNext, Reset 实现。
+
+参考
+
+* [[反编译C#代码来看看协程是什么|https://zhuanlan.zhihu.com/p/35195150]]

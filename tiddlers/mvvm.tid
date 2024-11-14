@@ -1,0 +1,6 @@
+created: 20241112171147634
+modified: 20241112171311560
+title: mvvm
+type: text/vnd.tiddlywiki
+
+mvvm 的 mv 和 [[mvc]] 中的概念一致，重点是这里的 vm viewModel，它和 view 通过 [[数据绑定]] 来进行关联。

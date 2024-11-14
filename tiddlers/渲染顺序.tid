@@ -1,9 +1,28 @@
 created: 20241028110639858
-modified: 20241028111019943
+modified: 20241113161922713
 tags: 渲染
 title: 渲染顺序
 type: text/vnd.tiddlywiki
 
+
+影响渲染顺序的因素
+
+* 相机深度 camera depth
+* sorting layer
+* order in layer，同一 sorting layer 中有效
+* render queue，内置的渲染队列
+* z 轴，确定遮挡关系
+* ui 元素还受 Hierarchy 中的顺序影响
+
+note
+
+* 当 render queue 都是不透明或者都是半透明物体时，先看 sorting layer 在看 order in layer，最后看 render queue
+
+
+
+渲染管线的渲染顺序
+
 * 画家算法，从远至近
 * 深度缓冲区 + 渲染队列
 ** 半透明物体先绘制，并且不写入深度
+

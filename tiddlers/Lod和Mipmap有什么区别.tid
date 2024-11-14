@@ -1,0 +1,8 @@
+created: 20241111041950527
+modified: 20241111042246454
+tags: 面试问题整理
+title: Lod和Mipmap有什么区别
+type: text/vnd.tiddlywiki
+
+Lod：根据摄像机距离，使用不同精度的模型
+Mipmap: 是一种纹理优化技术，会自动生成不同分辨率的纹理版本，根据物体在屏幕上的大小，自动选择合适的纹理

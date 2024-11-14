@@ -1,0 +1,65 @@
+created: 20241103081652065
+modified: 20241106114726789
+tags: 摄像机 Input
+title: 摄像机操作
+type: text/vnd.tiddlywiki
+
+
+<<<
+摄像机视口的操作，设计到平移和缩放。
+<<<
+
+!! 缩放
+
+放大游戏画面，可以通过缩短摄像机距离或者减小视场角fov。
+
+* 调整摄像机距离
+** 可能会出现裁剪
+* 控制 fov
+** 过度减小fov，可能出现鱼眼效果或变形
+
+需要根据具体情况确定使用那种方式。
+
+通过把双指对屏幕进行的缩放行为，映射为对上述两个参数的修改。为了让操作更符合玩家的思考逻辑，这里选择让两指滑动的距离和游戏内的变化一致。也就是开始时手指的位置，在缩放后，还处于同样的游戏画面位置。
+
+```csharp
+// touch1,touch2 当前双指的位置
+// lastZoomPositions 上一帧双指的位置
+float newDistance = Vector2.Distance(touch1, touch2);
+float oldDistance = Vector2.Distance(lastZoomPositions[0], lastZoomPositions[1]);
+float offset = newDistance - oldDistance;
+Vector3 startInWorld = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
+Vector3 endInWorld = mainCamera.ScreenToWorldPoint(new Vector3(offset, 0, mainCamera.nearClipPlane));
+float offsetInWorld = Vector3.Distance(startInWorld, endInWorld); // 这是世界坐标中的距离
+
+mainCamera.orthographicSize -= Mathf.Sign(offset) * offsetInWorld;
+```
+
+!! 平移
+
+平移也是，主要就是将在屏幕上滑动线段的两端，映射到真实世界中，对摄像机进行移动。
+
+# 把起始点A，终点B都映射到真实世界中，计算offset(A1B1)
+# 通过offset计算和实际世界平面相交的移动距离，也就是A1B2，可以通过A1CB1和A1B1B2相似求得
+# 移动摄像机
+
+
+[img width=300 [https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/06/19-23-06-20241106192302-fa7411.png]]
+
+```csharp
+var oldWorldPos = mainCamera.ScreenToWorldPoint(new Vector3(lastPanPosition.x, lastPanPosition.y, 10));
+var newWorldPos = mainCamera.ScreenToWorldPoint(new Vector3(newPanPosition.x, newPanPosition.y, 10));
+var cameraOffset = newWorldPos - oldWorldPos;
+
+var offsetLength = cameraOffset.magnitude;
+var offsetOnXZ = Vector3.ProjectOnPlane(cameraOffset, Vector3.up);
+var offsetOnXZLength = offsetOnXZ.magnitude;
+var scale = 0f;
+if (offsetOnXZLength != 0)
+{
+    scale = offsetLength * offsetLength / offsetOnXZLength;
+}
+
+var movement = -offsetOnXZ.normalized * scale;
+mainCamera.transform.Translate(movement, Space.World);
+```

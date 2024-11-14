@@ -1,0 +1,52 @@
+created: 20241111091116761
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241111095608381
+tags: example
+title: IO类游戏如何同步移动
+type: text/vnd.tiddlywiki
+
+多人游戏位置同步，IO游戏只需要简单的同步，但是毕竟都是对战游戏，也需要一定程度的实时。
+
+玩家自身，本地移动，按照时间间隔同步位置、角度、方向、时间戳等信息。
+其他玩家，按照传递回来的信息，以及当前的时间，计算预期位置，并朝着这个点进行移动。
+
+```csharp
+        protected virtual void MoveByNet()
+        {
+            if (Vector3.Distance(fishData.Position, rigid.position) > 20)
+            {
+                rigid.rotation = fishData.Rotation;
+                rigid.MovePosition(fishData.Position);
+            }
+            else
+            {
+                Quaternion targetRot;
+                if (fishData.Direction != Vector3.zero)
+                {
+                    targetRot = Quaternion.FromToRotation(realForward, Vector3.up) * Quaternion.LookRotation(Vector3.forward, fishData.Direction);
+                }
+                else
+                {
+                    targetRot = fishData.Rotation;
+                }
+                // rigid.rotation = Quaternion.RotateTowards(rigid.rotation, targetRot, fishData.TurnSpeed * Time.deltaTime);
+                rigid.rotation = Quaternion.Slerp(rigid.rotation, targetRot, Time.deltaTime * 10);
+
+                // dt += Time.deltaTime;
+                dt = (TimeUtil.GetServerTimeStampToMilliseconds_FromCache() - fishData.SyncTimeStamp) / 1000f;
+                if (dt >= 0)
+                {
+                    var currentPos = rigid.position;
+                    var targetPos = fishData.Position + dt * fishData.CurrentSpeed * fishData.Direction;
+                    ClampPositionInGameRange(targetPos, out var clampPosition);
+                    var nextPos = Vector3.MoveTowards(currentPos, clampPosition, Time.deltaTime * fishData.CurrentSpeed);
+                    rigid.MovePosition(nextPos);
+                }
+            }
+        }
+
+```
+
+上边这个应该就是一个简单的状态同步方案。
+
+更简单的就是直接朝着传递过来的位置进行移动，这样会有一定的滞后，在一些不需要实时性的游戏中，可以这样使用。

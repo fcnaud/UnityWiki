@@ -1,0 +1,30 @@
+created: 20241106114849980
+modified: 20241106115123986
+tags: Input
+title: 多指触控输入
+type: text/vnd.tiddlywiki
+
+使用 Input touch 系列 api。
+
+* Input.touchCount
+* Input.GetTouch(fingerId)
+* touch.phase
+* touch.position
+
+如果你想在手指抬起时获取触摸事件，你应该检查Touch.phase属性是否为TouchPhase.Ended，如下所示：
+
+```csharp
+void Update()
+{
+    if (Input.touchCount > 0)
+    {
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase == TouchPhase.Ended)
+        {
+            // 手指抬起，处理触摸事件
+        }
+    }
+}
+```
+
+在这个示例中，首先检查是否有触摸事件，然后获取第一个触摸点的信息。然后，检查触摸的阶段是否为，如果是，那么处理触摸事件。

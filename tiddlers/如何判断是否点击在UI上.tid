@@ -1,5 +1,5 @@
 created: 20241021123228410
-modified: 20241021123744477
+modified: 20241106115111544
 tags: Input snippet
 title: 如何判断是否点击在UI上
 type: text/vnd.tiddlywiki
@@ -32,20 +32,3 @@ type: text/vnd.tiddlywiki
 
 当你在Input.GetMouseButtonUp(0)为true的时候调用Input.GetTouch(0)，你可能无法获取到有效的触摸事件。因为当手指抬起时，触摸事件可能已经结束，Input.GetTouch(0)可能无法获取到有效的触摸事件。
 
-如果你想在手指抬起时获取触摸事件，你应该检查Touch.phase属性是否为TouchPhase.Ended，如下所示：
-
-```csharp
-void Update()
-{
-    if (Input.touchCount > 0)
-    {
-        Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Ended)
-        {
-            // 手指抬起，处理触摸事件
-        }
-    }
-}
-```
-
-在这个示例中，首先检查是否有触摸事件，然后获取第一个触摸点的信息。然后，检查触摸的阶段是否为，如果是，那么处理触摸事件。
