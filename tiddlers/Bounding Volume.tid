@@ -1,0 +1,12 @@
+caption: 包围盒
+created: 20241123135434735
+modified: 20241123140001557
+tags: 
+title: Bounding Volume
+type: text/vnd.tiddlywiki
+
+包围盒
+
+* aabb axis-aligned boudning box 轴对齐包围盒，包围盒的每一条边都和轴平行
+* obb oriented bounding box 有向包围盒，和被包围物体紧密贴合
+* circle/sphere

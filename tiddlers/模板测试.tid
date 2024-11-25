@@ -1,0 +1,19 @@
+created: 20241115150413971
+modified: 20241115152026655
+tags: 渲染
+title: 模板测试
+type: text/vnd.tiddlywiki
+
+通过向模板缓冲区写入和读取一个无符号整数来控制像素是否被绘制。通常用来实现遮罩等效果。
+
+```
+// example
+Stencil
+        {
+            Ref [_StencilRef]
+            Comp [_StencilComp]
+            Pass [_StencilOp]
+            ReadMask [_StencilReadMask]
+            WriteMask [_StencilWriteMask]
+        }
+```

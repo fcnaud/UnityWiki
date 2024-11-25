@@ -1,0 +1,17 @@
+created: 20241123131910473
+modified: 20241123133331146
+tags: 碰撞检测
+title: 空间索引
+type: text/vnd.tiddlywiki
+
+空间划分，将游戏场景按照一定的规则和算法分割成多个子空间。
+空间索引，基于空间划分的结果建立索引信息，用于高效的查询和检索相关物体。
+
+
+* BVH
+* 四叉树/八叉树
+
+!! 参考链接
+
+* [[知乎专栏-【Unity Graphics】BVH（Bounding volume hierarchy）从Octree开始（1）-李恒 |https://zhuanlan.zhihu.com/p/696725602]]
+* [[知乎讨论-游戏场景管理的八叉树算法是怎样的？ |https://www.zhihu.com/question/25111128]]

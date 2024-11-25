@@ -1,0 +1,40 @@
+created: 20241121161539141
+list: {{||$:/core/ui/TagTemplate}}
+modified: 20241125060949813
+tags: InProgress
+title: 面试常见问题整理
+type: text/vnd.tiddlywiki
+
+面试时候，除了常见的八股和面试公司感兴趣的点外，很多时候都是扣着你的简历问的，所以简历上需要着重描写你的优点。
+
+* c#
+** 常见数据结构相关内容 List/Dictionary 实现
+* 设计模式
+** 单例模式
+** 观察者模式
+** 命令模式
+* 渲染管线
+** 简述渲染管线
+** 合批
+*** 静态
+*** 动态
+*** GPU Instance
+* UI
+** Mask如何实现
+* 图片压缩格式相关的内容
+* 物理
+** 碰撞检测
+* 资源管理
+** assetbundle
+
+参考链接
+
+* [[GameDevelopmentGuide/面试题.md at master · su9257/GameDevelopmentGuide · GitHub|https://github.com/su9257/GameDevelopmentGuide/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98.md]]
+* [[B站_游戏主程面试题视频详解_Blake的游戏讲堂|https://www.bilibili.com/BV1Vs4y1v7o1]]
+* [[B站_Unity架构师面试题系列： CSharp编程语言系列面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1TP411z7pS]]
+* [[B站_Unity架构师面试题系列： 性能优化面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1jj411S7AK]]
+* [[B站_Unity架构师面试题系列： 算法面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1zM4y1J716]]
+* [[B站_Unity架构师面试题系列： Bug追踪面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1Ph411N7De]]
+* [[B站_Unity架构师面试题系列：渲染面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1ju411H7cZ]] done
+* [[B站_Unity架构师面试题系列： Lua热更新面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1Jh4y1G7qa]]
+* [[B站_Unity架构师面试题系列： IL2CPP系列面试篇【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1wh4y1R7Qn]]

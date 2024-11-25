@@ -1,0 +1,17 @@
+created: 20241121155329144
+modified: 20241123104206210
+tags: framework ToLearn
+title: PureMVC
+type: text/vnd.tiddlywiki
+
+
+相关链接
+
+* 官网 [[The PureMVC framework|https://puremvc.org/]]
+* unity 版本项目地址 [[puremvc-csharp-standard-framework|https://github.com/PureMVC/puremvc-csharp-standard-framework]]
+
+参考链接
+
+* [[PureMVC框架在Unity中的应用（一）-腾讯游戏学堂|https://gwb.tencent.com/community/detail/127468]]
+* [[Unity之经典优秀框架PureMVC解析(中)-框架解析篇 - 个人技术笔记|https://aihailan.com/archives/949]]
+* [[Unity PureMVC 之 PureMVC  框架的下载，以及一个简单应用学会使用 PureMVC  框架_puremvc下载-CSDN博客|https://blog.csdn.net/u014361280/article/details/108073396]]

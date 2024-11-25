@@ -1,0 +1,7 @@
+created: 20241124095244984
+modified: 20241124095310638
+tags: Packages
+title: ParticleEffectForUGUI
+type: text/vnd.tiddlywiki
+
+* [[GitHub - mob-sakai/ParticleEffectForUGUI: Render particle effect in UnityUI(uGUI). Maskable, sortable, and no extra Camera/RenderTexture/Canvas.|https://github.com/mob-sakai/ParticleEffectForUGUI]]

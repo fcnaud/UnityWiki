@@ -1,12 +1,30 @@
 class: 
 created: 20240805021534907
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20241023095155705
+modified: 20241124101713420
 tags: 资源管理
 title: Bundle
 type: text/vnd.tiddlywiki
 
-''前置''：[[Download Manager]]
+使用 assetbundle 管理资源，需要处理哪些方面的内容
+
+!!! 构建
+
+创建 bundle，读取配置，通过 api 构建 bundle。
+
+!!! 下载、更新
+
+* [[下载模块|Download Manager]]
+** 下载bundle
+** 断点续传
+* 更新
+** 维护 md5 信息，判断是否需要更新
+
+!!! 资源生命周期维护
+
+* 资源加载/卸载
+
+!! 参考链接
 
 关于bunble的格式
 

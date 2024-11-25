@@ -1,0 +1,9 @@
+created: 20241121161203275
+modified: 20241121161316459
+tags: UI
+title: RectMask2D
+type: text/vnd.tiddlywiki
+
+RectMask2D 是通过设置裁剪区域实现的，只能是矩形区域。
+
+* [[【UGUI源码分析】Unity遮罩之RectMask2D详细解读 - iwiniwin - 博客园|https://www.cnblogs.com/iwiniwin/p/15170384.html]]

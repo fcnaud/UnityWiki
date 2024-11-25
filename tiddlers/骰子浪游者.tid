@@ -1,9 +1,14 @@
 created: 20241023110216052
 list: {{||$:/core/ui/TagTemplate}}
-modified: 20241023173832747
+modified: 20241123071954224
 tags: 超厚皮猪猪 game
 title: 骰子浪游者
 type: text/vnd.tiddlywiki
 
 
 [img width=600 [https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/10/24/01-32-08-20241024013207.png]]
+
+!! 亮点
+
+* 机制，万能骰，可以随机游戏内的很多底层数值，比如敌人血量、自身攻击力等。
+* 画风，看着就很贵。据说5万份了还没回本，投入是相当大了

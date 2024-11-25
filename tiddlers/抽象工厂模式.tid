@@ -1,0 +1,8 @@
+PatternType: Creational
+created: 20241123074328651
+modified: 20241123074514302
+tags: 设计模式
+title: 抽象工厂模式
+type: text/vnd.tiddlywiki
+
+工厂不再是生产单一产品，而是产品族。类似于主题，同一主题下，有统一风格的不同组件。

@@ -1,7 +1,12 @@
 created: 20241114053402514
-modified: 20241114053503045
-tags: framework
+modified: 20241123124115848
+tags: framework ToLearn
 title: QFramework
 type: text/vnd.tiddlywiki
 
-* [[QFramework|https://github.com/liangxiegame/QFramework]] Godot/Unity3D System Design Architecture
+* [[QFramework github|https://github.com/liangxiegame/QFramework]] Godot/Unity3D System Design Architecture
+* [[作者的视频教程|https://www.gamepixedu.com/goods/show/55#info-left-3]]
+
+''访问限制''
+
+作者使用的一个技巧，可以通过显示声明接口，而让子类无法直接调用该接口，再通过[[静态扩展]]来控制访问限制。

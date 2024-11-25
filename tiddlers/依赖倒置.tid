@@ -1,0 +1,10 @@
+created: 20241121140656255
+modified: 20241121140811171
+tags: 设计原则
+title: 依赖倒置
+type: text/vnd.tiddlywiki
+
+Dependency Inversion Principle
+
+* 高层模块不应该依赖于低层模块，两者都应该依赖于抽象概念
+* 抽象借口不应该依赖于实现，而实现依赖于抽象接口

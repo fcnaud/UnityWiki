@@ -1,8 +1,29 @@
 created: 20241112080524279
-modified: 20241114163803106
-tags: UI
+modified: 20241124095922910
+page-cover: 
+tags: UI ToLearn
 title: UI框架
 type: text/vnd.tiddlywiki
 
-* [[知乎 个人对于游戏UI架构的思考与总结 烟雨迷离半世殇|https://zhuanlan.zhihu.com/p/102278660]]
-* [[gitee 一个集成状态管理的简易MVVM架构的UI框架。烟雨迷离半世殇|https://gitee.com/NKG_admin/NKG_MVVM_UI]]
+一个ui框架，应该实现的内容应该有
+
+!!! 管理类
+
+需要实现的功能
+
+* 界面的生成、销毁。资源的加载
+* 界面的展示、关闭。ugui层级显示
+* 界面的查找。一些逻辑处理
+
+!!! 界面
+
+* 统一的界面接口
+** 初始化 OnInit
+** 打开 OnOpened
+** 关闭 OnClosed
+
+参考链接
+
+* [[知乎-个人对于游戏UI架构的思考与总结-烟雨迷离半世殇|https://zhuanlan.zhihu.com/p/102278660]]
+* [[gitee-一个集成状态管理的简易MVVM架构的UI框架-烟雨迷离半世殇|https://gitee.com/NKG_admin/NKG_MVVM_UI]]
+* [[uwa学堂-Unity手游UI框架一站式解决方案-卢成浩|https://edu.uwa4d.com/course-intro/0/138?purchased=false&entrance=3]] 99块钱，有点贵，不值

@@ -1,5 +1,11 @@
 created: 20241112171133395
-modified: 20241112171141151
+modified: 20241121071307665
 tags: 
 title: 数据绑定
 type: text/vnd.tiddlywiki
+
+对数据进行封装，让变化可以被监听。
+
+参考
+
+* UniRx 的 ReactiveProperty

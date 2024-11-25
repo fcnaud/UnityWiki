@@ -1,0 +1,15 @@
+created: 20241121162848911
+modified: 20241121163826167
+title: GC
+type: text/vnd.tiddlywiki
+
+gc 的过程
+
+* 标记所有有引用的对象
+* 清理没有引用的对象
+* 幸存下来的升级到下一代，并且挪动位置、重新摆放
+
+参考链接
+
+* [[.NET 垃圾回收 Microsoft Learn|https://learn.microsoft.com/zh-cn/dotnet/standard/garbage-collection/]]
+* [[C# 内存分配&amp;&amp;垃圾回收解析 - 简书|https://www.jianshu.com/p/53439af1eb00]]

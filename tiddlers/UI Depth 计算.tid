@@ -1,0 +1,11 @@
+created: 20241115145911471
+modified: 20241124060644730
+tags: UI
+title: UI Depth 计算
+type: text/vnd.tiddlywiki
+
+* 按照 hierarchy 节点的顺序，从上向下进行处理
+* 和其他没有内容没有相交，depth = 0
+* 存在相交，找到所有相交的最大的 depth
+** 可以合批，depth = maxDepth
+** 否则 depth = maxDepth + 1

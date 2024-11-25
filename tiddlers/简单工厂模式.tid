@@ -1,0 +1,27 @@
+PatternType: Creational
+created: 20241123072646955
+modified: 20241123074145885
+tags: 设计模式
+title: 简单工厂模式
+type: text/vnd.tiddlywiki
+
+最终需要的类实例，称为产品，创造这个实例的类称之为工厂。
+
+把产品抽象化，根据不同的需要创建不同的类，就是简单工厂。
+
+```csharp
+
+Factory {
+    IProduct create(type)
+    {
+        if(type==A) return new ProductA();
+        if(type==B) return new ProductB();
+        ...
+    }
+}
+
+IProduct() {}
+ProductA:IProduct() {}
+ProductB:IProduct() {}
+...
+```

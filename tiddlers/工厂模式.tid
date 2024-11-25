@@ -1,0 +1,8 @@
+PatternType: Creational
+created: 20241123073210807
+modified: 20241123074135644
+tags: 设计模式
+title: 工厂模式
+type: text/vnd.tiddlywiki
+
+在[[简单工厂模式]]的基础上，把工厂也抽象化为接口。具体的产品由具体的工厂负责构造，扩展时不用修改接口，但是新增的产品和工厂一般都是成对定义。

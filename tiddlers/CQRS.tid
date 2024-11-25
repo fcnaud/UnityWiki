@@ -1,0 +1,9 @@
+created: 20241119184631743
+modified: 20241119184746714
+tags: 架构模式
+title: CQRS
+type: text/vnd.tiddlywiki
+
+CQRS Command Query Responsibility Segregatino 命令查询职责分离
+
+就是把对读写分离到不同的部分中。

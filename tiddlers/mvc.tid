@@ -1,12 +1,23 @@
 created: 20241112165041715
-modified: 20241113063746369
+modified: 20241123071713340
 title: mvc
 type: text/vnd.tiddlywiki
+
+!!  什么是 mvc 
+
+mvc 主要做的就是把数据和界面显示逻辑分隔开，业务逻辑单独放在controller里。
 
 * model 存储数据
 * view 控制显示
 * controller 处理逻辑，联通mv
 
-mvc 主要做的就是把数据和界面显示逻辑分隔开，业务逻辑单独放在controller里。
+!!  mv 之间的交互有哪些
 
+* 界面->数据 是交互逻辑，可以使用[[命令模式]]
+* 数据->界面 是表现逻辑，可以使用[[数据绑定]]
+
+!! 参考链接
+
+
+* [[知乎讨论 你对MVC、MVP、MVVM 三种组合模式分别有什么样的理解？|https://www.zhihu.com/question/20148405]]
 * [[【唐老狮】Unity中的MVC思想—5—使用MVC制作UI逻辑|https://www.bilibili.com/video/BV1vv411r7Mn]]

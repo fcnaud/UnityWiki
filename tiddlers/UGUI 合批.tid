@@ -1,0 +1,10 @@
+created: 20241124060826110
+modified: 20241124061714783
+tags: UI
+title: UGUI 合批
+type: text/vnd.tiddlywiki
+
+* 相同 [[depth|UI Depth 计算]]
+* 相同材质球，这个一般都是一样的
+* 相同贴图，在一个图集里
+* posZ对合批的影响，网上都是在猜测，还没看到一个具体的结论

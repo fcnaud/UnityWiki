@@ -1,0 +1,25 @@
+created: 20241123104532547
+modified: 20241123110426254
+tags: 
+title: 学习计划
+type: text/vnd.tiddlywiki
+
+\define SetInProgress()
+<$action-listops $tags="InProgress" />
+\end
+
+!! ToLearn
+
+<$list filter="[tag[ToLearn]]">
+  <$checkbox  tiddler=<<currentTiddler>> tag="ToLearn" invertTag="yes" checkactions=<<SetInProgress>>></$checkbox>
+  <$link to=<<currentTiddler>>><$view field="title"/></$link>
+  <br>
+</$list>
+
+!! InProgress
+
+<$list filter="[tag[InProgress]]">
+  <$checkbox tiddler=<<currentTiddler>> tag="InProgress" invertTag="yes"></$checkbox>
+  <$link to=<<currentTiddler>>><$view field="title"/></$link>
+  <br>
+</$list>

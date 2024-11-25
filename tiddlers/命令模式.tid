@@ -1,0 +1,8 @@
+PatternType: Behavioral
+created: 20241121070017423
+modified: 20241123074236049
+tags: 设计模式
+title: 命令模式
+type: text/vnd.tiddlywiki
+
+把行为、操作抽象成一个类（command），这样就可以使用不同的方式去管理这些行为。比如命令堆栈，可以实现类似撤销的功能。

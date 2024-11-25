@@ -1,0 +1,11 @@
+created: 20241124061930652
+modified: 20241124062242096
+tags: UI
+title: UGUI Rebuild
+type: text/vnd.tiddlywiki
+
+网格重构，重新计算Graphic组件的布局和网格情况的过程。
+
+* layout 或者 graphics 有变化都会触动 rebuild
+* 优化原理，动静分离
+** rebuild 是基于 canvas 做的，通过 canvas 来分隔不同需求的 ui

@@ -1,5 +1,5 @@
 created: 20241022083738052
-modified: 20241114180647124
+modified: 20241123133821081
 tags: 
 title: 物理
 type: text/vnd.tiddlywiki
@@ -11,7 +11,14 @@ type: text/vnd.tiddlywiki
 * 关节系统
 * 柔体物理
 
-教程
+!! 教程
+
+!!! 物理系统基本介绍
 
 * [[腾讯游戏课堂-游戏物理模拟-周轩]]
+* [[GAMES104-游戏引擎中的物理系统]]
+* [[知乎专栏-游戏物理引擎笔记-张亚坤|https://www.zhihu.com/column/c_1286651106643099648]]
+
+!!! 其他
+
 * [[知乎 物理引擎基础知识，虚幻chaos源码剖析 李雪峰|https://www.zhihu.com/column/c_1406626318495117312]]

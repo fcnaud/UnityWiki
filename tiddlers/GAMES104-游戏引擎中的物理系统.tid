@@ -1,0 +1,44 @@
+created: 20241117144553965
+modified: 20241118092228195
+tags: bilibili-GAMES104现代游戏引擎-王希
+title: GAMES104-游戏引擎中的物理系统
+type: text/vnd.tiddlywiki
+
+!! 基础概念 [[课程链接|https://www.bilibili.com/video/BV16U4y117VU]]
+
+介绍了引擎中物理系统的一些基础概念，可以用来熟悉物理系统的大致内容和框架，具体介绍某种算法可以不细听（如果只是想做游戏而不是投身引擎开发）
+
+* 物体，也就是各种碰撞盒
+* 力与运动，如何模拟运动
+* 刚体的一些概念
+* 碰撞检测相关内容，处理约束
+* 射线检测
+* 物理系统关于确定性的一些讨论
+
+!! 应用 [[课程链接|https://www.bilibili.com/video/BV1Ya411j7ds]]
+
+!!! Character Controller
+
+* auto slide 撞墙滑动
+* auto steping 上台阶
+* slope limits and force sliding down 爬坡限制
+* controller volume update
+* standing on moving platform 站在移动的台子上
+
+!!! Ragdoll
+
+constraint 约束
+
+动画和布娃娃系统的混合
+
+!!! clothing 衣料
+
+mass-spring system 弹簧质点系统
+
+pbd position base dynamic
+
+!!! 破环模拟
+
+voronoi cell 算法
+
+!!! 载具系统

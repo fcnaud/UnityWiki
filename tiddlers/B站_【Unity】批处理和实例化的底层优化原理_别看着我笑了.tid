@@ -1,0 +1,13 @@
+created: 20241124031153452
+modified: 20241124042314302
+tags: ToLearn
+title: B站_【Unity】批处理和实例化的底层优化原理_别看着我笑了
+type: text/vnd.tiddlywiki
+
+[[B站_【Unity】批处理和实例化的底层优化原理_别看着我笑了|https://www.bilibili.com/video/BV1ZmSgYsEME?spm_id_from=333.788.recommend_more_video.-1&vd_source=dae0d20d20d7ff26f6b3a0df5ccbcf07]]
+
+* 消耗的大头是在 SetPassCall
+* 批处理做的就是，想办法让被渲染顺序破坏的相同材质物体可以依次渲染
+* 静态合批动态合批，本质上还是通过调整渲染顺序，减少了SetPassCall优化了性能，而不仅仅是通过一次发送大量的网格数据
+** 怪不得Unity新的状态栏里只显示SetPassCall和Batches了，而没有DrawCall
+* 可编程渲染管线的内容，我还没了解，后边再看吧……

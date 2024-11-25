@@ -1,0 +1,12 @@
+created: 20241123144858390
+modified: 20241123173445402
+tags: 算法
+title: 避障算法
+type: text/vnd.tiddlywiki
+
+RVO
+
+* [[B站_《游戏中的避障算法》游戏中的单位是如何动态避障的_Sli97|https://www.bilibili.com/BV1Nb421n7qJ]] 基础概念介绍
+* [[Local Avoidance Behavior AI Unity Asset Store|https://assetstore.unity.com/packages/tools/behavior-ai/local-avoidance-214347]] unity 商店一个插件
+* [[B站_最新Unity进阶教程:基于RVO的群体移动与避障方案_B站弹幕游戏_Blake的游戏讲堂|https://www.bilibili.com/BV1Cj421D7Mm]] 使用 rvo2 实现的一个实例课程
+* [[GitHub - warmtrue/RVO2-Unity: use rvo2 (Optimal Reciprocal Collision Avoidance) in unity.|https://github.com/warmtrue/RVO2-Unity]] rvo2 github

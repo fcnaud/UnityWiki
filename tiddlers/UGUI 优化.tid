@@ -1,9 +1,16 @@
 created: 20241027104549508
-modified: 20241027104629060
-tags: 优化
+modified: 20241124062604356
+tags: 优化 UI
 title: UGUI 优化
 type: text/vnd.tiddlywiki
+
+* 动静分离 [[UGUI Rebuild]]
+* raycast
+** 不需要交互的组件，关闭 raycast
 
 !! 参考链接
 
 * [[知乎 ugui 应该如何优化|https://www.zhihu.com/question/417986105]]
+* [[Unity UI performance optimization tips|https://unity.com/how-to/unity-ui-optimization-tips?_ga=2.147783095.1436155110.1558584716-746267689.1557026511]]
+* [[Unity 之 UGUI优化（Optimizing UGUI）---当最专业的拖拖拽拽 - 简书|https://www.jianshu.com/p/9bd461de19a7]]
+* [[UWA学堂 详解UGUI DrawCall计算和Rebuild操作优化|https://edu.uwa4d.com/course-intro/0/126]]

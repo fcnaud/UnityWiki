@@ -1,0 +1,24 @@
+created: 20241115144503067
+modified: 20241115155950583
+tags: UI
+title: Mask组件
+type: text/vnd.tiddlywiki
+
+* [[uwa学堂-深入UGUI Mask组件原理和性能深度优化-于洋|https://edu.uwa4d.com/course-intro/0/490]]
+* [[uwa学堂-深入UGUI Soft Mask（软遮罩）组件原理-于洋|https://edu.uwa4d.com/course-intro/0/563]]
+
+
+!! mask 组件的原理
+
+使用模板测试来做遮罩，在绘制完遮罩和目标图片后，会再绘制一次，把模板缓冲区的值回复，所以会产生3次Drawcall。
+
+!! 锯齿问题
+
+模板测试要么通过要么不通过，没有过度像素，所以会有锯齿。
+
+!! soft mask
+
+SoftMaskForUGUI 是 GitHub 上由 mob-sakai 用户开发的一个 Unity 插件。可以解决锯齿问题。
+
+# 通过模板测试+command buff得到一个绘制区域的rt，绘制采用特殊的shader获得过渡
+# 绘制目标图片时，借助第一步制作的过渡图来进行采样计算

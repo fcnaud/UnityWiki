@@ -1,5 +1,5 @@
 created: 20241023062653017
-modified: 20241023081459174
+modified: 20241124053959314
 tags: 渲染
 title: DrawCall
 type: text/vnd.tiddlywiki
@@ -7,9 +7,18 @@ type: text/vnd.tiddlywiki
 
 !! 基本介绍
 
+SetPass -> Batches -> DrawCall
+
+一个 SetPass 可能对应多个 Batches，一个 Batches 可能对应多个 DrawCall
+
 !!! Batches
 
-把多个网格数据合并成一个，给 drawcall 使用
+cpu 和 gpu 的一次完整通信
+
+* 准备数据，把顶点数据、纹理加载到显存
+* 设置状态，设置需要的参数、纹理
+* 绑定缓冲区
+* 调用渲染命令
 
 !!! Draw Call 
 
@@ -29,7 +38,11 @@ type: text/vnd.tiddlywiki
 
 !!! 静态批处理
 
-静态批处理仅适用于那些在运行时不会移动、旋转或缩放的对象。将场景中的物体设置为 static 即可。
+* 静态批处理仅适用于那些在运行时不会移动、旋转或缩放的对象。将场景中的物体设置为 static 即可。
+
+* 原理就是合并网格，会在打包时或者第一次运行时（`StaticBatchingUtility.Combine`）处理好。
+
+* 需要额外的内存存储合并后的网格，最多可包含64000个顶点。
 
 !!! 动态批处理
 
@@ -43,5 +56,14 @@ type: text/vnd.tiddlywiki
 * 减少单个模型的点面
 * 尽可能使用相同材质
 ** 同一材质不同属性，可以借助 MaterialPropertyBlock
-* 同一模型大量绘制，不同缩放旋转材质属性，可以借助 DrawInstance + MaterialPropertyBlock 
+* 动态合批cpu消耗很大，需要考虑是不是得不偿失
+
+!!! GPU Instance
+* 同一模型的大量绘制
+* 不同缩放旋转材质属性，可以借助 DrawInstance + MaterialPropertyBlock 
 ** 见 [[【Unity TIL】3. Unity 通过 DrawInstance  一次绘制多个实例]]
+
+!! 参考链接
+
+* [[B站_【Unity】批处理和实例化的底层优化原理_别看着我笑了|https://www.bilibili.com/video/BV1ZmSgYsEME?spm_id_from=333.788.recommend_more_video.-1&vd_source=dae0d20d20d7ff26f6b3a0df5ccbcf07]]
+* [[B站_Unity进阶教程：Unity如何降低Drawcall【视频教程】_Blake的游戏讲堂|https://www.bilibili.com/BV1Na411N7NX]]

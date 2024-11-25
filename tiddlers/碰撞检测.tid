@@ -1,0 +1,34 @@
+created: 20241117153154938
+modified: 20241123134654818
+tags: 物理
+title: 碰撞检测
+type: text/vnd.tiddlywiki
+
+!! BroadPhase 粗略阶段
+
+根据包围盒排除一些一定不想交的情况
+
+!!! 空间索引
+
+Boundary Volume Hierarchy(BVH)，四叉树/八叉树
+
+!!! Sort And Sweep
+
+按照[[【Unity TIL】6. 如何判断两条线段是否相交]] 中判断两个矩形是否重叠的思路，把所有的box排序来检测，并在后续修改时，维护有序性。
+
+!! NarrowPhase 精确阶段
+
+碰撞检测矩阵，根据不同的碰撞盒确定使用的具体算法
+
+* 闵可夫斯基差方法 GJK
+* 分离轴算法
+
+!! ResolvePhase 处理约束
+
+!! Continuous Collision Detection(ccd) 连续碰撞检测
+
+参考
+
+* [[GAMES104-游戏引擎中的物理系统]]
+* [[知乎-游戏物理引擎(二) 碰撞检测之Broad-Phase-张亚坤|https://zhuanlan.zhihu.com/p/113415779]]
+* [[知乎-AABB-box碰撞检测-王方浩|https://zhuanlan.zhihu.com/p/163590893]]

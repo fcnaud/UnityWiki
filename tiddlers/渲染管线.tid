@@ -1,10 +1,10 @@
 created: 20241028090301933
-modified: 20241028105201575
+modified: 20241124032238047
 tags: 渲染
 title: 渲染管线
 type: text/vnd.tiddlywiki
 
-也就是渲染流程，可以粗略地分成两个大阶段。
+render pipeline 渲染管线/渲染流程，可以粗略地分成两个大阶段。
 
 * 顶点阶段（几何阶段），处理模型数据
 ** 顶点着色器 vertex shader，通常都在这里处理数据

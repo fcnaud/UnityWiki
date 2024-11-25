@@ -1,0 +1,14 @@
+created: 20241123144657966
+modified: 20241123181111700
+tags: 算法
+title: 鸟群算法
+type: text/vnd.tiddlywiki
+
+之前开发过一个游戏，需要一群人一起向前走，但是一直没搞明白这部分内容，最后只能让所有的人都朝着领头的人走。
+
+* [[https://www.gdcvault.com/play/1014514/AI-Navigation-It-s-Not]] gdc 分享中，星际团队对 steering
+[img[https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/24/02-10-54-20241124021053-95ddb8.png]]
+
+* [[B站_带你实现一个类鸟群系统_kenshin__|https://www.bilibili.com/BV1hx421D7WM]]
+
+[img[https://fcnaud-note.oss-cn-beijing.aliyuncs.com/note-images/2024/11/24/02-02-07-20241124020204-9c9aca.png]]
